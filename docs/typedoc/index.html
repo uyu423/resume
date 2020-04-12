@@ -80,7 +80,7 @@
 					<li>누구나 예쁜 웹 이력서를 쉽게 만들 수 있어 <small>(약간의 코딩으로..)</small></li>
 					<li>Next.js, Bootstrap CSS 가 사용되었다.</li>
 					<li>사실 <a href="https://github.com/uyu423/resume-legacy">https://github.com/uyu423/resume-legacy</a> 를 Next.js 로 포팅한 것.</li>
-					<li>Sample: <a href="https://uyu423.github.io/resume-nextjs">https://uyu423.github.io/resume-nextjs</a><ul>
+					<li>Sample: <a href="https://resume.yowu.dev">https://resume.yowu.dev</a><ul>
 							<li>더 많은 예제는 <a href="https://github.com/uyu423/resume-nextjs/blob/master/EXAMPLE.md">EXAMPLE.md</a> 를 참고한다.</li>
 						</ul>
 					</li>
@@ -244,10 +244,15 @@ npm install</code></pre>
 						</ul>
 					</li>
 					<li><code>npm run export</code> 를 실행하여 <code>docs</code> 내 Static HTML 을 갱신한다.</li>
+<<<<<<< master
 					<li>외부 도메인이 있는 경우 Custom Domain 항목에 기입한다.<ul>
 							<li><strong>Github Pages Hosting 에 필요한 <code>docs/CNAME</code> 파일은 <code>npm run export</code> 과정에서 자동으로 생성됩니다.</strong></li>
 							<li><code>docs/CNAME</code> 파일 생성에는 <code>package.json</code> 내 <code>homepage</code> 필드를 참고합니다. Custom Domain 사용시 homepage 값을 수정해주세요.</li>
 							<li><code>package.json</code> 내 <code>homepage</code> 필드가 <code>*.github.io/*</code> 로 추정될 경우 Custom Domain 을 사용하지 않는 것으로 간주하고 <code>docs/CNAME</code>을 생성하지 않습니다.</li>
+=======
+					<li>외부 도메인이 있는 경우 Custom Domain 항목에 기입해주고, <code>/CNAME</code> 을 수정하여 Custom Domain 과 동일한 record 를 입력한다.<ul>
+							<li><code>CNAME</code> 은 export 과정에서 docs 에 포함됨.</li>
+>>>>>>> resume-nextjs 저장소와 동기화를 맞췄다.
 							<li>외부 도메인에 대한 자세한 내용은 <a href="https://help.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site">help.github.com</a> 를 참고한다.</li>
 						</ul>
 					</li>

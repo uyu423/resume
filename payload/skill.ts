@@ -8,8 +8,24 @@ const backend: ISkill.Skill = {
       level: 3,
     },
     {
+      title: 'TypeScript',
+      level: 3,
+    },
+    {
+      title: 'Express.js',
+      level: 3,
+    },
+    {
       title: 'AWS',
       level: 3,
+    },
+    {
+      title: 'nginx',
+      level: 3,
+    },
+    {
+      title: 'Apache',
+      level: 2,
     },
     {
       title: 'PHP',
@@ -34,19 +50,19 @@ const database: ISkill.Skill = {
   category: 'Database',
   items: [
     {
-      title: 'MySQL',
+      title: 'Redis',
       level: 3,
     },
     {
-      title: 'Oracle',
-      level: 2,
-    },
-    {
-      title: 'Redis',
+      title: 'MySQL',
       level: 2,
     },
     {
       title: 'MongoDB',
+      level: 2,
+    },
+    {
+      title: 'Oracle',
       level: 1,
     },
   ],
@@ -94,6 +110,24 @@ const etc: ISkill.Skill = {
     },
     {
       title: 'Confluence',
+    },
+    {
+      title: 'Bitbucket',
+    },
+    {
+      title: 'DevOps',
+    },
+    {
+      title: 'Git / Github',
+    },
+    {
+      title: 'Agile',
+    },
+    {
+      title: 'Socket.io',
+    },
+    {
+      title: 'Jenkins',
     },
   ],
 };
