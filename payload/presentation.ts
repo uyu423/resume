@@ -5,6 +5,30 @@ const presentation: IPresentation.Payload = {
 
   list: [
     {
+      title: 'Ubuntu 20.04 LTS Features & Recommends',
+      subTitle: 'Ubuntu Korea 20.04 LTS Release Party',
+      at: '2020-05',
+      descriptions: [
+        {
+          content: 'Ubuntu 20.04 LTS (Focal Fossa) 에서 달라진 점과 환경 설정에 관하여',
+        },
+        {
+          content: '우분투 한국커뮤니티 주최 20.04 릴리즈 파티 초청 발표',
+        },
+        {
+          content: 'https://forum.ubuntu-kr.org/viewtopic.php?f=2&t=30926',
+          href: 'https://forum.ubuntu-kr.org/viewtopic.php?f=2&t=30926',
+        },
+        {
+          content: 'Youtube: ',
+          postHref: 'https://youtu.be/lnpWEUmBFTA?t=653',
+        },
+        {
+          content: 'Presentation: TBU',
+        },
+      ],
+    },
+    {
       title: '2018 종합선물세트 for 취준생',
       subTitle: '가톨릭대학교 컴퓨터정보공학부 졸업생 취업 특강',
       at: '2018-11',

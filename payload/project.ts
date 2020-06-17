@@ -38,6 +38,8 @@ const yaRedis: IProject.Item = {
     { content: '용도와 목적 없이 사용되고 있던 Redis 전체 정리' },
     { content: '기존 n개의 Client 를 용도/목적에 맞게 m개의 Client로 분리' },
     { content: 'Storage 부족 현상 해소로 서비스 운영 위협 감소' },
+    { content: 'Read Replica 활용할 수 있는 명령 요청 분산 모듈 구현' },
+    { content: '비효율적인 사용 로직 개선하여 트래픽 n% 감소' },
     { content: 'Product 개발시 Redis 사용과 ElastiCache 운영에 대한 정책 수립' },
   ],
 };
