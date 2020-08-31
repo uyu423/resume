@@ -7,8 +7,44 @@ const WHERE = {
   KY: '키니 (KYNY)',
 };
 
+const yaNol2020Dlc: IProject.Item = {
+  title: ' 야놀자 놀력 이벤트 성수기 업데이트 및 운영',
+  startedAt: '2020-05',
+  endedAt: '2020-07',
+  where: WHERE.YA,
+  descriptions: [
+    { content: '하단의 놀력 이벤트 기능에서 경품 당첨 기능을 추가한 고도화 개발' },
+    {
+      content:
+        '놀력 추첨 알고리즘, 경품 재고 관리, 당첨 정보 스토리징 및 스트리밍, Mashup API 구현',
+    },
+    { content: '단기 측정 기준 해당 프로젝트 성과로 DAU 의 n% 증가됨' },
+  ],
+};
+
+const yaRedisDist: IProject.Item = {
+  title: 'Redis 구조 추가 개선/개편',
+  startedAt: '2020-04',
+  endedAt: '2020-06',
+  where: WHERE.YA,
+  descriptions: [
+    {
+      content: '사용성 최적화 및 인스턴스 축소로 전체 사용 비용 $n 감소에 기여 (기존 대비 n% 수준)',
+    },
+    {
+      content:
+        '레거시 불필요 데이터 조사 및 청산으로 Storeage 사용량을 x% → y% 로 감소시켜 Disk Full Risk 해소',
+    },
+    {
+      content:
+        'AWS ElastiCache 에서 제공하는 Redis Read Replica 활용가능 하도록 Redis 부하 분산 모듈 개발',
+    },
+    { content: 'Application Level 의 Redis Transaction Logger 구현하여 디버그 용이성 증가' },
+  ],
+};
+
 const yaNol2020: IProject.Item = {
-  title: '야놀자 2020 놀력 포인트 지급 이벤트 런칭',
+  title: '야놀자 2020 놀력 포인트 지급 이벤트 개발 및 운영',
   startedAt: '2019-10',
   endedAt: '2020-01',
   where: WHERE.YA,
@@ -21,7 +57,10 @@ const yaNol2020: IProject.Item = {
     {
       content: 'Batch Worker 미 이벤트 지표 모니터링 도구, 비상용 관리자 CLI 기능 구현',
     },
-    { content: '2020년 1월 기준 DAU n% 향상 및 평균 구매 건수 n건 향상' },
+    {
+      content:
+        '2020년 6월 기준 MAU n%, DAU n% 향상 및 평균 구매 건수 n건 향상, 기존 목표치 대비 4배 달성',
+    },
     {
       content: "(관련기사) 야놀자 탁상용 달력 '2020 놀력' 출시",
       href: 'http://topclass.chosun.com/daily/view.asp?idx=267&Newsnumb=201911267',
@@ -45,11 +84,55 @@ const yaRedis: IProject.Item = {
 };
 
 const yaJoyAPI: IProject.Item = {
-  title: '야놀자 Mashup API 개발 및 유지보수',
+  title: '야놀자 Mashup API 개발 및 유지보수 / 운영',
   startedAt: '2018-02',
   where: WHERE.YA,
   descriptions: [
     { content: 'Aggregation Layer의 Mashup API 개발 및 운영' },
+    {
+      content: ' 2020년 국내 숙소 상세 실시간 인기도 메시지 기능 추가',
+      weight: 'MEDIUM',
+      descriptions: [
+        {
+          content:
+            'A/B 테스트 논의 및 클라이언트 제공 Mashup API 구현, 데이터 조직 제종 데이터 Aggregation 완료',
+        },
+        { content: '실시간 인기도 메시지 노출로 구매 전환 및 화면 전환율 n% 상승' },
+      ],
+    },
+    {
+      content: '2020년 국내 레저 찜 기능 추가',
+      weight: 'MEDIUM',
+      descriptions: [
+        { content: '기존 국내 숙소/해외 숙소만 존재하던 야놀자 서비스에 국내 레저 찜 기능을 추가' },
+        {
+          content:
+            '해외 숙소 API 와 통합하여 하나의 API 에서 해외 숙소, 국내 레저 찜 기능을 모두 사용할 수 있는 Integration API 구현',
+        },
+        {
+          content:
+            '국내 레저 찜 기능을 통한 주문 전환율 n% 증가 / 전체 주문 건수의 n% 가 국내 레저 찜 기능을 통해 구매',
+        },
+      ],
+    },
+    {
+      content: '2020년 신규 쿠폰 유형 적용',
+      weight: 'MEDIUM',
+      descriptions: [
+        {
+          content:
+            '기존 사용되던 쿠폰의 신규 제약조건을 노출 단계에 구현함으로써 오프라인 비즈니스 및 운영 조직 부담 감소',
+        },
+      ],
+    },
+    {
+      content: '2020년 숙소 후기 Freshness 정책 적용',
+      weight: 'MEDIUM',
+      descriptions: [
+        { content: '신규 후기 정책 Aggregation Layer API 적용으로 사용자 신뢰성 향상' },
+        { content: 'Legacy 로 판단되던 정책 개선을 서비스에 반영한 것에 의의' },
+      ],
+    },
     {
       content: '2019년 숙소 리스트 신규 광고 상품 추가',
       weight: 'MEDIUM',
@@ -106,6 +189,7 @@ const yaJoyAPI: IProject.Item = {
         { content: 'ISMS 인증 획득을 위한 인프라 보안 강화 작업 담당' },
       ],
     },
+    { content: 'API 모니터링 대시보드 구성 및 유지보수' },
   ],
 };
 
@@ -216,7 +300,17 @@ const kyToto: IProject.Item = {
 
 const project: IProject.Payload = {
   disable: false,
-  list: [yaNol2020, yaRedis, yaJoyAPI, plBackend, plDelivery, ecBackend, kyToto],
+  list: [
+    yaNol2020Dlc,
+    yaRedisDist,
+    yaNol2020,
+    yaRedis,
+    yaJoyAPI,
+    plBackend,
+    plDelivery,
+    ecBackend,
+    kyToto,
+  ],
 };
 
 export default project;

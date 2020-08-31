@@ -6,9 +6,9 @@ const education: IEducation.Payload = {
   list: [
     {
       title: '가톨릭대학교',
-      subTitle: '컴퓨터 공학 / 정보시스템 복수 전공 학사 졸업',
+      subTitle: '컴퓨터공학 / 정보시스템공학 복수 전공 학사 졸업',
       startedAt: '2010-03',
-      // endedAt: '2010-02',
+      endedAt: '2016-08',
     },
     {
       title: '경일 고등학교',

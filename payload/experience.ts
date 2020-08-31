@@ -10,6 +10,7 @@ const yanolja = {
     '사용자 Needs 에 맞는 사용성 개선과 신규 비즈니스 로직 구현',
     '레거시 청산 및 기존 비즈니스 로직 유지보수',
     'AWS 인프라 및 NoSQL 데이터베이스 유지보수 및 관리',
+    'Agile Scrum/Sprint Planning Management',
   ],
   skillKeywords: [
     'Node.js',
