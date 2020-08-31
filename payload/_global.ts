@@ -24,17 +24,10 @@ export const _global: IGlobal.Payload = {
       ],
       type: 'profile',
       profile: {
-<<<<<<< refs/remotes/parent/master
-        firstName: 'Lorem',
-        lastName: 'ipsum',
-        username: 'lorem',
-        gender: 'female',
-=======
         firstName: 'Yongwoo',
         lastName: 'Yu',
         username: 'luckyyowu',
         gender: 'male',
->>>>>>> resume-nextjs 저장소와 동기화를 맞췄다.
       },
     },
   },
