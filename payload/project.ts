@@ -136,26 +136,17 @@ const yaJoyAPI: IProject.Item = {
     {
       content: '2019년 숙소 리스트 신규 광고 상품 추가',
       weight: 'MEDIUM',
-      descriptions: [
-        { content: '신규 광고 상품 추가로 신규 매출 발생에 기여' },
-        { content: 'TBD' },
-      ],
+      descriptions: [{ content: '신규 광고 상품 추가로 신규 매출 발생에 기여' }],
     },
     {
       content: '2019년 쇼킹특가/핫딜 서비스 런칭',
       weight: 'MEDIUM',
-      descriptions: [
-        { content: '신규 할인 상품 추가로 추가 매출 발생 및 사용자 구매율 향상' },
-        { content: 'TBD' },
-      ],
+      descriptions: [{ content: '신규 할인 상품 추가로 추가 매출 발생 및 사용자 구매율 향상' }],
     },
     {
       content: '2019년 해외숙소 예약 서비스 런칭',
       weight: 'MEDIUM',
-      descriptions: [
-        { content: '해외 OTA 연동으로 해외 숙소 예약 가능하도록 런칭' },
-        { content: 'TBD' },
-      ],
+      descriptions: [{ content: '해외 OTA 연동으로 해외 숙소 예약 가능하도록 런칭' }],
     },
     {
       content: '2018년 레저 서비스 런칭',
@@ -167,7 +158,6 @@ const yaJoyAPI: IProject.Item = {
           href:
             'https://speakerdeck.com/totuworld/yanoljaga-rejeoreul-panmaeharyeogo-hal-ddae-beoleojineun-il',
         },
-        { content: 'TBD' },
       ],
     },
     {
@@ -177,7 +167,6 @@ const yaJoyAPI: IProject.Item = {
         { content: '2018년 상반기에 국내 숙소 상세(PDP) 리팩토링 및 서비스 개선 완료' },
         { content: 'Redis 활용한 Response Cache 도입 및 리팩토링으로 기존 대비 Latency 90% 감소' },
         { content: '사용자 경험 및 매출 향상 위한 추가 비즈니스 요구사항 개발 및 구조 개선' },
-        { content: 'TBD' },
       ],
     },
     {
