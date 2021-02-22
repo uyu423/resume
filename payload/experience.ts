@@ -1,9 +1,18 @@
 import { IExperience } from '../component/experience/IExperience';
 
+const naver = {
+  title: '네이버 (NAVER)',
+  position: 'Forest CIC 백엔드 개발자',
+  startedAt: '2021-02',
+  descriptions: ['Shopping Service', 'TBU'],
+  skillKeywords: ['Java', 'Spring', 'TBU'],
+};
+
 const yanolja = {
   title: '야놀자 (Yanolja)',
   position: 'R&D 그룹 CX 개발실 백엔드 개발자',
   startedAt: '2018-02',
+  endedAt: '2021-02',
   descriptions: [
     '국내 및 글로벌 숙박/레저 OTA (800명~, R&D 200명~)',
     '숙박/레저 정보 및 예약서비스 제공에 필요한 데이터 모델링 및 Mashup API 개발 ',
@@ -89,7 +98,7 @@ const ecubelabs = {
 
 const experience: IExperience.Payload = {
   disable: false,
-  list: [yanolja, plating, ecubelabs],
+  list: [naver, yanolja, plating, ecubelabs],
 };
 
 export default experience;
