@@ -37,7 +37,7 @@ const backend: ISkill.Skill = {
     },
     {
       title: 'Spring',
-      level: 1,
+      level: 2,
     },
     {
       title: 'Python',
@@ -63,6 +63,10 @@ const database: ISkill.Skill = {
     },
     {
       title: 'MongoDB',
+      level: 2,
+    },
+    {
+      title: 'H2',
       level: 2,
     },
     {
@@ -108,6 +112,9 @@ const etc: ISkill.Skill = {
     },
     {
       title: 'VS Code',
+    },
+    {
+      title: 'IDEA',
     },
     {
       title: 'Jira',

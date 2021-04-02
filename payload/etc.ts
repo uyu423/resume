@@ -11,7 +11,7 @@ const etc: IEtc.Payload = {
     },
     {
       title: "가톨릭대학교 재학생 창업 지원 스타트업 '키니(KYNY)'",
-      subTitle: "'스포츠 토토 승률 계산 서비스' 비즈니스 기획 및 개발",
+      subTitle: "'스포츠 경기 승률 계산 알고리즘 서비스' 비즈니스 기획 및 개발",
       startedAt: '2014-09',
       endedAt: '2015-03',
     },
