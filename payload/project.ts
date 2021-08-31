@@ -31,6 +31,17 @@ const nvBroadcastClip: IProject.Item = {
   ],
 };
 
+const nvBroadcastBackend: IProject.Item = {
+  title: '쇼핑라이브 백엔드 개발 및 유지보수 / 운영',
+  startedAt: '2021-03',
+  where: WHERE.NV,
+  descriptions: [
+    {
+      content: '쇼핑라이브 방송 송출에 필요한 백엔드 API 개발 및 운영',
+    },
+  ],
+};
+
 const yaNol2020Dlc: IProject.Item = {
   title: '야놀자 놀력 이벤트 성수기 업데이트 및 운영',
   startedAt: '2020-05',
@@ -110,6 +121,7 @@ const yaRedis: IProject.Item = {
 const yaJoyAPI: IProject.Item = {
   title: '야놀자 Mashup API 개발 및 유지보수 / 운영',
   startedAt: '2018-02',
+  endedAt: '2021-02',
   where: WHERE.YA,
   descriptions: [
     { content: 'Aggregation Layer의 Mashup API 개발 및 운영' },
@@ -315,6 +327,7 @@ const project: IProject.Payload = {
   disable: false,
   list: [
     nvBroadcastClip,
+    nvBroadcastBackend,
     yaNol2020Dlc,
     yaRedisDist,
     yaNol2020,
