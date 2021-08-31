@@ -16,6 +16,10 @@ const backend: ISkill.Skill = {
       level: 3,
     },
     {
+      title: 'Java',
+      level: 3,
+    },
+    {
       title: 'AWS',
       level: 3,
     },
@@ -24,19 +28,15 @@ const backend: ISkill.Skill = {
       level: 3,
     },
     {
+      title: 'Spring Boot',
+      level: 2,
+    },
+    {
       title: 'Apache',
       level: 2,
     },
     {
       title: 'PHP',
-      level: 2,
-    },
-    {
-      title: 'Java',
-      level: 2,
-    },
-    {
-      title: 'Spring',
       level: 2,
     },
     {
@@ -59,7 +59,7 @@ const database: ISkill.Skill = {
     },
     {
       title: 'MySQL',
-      level: 2,
+      level: 3,
     },
     {
       title: 'MongoDB',
@@ -139,6 +139,9 @@ const etc: ISkill.Skill = {
     },
     {
       title: 'Jenkins',
+    },
+    {
+      title: 'Kafka',
     },
   ],
 };

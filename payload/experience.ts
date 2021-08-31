@@ -2,10 +2,28 @@ import { IExperience } from '../component/experience/IExperience';
 
 const naver = {
   title: '네이버 (NAVER)',
-  position: 'Forest CIC 백엔드 개발자',
+  position: 'Live Commerce TF 백엔드 개발자',
   startedAt: '2021-02',
-  descriptions: ['네이버 쇼핑서비스 쇼핑라이브 백엔드 개발', 'TBU'],
-  skillKeywords: ['Java', 'Spring Boot', 'MySQL', 'IntelliJ', 'nCloud', 'TBU'],
+  descriptions: [
+    '네이버 라이브커머스(쇼핑라이브) 백엔드 개발',
+    '쇼핑라이브 실시간 방송 송출을 위한 데이터 모델링 및 API 개발',
+    '사용자 Needs 에 맞는 사용성 개선과 신규 비즈니스 로직 구현',
+    '레거시 청산 및 기존 비즈니스 유지보수',
+    'Kubernetes 기반 컨테이너 클러스터 유지보수 및 관리 ',
+  ],
+  skillKeywords: [
+    'Java',
+    'Spring Boot',
+    'Spring Batch',
+    'Mono',
+    'Kafka',
+    'MySQL',
+    'Redis',
+    'Jenkins',
+    'IntelliJ',
+    'K8S',
+    'Docker',
+  ],
 };
 
 const yanolja = {

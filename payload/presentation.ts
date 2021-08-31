@@ -88,7 +88,7 @@ const presentation: IPresentation.Payload = {
     {
       title: '고급언어 컴파일과 프로그램의 로딩',
       subTitle: '가톨릭대학교 컴퓨터정보공학부 IT Forum',
-      at: '2015-12',
+      at: '2013-12',
       descriptions: [
         {
           content: 'Prezi:',

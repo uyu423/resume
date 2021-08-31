@@ -5,10 +5,34 @@ const WHERE = {
   PL: '플레이팅 (Plating)',
   EC: '이큐브랩 (Ecube Labs)',
   KY: '키니 (KYNY)',
+  NV: '네이버 (NAVER)',
+};
+
+const nvBroadcastClip: IProject.Item = {
+  title: '쇼핑라이브 하이라이트/상품 구간 클립 서비스 개발 및 운영',
+  startedAt: '2021-04',
+  endedAt: '2021-09',
+  where: WHERE.NV,
+  descriptions: [
+    { content: '원본 방송에서 Short Clip 영상을 추출하고, 사용자에게 제공하는 서비스 백엔드 구현' },
+    {
+      content:
+        '네이버 동영상 검색, 네이버 쇼핑 윈도/스마트스토어 상품상세 연관 라이브 방송 구간 노출',
+    },
+    { content: '사용자에게 구매 희망 상품의 정보를 영상으로 제공함에 따라 전환률, 구매율 상승' },
+    {
+      content:
+        'RDB Schema 정의, Batch Service, Event Handler, Kafaka Consumer, RESTful API 개발 등',
+    },
+    {
+      content: "'네이버 쇼핑라이브 숏 클립' 프로젝트 후기 (Facebook)",
+      href: 'https://www.facebook.com/LuckyYowu/posts/4420287811362249',
+    },
+  ],
 };
 
 const yaNol2020Dlc: IProject.Item = {
-  title: ' 야놀자 놀력 이벤트 성수기 업데이트 및 운영',
+  title: '야놀자 놀력 이벤트 성수기 업데이트 및 운영',
   startedAt: '2020-05',
   endedAt: '2020-07',
   where: WHERE.YA,
@@ -290,6 +314,7 @@ const kyToto: IProject.Item = {
 const project: IProject.Payload = {
   disable: false,
   list: [
+    nvBroadcastClip,
     yaNol2020Dlc,
     yaRedisDist,
     yaNol2020,
