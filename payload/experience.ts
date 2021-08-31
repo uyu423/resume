@@ -116,6 +116,7 @@ const ecubelabs = {
 
 const experience: IExperience.Payload = {
   disable: false,
+  disableTotalPeriod: false,
   list: [naver, yanolja, plating, ecubelabs],
 };
 
