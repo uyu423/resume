@@ -114,10 +114,25 @@ const ecubelabs = {
   ],
 };
 
+const kyny = {
+  title: '키니 (KYKY)',
+  position: '웹 개발자',
+  startedAt: '2014-07',
+  endedAt: '2015-04',
+  descriptions: [
+    '가톨릭대학교 재학생 창업 지원 스타트업 (5명)',
+    "'스포츠 경기 승률 계산 알고리즘 서비스' 비즈니스 기획 및 개발",
+    'RDB Schema 모델링 및 백엔드 아키텍쳐, 서버 인프라 구축',
+    '자체 승률 계산 알고리즘 통한 Third Party 데이터 정제',
+    '클라이언트 사용 가능한 CRUD API 제공',
+  ],
+  skillKeywords: ['PHP', 'WordPress', 'Ubuntu Linux', 'Apache2', 'MySQL'],
+};
+
 const experience: IExperience.Payload = {
   disable: false,
   disableTotalPeriod: false,
-  list: [naver, yanolja, plating, ecubelabs],
+  list: [naver, yanolja, plating, ecubelabs, kyny],
 };
 
 export default experience;

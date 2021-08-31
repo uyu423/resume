@@ -9,12 +9,12 @@ const etc: IEtc.Payload = {
       subTitle: 'Tizen 기반의 삼성 스마트 TV와 안드로이드 OS 간의 Push Notification 연동 프로젝트',
       startedAt: '2015-05',
     },
-    {
-      title: "가톨릭대학교 재학생 창업 지원 스타트업 '키니(KYNY)'",
-      subTitle: "'스포츠 경기 승률 계산 알고리즘 서비스' 비즈니스 기획 및 개발",
-      startedAt: '2014-09',
-      endedAt: '2015-03',
-    },
+    // {
+    //   title: "가톨릭대학교 재학생 창업 지원 스타트업 '키니(KYNY)'",
+    //   subTitle: "'스포츠 경기 승률 계산 알고리즘 서비스' 비즈니스 기획 및 개발",
+    //   startedAt: '2014-09',
+    //   endedAt: '2015-04',
+    // },
     {
       title: '몽골 울란바타르 대학 IT 교육 봉사',
       subTitle: '월드프렌즈 IT 봉사단 (한국정보화진흥원)',
