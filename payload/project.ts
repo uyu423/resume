@@ -295,12 +295,12 @@ const ecBackend: IProject.Item = {
 };
 
 const kyToto: IProject.Item = {
-  title: '스포츠 토토 승률 계산 서비스 개발',
+  title: '스포츠 경기 승률 계산 서비스 개발',
   startedAt: '2014-09',
   endedAt: '2015-03',
   where: WHERE.KY,
   descriptions: [
-    { content: '통계 알고리즘을 사용한 해외 축구 스포츠 토토 승률 예상 서비스' },
+    { content: '통계 알고리즘을 사용한 해외 축구 스포츠 경기 승률 예상 서비스' },
     { content: 'Java Servlet을 사용하여 통계 알고리즘을 코드화' },
     { content: 'Linux와 Apache 등을 사용하여 서버 인프라 구축' },
     { content: 'Wordpress, PHP, MySQL 등을 사용하여 서비스 개발' },
