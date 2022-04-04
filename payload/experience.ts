@@ -2,7 +2,7 @@ import { IExperience } from '../component/experience/IExperience';
 
 const naver = {
   title: '네이버 (NAVER)',
-  position: 'Live Commerce TF 백엔드 개발자',
+  position: 'Forest CIC 쇼핑라이브 백엔드 개발자',
   startedAt: '2021-02',
   descriptions: [
     '네이버 라이브커머스(쇼핑라이브) 백엔드 개발',
