@@ -1,7 +1,7 @@
 {
   "name": "resume-nextjs",
   "lastestUpdatedAt": "2021-08-31",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Static HTML based RESUME made with next.js",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "preexport": "npm run clean && npm run build",
     "postexport": "node shellwork.js",
     "clean": "npx rimraf docs .next",
-    "lint": "eslint 'component/**/*' 'pages/**/*' 'payload/**/*' '*.ts' --fix",
+    "lint": "eslint \"component/**/*\" \"pages/**/*\" \"payload/**/*\" \"*.ts\" --fix",
     "typedoc": "typedoc --excludeExternals"
   },
   "homepage": "https://resume.yowu.dev",
@@ -55,7 +55,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "reactstrap": "^8.9.0",
-    "shelljs": "^0.8.4",
+    "shelljs": "^0.8.5",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
@@ -81,7 +81,7 @@
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
     "typedoc": "~0.19.2",
-    "typescript": "^4.4.2"
+    "typescript": "^4.6.3"
   },
   "resolutions": {
     "**/minimist": "^1.2.3"
