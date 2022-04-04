@@ -16,14 +16,14 @@ const nvBroadcastClip: IProject.Item = {
   descriptions: [
     { content: '원본 방송에서 Short Clip 영상을 추출하고, 사용자에게 제공하는 서비스 백엔드 구현' },
     {
+      content: 'RDB Schema 정의, Batch Service, Event Handler, Kafka Consumer, RESTful API 개발 등',
+    },
+    {
       content:
         '네이버 동영상 검색, 네이버 쇼핑 윈도/스마트스토어 상품상세 연관 라이브 방송 구간 노출',
     },
     { content: '사용자에게 구매 희망 상품의 정보를 영상으로 제공함에 따라 전환률, 구매율 상승' },
-    {
-      content:
-        'RDB Schema 정의, Batch Service, Event Handler, Kafaka Consumer, RESTful API 개발 등',
-    },
+    { content: '해당 기능을 통해 일 평균 약 n회의 추가 인입 발생' },
     {
       content: "'네이버 쇼핑라이브 숏 클립' 프로젝트 후기 (Facebook)",
       href: 'https://www.facebook.com/LuckyYowu/posts/4420287811362249',
@@ -37,7 +37,33 @@ const nvBroadcastBackend: IProject.Item = {
   where: WHERE.NV,
   descriptions: [
     {
-      content: '쇼핑라이브 방송 송출에 필요한 백엔드 API 개발 및 운영',
+      content: '쇼핑라이브 방송 송출 및 서비스에 필요한 Backend API 개발 및 운영',
+    },
+    {
+      content: ' 2021년 실시간 방송 재생 정보 HTTP → Socket 방식으로 전환',
+      weight: 'MEDIUM',
+      descriptions: [
+        {
+          content: '순간적인 트래픽이 몰렸을 때 API 대역폭 리스크 감소',
+        },
+      ],
+    },
+    {
+      content: ' 2021년 방송 트레일러(미리보기) 개션',
+      weight: 'MEDIUM',
+      descriptions: [
+        {
+          content:
+            'CPC에 효과적인 트레일러를 노출시키기 위해, 다시보기 영상에 실시간 방송 지표를 적용한 트레일러 추출 및 적용',
+        },
+        {
+          content:
+            '기존의 일차원적인 트레일러를 다양하게 제공할 수 있도록 서비스 설계 및 이벤트 파이프라인 구현',
+        },
+        {
+          content: '개선 이후 다시보기 주요 영역 유입 약 x%, 최대 y%, 최소 z% 상승',
+        },
+      ],
     },
   ],
 };

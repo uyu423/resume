@@ -15,14 +15,14 @@ const naver = {
     'Java',
     'Spring Boot',
     'Spring Batch',
-    'Mono',
     'Kafka',
     'MySQL',
     'Redis',
     'Jenkins',
     'IntelliJ',
-    'K8S',
+    'Kubernetes',
     'Docker',
+    'Elastic Search',
   ],
 };
 

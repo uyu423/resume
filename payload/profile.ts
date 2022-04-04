@@ -10,7 +10,7 @@ const profile: IProfile.Payload = {
   // image: 'https://resume.yowu.dev/static/image/profile_2019.png',
   image,
   name: {
-    title: '유 용 우',
+    title: '유용우',
     small: '(요우)',
   },
   contact: [

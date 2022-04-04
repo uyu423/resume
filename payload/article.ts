@@ -5,6 +5,14 @@ const article: IArticle.Payload = {
 
   list: [
     {
+      content: "(2022.03.31) 회사 업무용 사내 메신저 '슬랙 타입' vs '일반 타입'",
+      href: 'https://luckyyowu.tistory.com/418',
+    },
+    {
+      content: '(2022.01.01) 개발자 요우의 2021년 회고. 근데 2년치를 한방에',
+      href: 'https://luckyyowu.tistory.com/417',
+    },
+    {
       content: '(2020.04.19) 우분투 20.04 LTS (Focal Fossa) 데스크탑 달라진 점과 간단 후기',
       href: 'https://luckyyowu.tistory.com/408',
     },

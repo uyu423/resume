@@ -12,11 +12,11 @@ const backend: ISkill.Skill = {
       level: 3,
     },
     {
-      title: 'Express.js',
+      title: 'Java',
       level: 3,
     },
     {
-      title: 'Java',
+      title: 'Express.js',
       level: 3,
     },
     {
@@ -54,11 +54,11 @@ const database: ISkill.Skill = {
   category: 'Database',
   items: [
     {
-      title: 'Redis',
+      title: 'MySQL',
       level: 3,
     },
     {
-      title: 'MySQL',
+      title: 'Redis',
       level: 3,
     },
     {
