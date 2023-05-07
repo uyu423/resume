@@ -5,6 +5,14 @@ const article: IArticle.Payload = {
 
   list: [
     {
+      content: '(2023.01.25) 요우의 2022년 개발자 회고',
+      href: 'https://luckyyowu.tistory.com/424',
+    },
+    {
+      content: '(2022.12.14) IT 유목민의 보상과 이직',
+      href: 'https://luckyyowu.tistory.com/420',
+    },
+    {
       content: "(2022.03.31) 회사 업무용 사내 메신저 '슬랙 타입' vs '일반 타입'",
       href: 'https://luckyyowu.tistory.com/418',
     },

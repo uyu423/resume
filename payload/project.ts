@@ -8,6 +8,54 @@ const WHERE = {
   NV: '네이버 (NAVER)',
 };
 
+const nvHighlightEnhance: IProject.Item = {
+  title: '쇼핑라이브 하이라이트 고도화',
+  startedAt: '2023-03',
+  endedAt: '2022-05',
+  where: WHERE.NV,
+  descriptions: [
+    {
+      content:
+        '라이브 방송에서 주요 장면을 자동 추출하여 다시보기 뷰어 하이라이트 목록과 네이버 쇼핑에서 숏클립 형태로 전시',
+    },
+    {
+      content:
+        '내부 인프라와 네이버 CLOVA API를 사용하여 신규 하이라이트 생성 스펙을 충족하는 파이프라인 구축',
+    },
+    {
+      content: '신규 추가된 키워드 하이라이트를 숏클립으로 생성하는 로직 구현',
+    },
+    {
+      content: '비동기 작업을 효과적으로 수행할 수 있는 유틸성 도메인 설계 및 구현',
+    },
+  ],
+};
+
+const nvShortclip: IProject.Item = {
+  title: '쇼핑라이브 숏클립 서비스 백엔드 개발 및 운영',
+  startedAt: '2022-04',
+  endedAt: '2022-09',
+  where: WHERE.NV,
+  descriptions: [
+    {
+      content: '네이버 쇼핑 및 쇼핑라이브에 노출되는 숏폼(Short-form) 타입의 신규 서비스를 출시',
+    },
+    {
+      content: '숏클립 서비스의 전반적인 백엔드 구현, 인프라 구축, 이벤트 설계 및 RESTful API 개발',
+    },
+    { content: 'ffmpeg를 사용한 영상 처리 및 각 도메인 서버 주요 API와의 결합' },
+    { content: '데이터베이스 및 API 응답 모델링을 통한 구조 설계와 기획서 분석' },
+    { content: 'Kafka 실시간 데이터 처리 및 이벤트 기반 아키텍처를 적용' },
+    { content: '방송 하이라이트 및 상품 구간 자동 생성 기능 구현과 데이터 마이그레이션 진행' },
+    { content: '숏클립 관련 공통 라이브러리 개발 및 제공' },
+    { content: '서비스 출시 이후 매월 거래액이 상승 중이며, 전환률 및 구매율 향상' },
+    {
+      content: '네이버 쇼핑라이브 숏클립 회고 (요우의 2022년 개발자 회고, Tistory Blog)',
+      href: 'https://luckyyowu.tistory.com/424#shortclip',
+    },
+  ],
+};
+
 const nvBroadcastClip: IProject.Item = {
   title: '쇼핑라이브 하이라이트/상품 구간 클립 서비스 개발 및 운영',
   startedAt: '2021-04',
@@ -37,7 +85,19 @@ const nvBroadcastBackend: IProject.Item = {
   where: WHERE.NV,
   descriptions: [
     {
-      content: '쇼핑라이브 방송 송출 및 서비스에 필요한 Backend API 개발 및 운영',
+      content: '쇼핑라이브 방송 송출 및 서비스에 필요한 Backend API 개발 및 운영 / 서스테이닝',
+    },
+    {
+      content: '2023년 네이버 숏폼판 데이터 제공을 위한 숏클립 연동 작업',
+      weight: 'MEDIUM',
+    },
+    {
+      content: '2022년 Service Config 동기화를 위한 신규 ZooKeeper 라이브러리 구현',
+      weight: 'MEDIUM',
+    },
+    {
+      content: '2022년 쇼핑라이브 ADMIN 개선 및 신규 기능 추가',
+      weight: 'MEDIUM',
     },
     {
       content: ' 2021년 실시간 방송 재생 정보 HTTP → Socket 방식으로 전환',
@@ -49,7 +109,7 @@ const nvBroadcastBackend: IProject.Item = {
       ],
     },
     {
-      content: ' 2021년 방송 트레일러(미리보기) 개션',
+      content: '2021년 방송 트레일러(미리보기) 개션',
       weight: 'MEDIUM',
       descriptions: [
         {
@@ -352,6 +412,8 @@ const kyToto: IProject.Item = {
 const project: IProject.Payload = {
   disable: false,
   list: [
+    nvHighlightEnhance,
+    nvShortclip,
     nvBroadcastClip,
     nvBroadcastBackend,
     yaNol2020Dlc,

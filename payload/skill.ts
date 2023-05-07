@@ -32,6 +32,10 @@ const backend: ISkill.Skill = {
       level: 2,
     },
     {
+      title: 'Kafka',
+      level: 2,
+    },
+    {
       title: 'Apache',
       level: 2,
     },
@@ -139,9 +143,6 @@ const etc: ISkill.Skill = {
     },
     {
       title: 'Jenkins',
-    },
-    {
-      title: 'Kafka',
     },
   ],
 };
