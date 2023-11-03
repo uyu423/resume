@@ -1,8 +1,9 @@
+import { faEnvelope, faPen, faPhone, faRss } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faBell } from '@fortawesome/free-regular-svg-icons';
-import { faEnvelope, faPhone, faRss } from '@fortawesome/free-solid-svg-icons';
-import image from '../asset/20210901.png';
+
 import { IProfile } from '../component/profile/IProfile';
+import { faBell } from '@fortawesome/free-regular-svg-icons';
+import image from '../asset/20210901.png';
 
 const profile: IProfile.Payload = {
   disable: false,
@@ -25,16 +26,20 @@ const profile: IProfile.Payload = {
       badge: true,
     },
     {
+      link: 'https://wiki.yowu.dev',
+      icon: faPen,
+    },
+    {
       link: 'https://github.com/uyu423',
       icon: faGithub,
     },
     {
-      link: 'https://blog.yowu.dev',
-      icon: faRss,
-    },
-    {
       link: 'https://fb.com/luckyyowu',
       icon: faFacebook,
+    },
+    {
+      link: 'https://blog.yowu.dev',
+      icon: faRss,
     },
   ],
   notice: {

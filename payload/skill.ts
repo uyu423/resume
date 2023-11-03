@@ -1,95 +1,15 @@
 import { ISkill } from '../component/skill/ISkill';
 
-const backend: ISkill.Skill = {
-  category: 'Back-end',
+const backendLanguage: ISkill.Skill = {
+  category: 'Languages',
   items: [
-    {
-      title: 'Node.js',
-      level: 3,
-    },
-    {
-      title: 'TypeScript',
-      level: 3,
-    },
     {
       title: 'Java',
       level: 3,
     },
     {
-      title: 'Express.js',
+      title: 'TypeScript',
       level: 3,
-    },
-    {
-      title: 'AWS',
-      level: 3,
-    },
-    {
-      title: 'nginx',
-      level: 3,
-    },
-    {
-      title: 'Spring Boot',
-      level: 2,
-    },
-    {
-      title: 'Kafka',
-      level: 2,
-    },
-    {
-      title: 'Apache',
-      level: 2,
-    },
-    {
-      title: 'PHP',
-      level: 2,
-    },
-    {
-      title: 'Python',
-      level: 1,
-    },
-    {
-      title: 'C/C++',
-      level: 1,
-    },
-  ],
-};
-
-const database: ISkill.Skill = {
-  category: 'Database',
-  items: [
-    {
-      title: 'MySQL',
-      level: 3,
-    },
-    {
-      title: 'Redis',
-      level: 3,
-    },
-    {
-      title: 'MongoDB',
-      level: 2,
-    },
-    {
-      title: 'H2',
-      level: 2,
-    },
-    {
-      title: 'Oracle',
-      level: 1,
-    },
-  ],
-};
-
-const frontend: ISkill.Skill = {
-  category: 'Front-end',
-  items: [
-    {
-      title: 'Next.js',
-      level: 2,
-    },
-    {
-      title: 'React.js',
-      level: 2,
     },
     {
       title: 'javascript',
@@ -99,20 +19,92 @@ const frontend: ISkill.Skill = {
       title: 'HTML/CSS',
       level: 2,
     },
+    {
+      title: 'Kotlin',
+      level: 1,
+    },
+    {
+      title: 'PHP',
+      level: 1,
+    },
   ],
 };
 
-const etc: ISkill.Skill = {
-  category: 'Etc',
+const frameworkLib: ISkill.Skill = {
+  category: 'Fameworks & Libraries',
   items: [
     {
-      title: 'Ubuntu',
+      title: 'Node.js',
+      level: 3,
     },
+    {
+      title: 'Express.js',
+      level: 3,
+    },
+    {
+      title: 'Spring Boot',
+      level: 3,
+    },
+    {
+      title: 'Nest.js',
+      level: 2,
+    },
+    {
+      title: 'Next.js',
+      level: 2,
+    },
+    {
+      title: 'React.js',
+      level: 2,
+    },
+    {
+      title: 'CodeIgniter',
+      level: 1,
+    },
+  ],
+};
+
+const infraDb: ISkill.Skill = {
+  category: 'Infrastructure & Databases',
+  items: [
+    {
+      title: 'AWS',
+    },
+    {
+      title: 'NCP',
+    },
+    {
+      title: 'Kubernetes',
+    },
+    {
+      title: 'Docker',
+    },
+    {
+      title: 'nginx',
+    },
+    {
+      title: 'Apache',
+    },
+    {
+      title: 'Kafka',
+    },
+    {
+      title: 'MySQL',
+    },
+    {
+      title: 'Redis',
+    },
+    {
+      title: 'MongoDB',
+    },
+  ],
+};
+
+const toolIde: ISkill.Skill = {
+  category: 'Tools & IDEs',
+  items: [
     {
       title: 'Vim',
-    },
-    {
-      title: 'Security',
     },
     {
       title: 'VS Code',
@@ -127,29 +119,47 @@ const etc: ISkill.Skill = {
       title: 'Confluence',
     },
     {
+      title: 'Git',
+    },
+    {
+      title: 'Github',
+    },
+    {
       title: 'Bitbucket',
+    },
+    {
+      title: 'Jenkins',
+    },
+    {
+      title: 'CircleCI',
+    },
+  ],
+};
+
+const misc: ISkill.Skill = {
+  category: 'Misc',
+  items: [
+    {
+      title: 'Linux',
     },
     {
       title: 'DevOps',
     },
     {
-      title: 'Git / Github',
-    },
-    {
       title: 'Agile',
     },
     {
-      title: 'Socket.io',
+      title: 'HHKB',
     },
     {
-      title: 'Jenkins',
+      title: 'Drum',
     },
   ],
 };
 
 const skill: ISkill.Payload = {
   disable: false,
-  skills: [backend, database, frontend, etc],
+  skills: [backendLanguage, frameworkLib, infraDb, toolIde, misc],
   tooltip: '1: 기초 수준\n2: 취미 개발 수준\n3: Production 개발 가능 수준',
 };
 

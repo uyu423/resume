@@ -11,7 +11,7 @@ const WHERE = {
 const nvHighlightEnhance: IProject.Item = {
   title: '쇼핑라이브 하이라이트 고도화',
   startedAt: '2023-03',
-  endedAt: '2022-05',
+  endedAt: '2023-05',
   where: WHERE.NV,
   descriptions: [
     {

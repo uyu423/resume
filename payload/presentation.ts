@@ -5,6 +5,20 @@ const presentation: IPresentation.Payload = {
 
   list: [
     {
+      title: 'Real 100% 바닥부터 올라가는 개발자 커리어의 모든 것',
+      subTitle: '잇다 Original _ IT 개발 직무 특강',
+      at: '2022-06',
+      descriptions: [
+        {
+          content: '1:1 현직자 멘토링 서비스 잇다(itdda) 온라인 클래스 진행',
+        },
+        {
+          content: 'https://www.itdaa.net/meetings/3247',
+          href: 'https://www.itdaa.net/meetings/3247',
+        },
+      ],
+    },
+    {
       title: 'Ubuntu 20.04 LTS Features & Recommends',
       subTitle: 'Ubuntu Korea 20.04 LTS Release Party',
       at: '2020-05',
@@ -22,9 +36,6 @@ const presentation: IPresentation.Payload = {
         {
           content: 'Youtube: ',
           postHref: 'https://youtu.be/lnpWEUmBFTA?t=653',
-        },
-        {
-          content: 'Presentation: TBU',
         },
       ],
     },

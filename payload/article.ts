@@ -5,6 +5,23 @@ const article: IArticle.Payload = {
 
   list: [
     {
+      content:
+        '(2023.07.25) 신입 개발자 취업 준비 시작한다고? 이 글 반드시 읽어보자! | 유용우 개발자 인터뷰 [zero-base]',
+      href: 'https://zero-base.co.kr/event/media_school_BE_interview_02_YYW',
+    },
+    {
+      content: '(2023.07.06) Self PR',
+      href: 'https://brunch.co.kr/@luckyyowu/7',
+    },
+    {
+      content: '(2023.06.27) 진로 선택: 스타트업과 대기업',
+      href: 'https://brunch.co.kr/@luckyyowu/6',
+    },
+    {
+      content: '(2023.06.20) 진로 선택: 프론트엔드와 백엔드 개발',
+      href: 'https://brunch.co.kr/@luckyyowu/5',
+    },
+    {
       content: '(2023.01.25) 요우의 2022년 개발자 회고',
       href: 'https://luckyyowu.tistory.com/424',
     },
