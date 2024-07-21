@@ -4,46 +4,28 @@ const backendLanguage: ISkill.Skill = {
   category: 'Languages',
   items: [
     {
+      title: 'Kotlin',
+      // level: 3,
+    },
+    {
       title: 'Java',
-      level: 3,
+      // level: 3,
     },
     {
       title: 'TypeScript',
-      level: 3,
+      // level: 3,
     },
     {
       title: 'javascript',
-      level: 2,
+      // level: 2,
     },
     {
       title: 'HTML/CSS',
-      level: 2,
+      // level: 2,
     },
     {
       title: 'Kotlin',
-      level: 1,
-    },
-  ],
-};
-
-const kernelDevelopment: ISkill.Skill = {
-  category: 'Kernel Development',
-  items: [
-    {
-      title: 'PHP',
-      level: 1,
-    },
-    {
-      title: 'GNU Debugger',
-      level: 3,
-    },
-    {
-      title: 'Memory Management',
-      level: 2,
-    },
-    {
-      title: 'System Call Interface',
-      level: 2,
+      // level: 1,
     },
   ],
 };
@@ -52,32 +34,36 @@ const frameworkLib: ISkill.Skill = {
   category: 'Fameworks & Libraries',
   items: [
     {
+      title: 'Coroutine',
+      // level: 3,
+    },
+    {
       title: 'Node.js',
-      level: 3,
+      // level: 3,
     },
     {
       title: 'Express.js',
-      level: 3,
+      // level: 3,
     },
     {
       title: 'Spring Boot',
-      level: 3,
+      // level: 3,
     },
     {
       title: 'Nest.js',
-      level: 2,
+      // level: 2,
     },
     {
       title: 'Next.js',
-      level: 2,
+      // level: 2,
     },
     {
       title: 'React.js',
-      level: 2,
+      // level: 2,
     },
     {
       title: 'CodeIgniter',
-      level: 1,
+      // level: 1,
     },
   ],
 };
@@ -171,6 +157,9 @@ const misc: ISkill.Skill = {
     },
     {
       title: 'Drum',
+    },
+    {
+      title: 'Electric Guitar',
     },
   ],
 };

@@ -1,9 +1,30 @@
 import { IExperience } from '../component/experience/IExperience';
 
-const naver = {
+const naverNspa: IExperience.Item = {
+  title: '네이버 (NAVER)',
+  position: 'Shopping Product NSPA 백엔드 개발자',
+  startedAt: '2024-02',
+  descriptions: ['Scheduled to be updated after December 2024'],
+  skillKeywords: [
+    'Kotlin',
+    'Coroutine',
+    'Java',
+    'Spring Boot',
+    'MySQL',
+    'MongoDB',
+    'Redis',
+    'Kubernetes',
+    'Docker',
+    'Kafka',
+    'Jenkins',
+  ],
+};
+
+const naverShoppinglive = {
   title: '네이버 (NAVER)',
   position: 'Forest CIC 쇼핑라이브 백엔드 개발자',
   startedAt: '2021-02',
+  endedAt: '2024-02',
   descriptions: [
     '네이버 비디오커머스 서비스(쇼핑라이브) 백엔드 개발',
     '쇼핑라이브 라이브 방송 및 숏클립 서비스 제공을 위한 데이터 모델링 / API 개발',
@@ -132,7 +153,7 @@ const kyny = {
 const experience: IExperience.Payload = {
   disable: false,
   disableTotalPeriod: false,
-  list: [naver, yanolja, plating, ecubelabs, kyny],
+  list: [naverNspa, naverShoppinglive, yanolja, plating, ecubelabs, kyny],
 };
 
 export default experience;
