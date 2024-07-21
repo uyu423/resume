@@ -23,9 +23,27 @@ const backendLanguage: ISkill.Skill = {
       title: 'Kotlin',
       level: 1,
     },
+  ],
+};
+
+const kernelDevelopment: ISkill.Skill = {
+  category: 'Kernel Development',
+  items: [
     {
       title: 'PHP',
       level: 1,
+    },
+    {
+      title: 'GNU Debugger',
+      level: 3,
+    },
+    {
+      title: 'Memory Management',
+      level: 2,
+    },
+    {
+      title: 'System Call Interface',
+      level: 2,
     },
   ],
 };
@@ -113,10 +131,10 @@ const toolIde: ISkill.Skill = {
       title: 'IDEA',
     },
     {
-      title: 'Jira',
+      title: 'Joke Telling',
     },
     {
-      title: 'Confluence',
+      title: 'Duct Tape Crafting',
     },
     {
       title: 'Git',
