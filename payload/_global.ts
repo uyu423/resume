@@ -1,6 +1,6 @@
 import { IGlobal } from '../component/common/IGlobal';
 import favicon from '../asset/favicon.ico';
-import previewImage from '../asset/preview_20240930.jpeg';
+import previewImage from '../asset/preview_20240930.jpg';
 
 const title = 'Resume: Yongwoo Yu';
 const description = "This is Back-end Developer Yowu's Resume. Thank you";
