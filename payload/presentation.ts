@@ -5,6 +5,20 @@ const presentation: IPresentation.Payload = {
 
   list: [
     {
+      title: '5년만에 돌아온 컴공 특강',
+      subTitle: '가톨릭대학교 컴퓨터정보공학부 졸업생 취업 특강',
+      at: '2023-11',
+      descriptions: [
+        {
+          content: '개발자 학습법 / 커리어 특강, Q&A (2H)',
+        },
+        {
+          content: 'Google Slide',
+          postHref: 'https://bit.ly/4dsBSPa',
+        },
+      ],
+    },
+    {
       title: 'Real 100% 바닥부터 올라가는 개발자 커리어의 모든 것',
       subTitle: '잇다 Original _ IT 개발 직무 특강',
       at: '2022-06',

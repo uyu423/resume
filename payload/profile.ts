@@ -1,9 +1,9 @@
 import { faEnvelope, faPen, faPhone, faRss } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 
-import { faBell } from '@fortawesome/free-regular-svg-icons';
 import { IProfile } from '../component/profile/IProfile';
-import image from '../asset/20210901.png';
+import { faBell } from '@fortawesome/free-regular-svg-icons';
+import image from '../asset/20240930-5.png';
 
 const profile: IProfile.Payload = {
   disable: false,
