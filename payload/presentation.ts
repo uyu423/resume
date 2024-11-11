@@ -5,17 +5,40 @@ const presentation: IPresentation.Payload = {
 
   list: [
     {
+      title: '가대생 개발자들의 무물 TechTalk',
+      subTitle: 'Google Developer Groups on CUK: TechTalk Live',
+      at: '2024-11',
+      descriptions: [
+        {
+          content: '가톨릭대 출신 현업 개발자 3인의 개발자 테크톡',
+        },
+        {
+          content: '진행자 및 패널로서 참여',
+        },
+      ],
+    },
+    {
+      title: '오프라인 직무 특강.. 근데 이제 개발자를 곁들인',
+      subTitle: '벤처스타트업아카데미 - 한국외국어대학교',
+      at: '2024-11',
+      descriptions: [
+        {
+          content: '개발자 커리어 및 직무 특강, Live QnA (2H)',
+        },
+      ],
+    },
+    {
       title: '5년만에 돌아온 컴공 특강',
       subTitle: '가톨릭대학교 컴퓨터정보공학부 졸업생 취업 특강',
       at: '2023-11',
       descriptions: [
         {
-          content: '개발자 학습법 / 커리어 특강, Q&A (2H)',
+          content: '개발자 커리어 및 직무 특강, Live QnA (2H)',
         },
-        {
-          content: 'Google Slide',
-          postHref: 'https://bit.ly/4dsBSPa',
-        },
+        // {
+        //   content: 'Google Slide',
+        //   postHref: 'https://bit.ly/4dsBSPa',
+        // },
       ],
     },
     {
