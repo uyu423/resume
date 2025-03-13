@@ -1,14 +1,32 @@
 import { IExperience } from '../component/experience/IExperience';
 
+const naverVerticalServer: IExperience.Position = {
+  title: 'Shopping Product / ???',
+  startedAt: '2025-04',
+  descriptions: ['To Be Updated'],
+  skillKeywords: ['???'],
+};
+
 const naverNspa: IExperience.Position = {
-  title: 'Shopping Product NSPA 백엔드 개발자',
+  title: 'Shopping Product / 쇼핑앱 백엔드 개발자',
   startedAt: '2024-02',
-  descriptions: ['Scheduled to be updated after December 2024'],
+  endedAt: '2025-04',
+  descriptions: [
+    '네이버 쇼핑앱 BFF 백엔드 API 개발',
+    '쇼핑앱 비즈니스에 필요한 주요 API 구현 및 데이터 모델 설계',
+    'MySQL / NoSQL 데이터베이스 운영 및 Kubernetes 기반 인프라 아키텍처 구축',
+    'Kafka 이벤트 핸들링을 통한 실시간 데이터 통합',
+    '장애 방지 다중 방어 체계와 복구 전략 수립 및 적용',
+    '코드 리뷰와 기술 스터디를 통한 팀 내 전문성 및 협업 역량 강화',
+  ],
   skillKeywords: [
     'Kotlin',
     'Coroutine',
     'Java',
     'Spring Boot',
+    'Node.js',
+    'TypeScript',
+    'Next.js',
     'MySQL',
     'MongoDB',
     'Redis',
@@ -20,7 +38,7 @@ const naverNspa: IExperience.Position = {
 };
 
 const naverShoppinglive: IExperience.Position = {
-  title: 'Forest CIC 쇼핑라이브 백엔드 개발자',
+  title: 'Forest CIC / 쇼핑라이브 백엔드 개발자',
   startedAt: '2021-02',
   endedAt: '2024-02',
   descriptions: [
@@ -48,7 +66,12 @@ const naverShoppinglive: IExperience.Position = {
 
 const naver: IExperience.Item = {
   title: '네이버 (NAVER)',
-  positions: [naverNspa, naverShoppinglive],
+  positions: [
+    //
+    naverVerticalServer,
+    naverNspa,
+    naverShoppinglive,
+  ],
 };
 
 const yanolja: IExperience.Item = {

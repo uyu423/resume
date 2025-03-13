@@ -5,14 +5,45 @@ const WHERE = {
   PL: '플레이팅 (Plating)',
   EC: '이큐브랩 (Ecube Labs)',
   KY: '키니 (KYNY)',
-  NV: '네이버 (NAVER)',
+  NV_LIVE: '네이버 (NAVER) 쇼핑라이브 백엔드 개발',
+  NV_NSPA: '네이버 (NAVER) 쇼핑앱 백엔드 개발',
+};
+
+const nvShoppingAppServer: IProject.Item = {
+  title: '네이버 쇼핑앱 서버 개발',
+  startedAt: '2024-02',
+  endedAt: '2025-04',
+  where: WHERE.NV_NSPA,
+  descriptions: [
+    {
+      content:
+        '비즈니스 요구 사항에 따른 주요 기능(공통 영역, 쇼핑 MY, 멤버십, 마케팅 영역 등) BFF API 개발 및 안정성 확보',
+    },
+    {
+      content:
+        'Java → Kotlin 전환 및 Coroutine 기반 비동기 처리 적용으로 null 안전성과 생산성 향상',
+    },
+    {
+      content:
+        'API 부하 테스트 및 성능/캐시 최적화로 주요 기능 평균 응답 시간을 낮은 수준으로 유지',
+    },
+    {
+      content:
+        'Next.js 기반 어드민 도구 리팩토링, Ant Design 도입 및 Node.js/Next.js 기반 최적화 수행',
+    },
+    {
+      content:
+        '"쿠팡 딱 긴장해라"... 40만명이 대기표 뽑은 네이버 쇼핑 앱 직접 써보니 (it.chosun.com)',
+      href: 'https://it.chosun.com/news/articleView.html?idxno=2023092136052',
+    },
+  ],
 };
 
 const nvHighlightEnhance: IProject.Item = {
   title: '쇼핑라이브 하이라이트 고도화',
   startedAt: '2023-03',
   endedAt: '2023-05',
-  where: WHERE.NV,
+  where: WHERE.NV_LIVE,
   descriptions: [
     {
       content:
@@ -35,7 +66,7 @@ const nvShortclip: IProject.Item = {
   title: '쇼핑라이브 숏클립 서비스 백엔드 개발 및 운영',
   startedAt: '2022-04',
   endedAt: '2022-09',
-  where: WHERE.NV,
+  where: WHERE.NV_LIVE,
   descriptions: [
     {
       content: '네이버 쇼핑 및 쇼핑라이브에 노출되는 숏폼(Short-form) 타입의 신규 서비스를 출시',
@@ -60,7 +91,7 @@ const nvBroadcastClip: IProject.Item = {
   title: '쇼핑라이브 하이라이트/상품 구간 클립 서비스 개발 및 운영',
   startedAt: '2021-04',
   endedAt: '2021-09',
-  where: WHERE.NV,
+  where: WHERE.NV_LIVE,
   descriptions: [
     { content: '원본 방송에서 Short Clip 영상을 추출하고, 사용자에게 제공하는 서비스 백엔드 구현' },
     {
@@ -82,7 +113,8 @@ const nvBroadcastClip: IProject.Item = {
 const nvBroadcastBackend: IProject.Item = {
   title: '쇼핑라이브 백엔드 개발 및 유지보수 / 운영',
   startedAt: '2021-03',
-  where: WHERE.NV,
+  endedAt: '2024-02',
+  where: WHERE.NV_LIVE,
   descriptions: [
     {
       content: '쇼핑라이브 방송 송출 및 서비스에 필요한 Backend API 개발 및 운영 / 서스테이닝',
@@ -412,6 +444,7 @@ const kyToto: IProject.Item = {
 const project: IProject.Payload = {
   disable: false,
   list: [
+    nvShoppingAppServer,
     nvHighlightEnhance,
     nvShortclip,
     nvBroadcastClip,

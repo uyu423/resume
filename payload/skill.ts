@@ -41,10 +41,10 @@ const frameworkLib: ISkill.Skill = {
       title: 'Express.js',
       // level: 3,
     },
-    {
-      title: 'Nest.js',
-      // level: 2,
-    },
+    // {
+    // title: 'Nest.js',
+    // level: 2,
+    // },
     {
       title: 'Next.js',
       // level: 2,
@@ -53,10 +53,10 @@ const frameworkLib: ISkill.Skill = {
       title: 'React.js',
       // level: 2,
     },
-    {
-      title: 'CodeIgniter',
-      // level: 1,
-    },
+    // {
+    // title: 'CodeIgniter',
+    // level: 1,
+    // },
     {
       title: 'Coroutine',
       // level: 3,
