@@ -10,11 +10,22 @@ const WHERE = {
 };
 
 const nvShoppingAppServer: IProject.Item = {
-  title: '네이버 쇼핑앱 서버 개발',
+  title: '네이버 쇼핑 앱 서버 개발',
   startedAt: '2024-02',
   endedAt: '2025-04',
   where: WHERE.NV_NSPA,
   descriptions: [
+    {
+      content: '네이버 쇼핑 앱 서비스 출시',
+      weight: 'MEDIUM',
+      descriptions: [
+        {
+          content:
+            '"쿠팡 딱 긴장해라"... 40만명이 대기표 뽑은 네이버 쇼핑 앱 직접 써보니 (it.chosun.com)',
+          href: 'https://it.chosun.com/news/articleView.html?idxno=2023092136052',
+        },
+      ],
+    },
     {
       content:
         '비즈니스 요구 사항에 따른 주요 기능(공통 영역, 쇼핑 MY, 멤버십, 마케팅 영역 등) BFF API 개발 및 안정성 확보',
@@ -30,11 +41,6 @@ const nvShoppingAppServer: IProject.Item = {
     {
       content:
         'Next.js 기반 어드민 도구 리팩토링, Ant Design 도입 및 Node.js/Next.js 기반 최적화 수행',
-    },
-    {
-      content:
-        '"쿠팡 딱 긴장해라"... 40만명이 대기표 뽑은 네이버 쇼핑 앱 직접 써보니 (it.chosun.com)',
-      href: 'https://it.chosun.com/news/articleView.html?idxno=2023092136052',
     },
   ],
 };

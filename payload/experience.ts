@@ -8,11 +8,11 @@ const naverVerticalServer: IExperience.Position = {
 };
 
 const naverNspa: IExperience.Position = {
-  title: 'Shopping Product / 쇼핑앱 백엔드 개발자',
+  title: 'Shopping Product / 쇼핑 앱 백엔드 개발자',
   startedAt: '2024-02',
   endedAt: '2025-04',
   descriptions: [
-    '네이버 쇼핑앱 BFF 백엔드 API 개발',
+    '네이버 쇼핑 앱 BFF 백엔드 API 개발',
     '쇼핑앱 비즈니스에 필요한 주요 API 구현 및 데이터 모델 설계',
     'MySQL / NoSQL 데이터베이스 운영 및 Kubernetes 기반 인프라 아키텍처 구축',
     'Kafka 이벤트 핸들링을 통한 실시간 데이터 통합',
