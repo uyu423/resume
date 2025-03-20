@@ -6,7 +6,7 @@ const WHERE = {
   EC: '이큐브랩 (Ecube Labs)',
   KY: '키니 (KYNY)',
   NV_LIVE: '네이버 (NAVER) 쇼핑라이브 백엔드 개발',
-  NV_NSPA: '네이버 (NAVER) 쇼핑앱 백엔드 개발',
+  NV_NSPA: '네이버 (NAVER) 쇼핑 앱 백엔드 개발',
 };
 
 const nvShoppingAppServer: IProject.Item = {
@@ -23,6 +23,10 @@ const nvShoppingAppServer: IProject.Item = {
           content:
             '"쿠팡 딱 긴장해라"... 40만명이 대기표 뽑은 네이버 쇼핑 앱 직접 써보니 (it.chosun.com)',
           href: 'https://it.chosun.com/news/articleView.html?idxno=2023092136052',
+        },
+        {
+          content: '네이버 AI 쇼핑앱 출시 8일만에 100만 다운로드 돌파',
+          href: 'https://n.news.naver.com/mnews/article/001/0015277043',
         },
       ],
     },
