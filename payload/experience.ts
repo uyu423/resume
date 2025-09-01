@@ -1,10 +1,27 @@
 import { IExperience } from '../component/experience/IExperience';
 
 const naverVerticalServer: IExperience.Position = {
-  title: 'Shopping Product / ???',
+  title: 'Shopping Product / 버티컬 쇼핑 서비스 백엔드 개발자',
   startedAt: '2025-04',
-  descriptions: ['To Be Updated'],
-  skillKeywords: ['???'],
+  descriptions: [
+    '네이버 쇼핑 버티컬 전시 서버 백엔드 API 및 BFF 개발',
+    '네이버플러스 스토어 및 쇼핑앱 서비스 API 설계/구현',
+    '전시도구 어드민 및 백오피스 관리 기능 개발',
+    '서비스 안정성 강화, 레거시 시스템 개선',
+  ],
+  skillKeywords: [
+    'Kotlin',
+    'Java',
+    'Spring Boot',
+    'WebFlux',
+    'Coroutine',
+    'OpenSearch',
+    'Kafka',
+    'Redis',
+    'MongoDB',
+    'Kubenetes',
+    'Docker',
+  ],
 };
 
 const naverNspa: IExperience.Position = {
