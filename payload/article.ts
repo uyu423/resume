@@ -5,6 +5,18 @@ const article: IArticle.Payload = {
 
   list: [
     {
+      content: '(2025.09.03) 가장 중요한 것은 읽기 쉬운 코드다.',
+      href: 'https://brunch.co.kr/@yowu/40',
+    },
+    {
+      content: '(2025.07.16) 코루틴과 CancellationException 그리고 RestControllerAdvice',
+      href: 'https://wiki.yowu.dev/ko/dev/Kotlin/Coroutine/coroutine-cancellation-exception',
+    },
+    {
+      content: '(2025.07.18) 사용자가 아닌 개발자를 위한 웹 개발의 시대',
+      href: 'https://brunch.co.kr/@yowu/37',
+    },
+    {
       content:
         '(2023.07.25) 신입 개발자 취업 준비 시작한다고? 이 글 반드시 읽어보자! | 유용우 개발자 인터뷰 [zero-base]',
       href: 'https://zero-base.co.kr/event/media_school_BE_interview_02_YYW',

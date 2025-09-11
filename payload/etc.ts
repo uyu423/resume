@@ -5,7 +5,13 @@ const etc: IEtc.Payload = {
 
   list: [
     {
-      title: 'NAVER Boostcamp 웹 / 모바일 8기 BE 리뷰어 / 멘토',
+      title: 'NAVER Boostcamp 웹/모바일 10기 코드 리뷰어',
+      subTitle: 'Web (BE/FE) Code Reviewer / Project Mentor',
+      startedAt: '2025-09',
+      endedAt: '2025-12',
+    },
+    {
+      title: 'NAVER Boostcamp 웹/모바일 8기 BE 리뷰어 및 멘토',
       subTitle: 'Web Backend (Node.js) Code Reviewer / Project Mentor',
       startedAt: '2023-09',
       endedAt: '2023-12',

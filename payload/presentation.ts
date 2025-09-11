@@ -15,6 +15,10 @@ const presentation: IPresentation.Payload = {
         {
           content: '진행자 및 패널로서 참여',
         },
+        {
+          content: 'GDGC on CUK 2024',
+          href: 'https://brunch.co.kr/magazine/gdgconcuk2024',
+        },
       ],
     },
     {
