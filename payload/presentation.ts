@@ -5,6 +5,23 @@ const presentation: IPresentation.Payload = {
 
   list: [
     {
+      title: 'AI 시대 사라지는 건 AI 안 쓰는 개발자 뿐',
+      subTitle: '퇴근 후 밋업 : AI로 다시 만드는 커리어',
+      at: '2025-10',
+      descriptions: [
+        {
+          content: '잡코리아 주최 테크 밋업 발표자로 참여',
+        },
+        {
+          content: 'AI 시대 개발자의 본질과 생존 방식에 대한 주제로 발표',
+        },
+        {
+          content: 'AI 때문에 사라지는 개발자? AI 덕분에 성장하는 개발자?',
+          href: 'https://www.jobkorea.co.kr/recruit/careers/articles/meetupsktech01',
+        },
+      ],
+    },
+    {
       title: '가대생 개발자들의 무물 TechTalk',
       subTitle: 'Google Developer Groups on CUK: TechTalk Live',
       at: '2024-11',
