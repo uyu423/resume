@@ -21,6 +21,40 @@ const resume: IOpenSource.Item = {
   ],
 };
 
+const yowuDevtools: IOpenSource.Item = {
+  title: 'yowu-devtools',
+  descriptions: [
+    {
+      content: '프라이버시 중심의 클라이언트 사이드 개발자 도구 모음 w/PWA',
+    },
+    {
+      content:
+        'JSON Format, JWT Encode/Decode, URL Parser 등 개발자 특화 도구들을 클라이언트 사이드 100%로 처리',
+    },
+    {
+      content: 'AI Agent 사용한 개발 프로젝트',
+    },
+    {
+      content: 'Owner & Maintainer',
+    },
+    {
+      content: 'React + Vite + TypeScript',
+    },
+    {
+      content: 'https://github.com/uyu423/yowu-devtools',
+      href: 'https://github.com/uyu423/yowu-devtools',
+    },
+    {
+      content: 'https://tools.yowu.dev',
+      href: 'https://tools.yowu.dev',
+    },
+    {
+      content: 'Github Stars: ',
+      postImage: 'https://img.shields.io/github/stars/uyu423/yowu-devtools.svg?style=popout',
+    },
+  ],
+};
+
 const r2curl: IOpenSource.Item = {
   title: 'r2curl',
   descriptions: [
@@ -152,7 +186,15 @@ const nineXdDeveloperComunity: IOpenSource.Item = {
 
 const openSource: IOpenSource.Payload = {
   disable: false,
-  list: [resume, r2curl, nodeEscpos, kanboard, ossDeveloperComunity, nineXdDeveloperComunity],
+  list: [
+    yowuDevtools,
+    resume,
+    r2curl,
+    nodeEscpos,
+    kanboard,
+    ossDeveloperComunity,
+    nineXdDeveloperComunity,
+  ],
 };
 
 export default openSource;
