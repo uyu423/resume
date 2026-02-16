@@ -5,8 +5,11 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": ["dom", "es2017"],
+    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "es2022"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -16,11 +19,17 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es2017",
-    "outDir": "docs"
+    "target": "es2022",
+    "outDir": "docs",
+    "incremental": true
   },
-  "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "typedocOptions": {
     "out": "docs/typedoc",
     "mode": "file",

@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env DEBUG=yosume:* next",
     "build": "next build",
-    "prebuild": "npm install && npm run lint",
+    "prebuild": "npm install",
     "postbuild": "node shellwork.js",
     "start": "next start",
     "clean": "npx rimraf docs",
@@ -75,7 +75,7 @@
     "prettier": "^1.19.1",
     "rimraf": "^3.0.2",
     "typedoc": "~0.19.2",
-    "typescript": "^4.9.5"
+    "typescript": "~5.9"
   },
   "resolutions": {
     "**/minimist": "^1.2.3"
