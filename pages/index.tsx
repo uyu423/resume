@@ -15,6 +15,7 @@ import { ProjectSection } from '../component/project';
 import { SkillSection } from '../component/skill';
 import { Style } from '../component/common/Style';
 import { FloatingNav } from '../component/nav/FloatingNav';
+import { DarkModeToggle } from '../component/common/DarkModeToggle';
 import Payload from '../payload';
 import { ArticleSection } from '../component/article';
 
@@ -68,6 +69,7 @@ function Yosume() {
         )}
       </Head>
       <FloatingNav />
+      <DarkModeToggle />
       <main>
         <Container style={Style.global}>
           <ProfileSection payload={Payload.profile} />
