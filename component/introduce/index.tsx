@@ -1,9 +1,9 @@
-import { Row, Col, Badge } from 'reactstrap';
 import { DateTime } from 'luxon';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
 import { IntroducePayload } from '../../types/IIntroduce';
 import { Section } from '../common/Section';
+import { SectionAnimate } from '../common/SectionAnimate';
 
 type Payload = IntroducePayload;
 
@@ -24,29 +24,35 @@ function IntroduceContent({ payload }: { payload: Payload }) {
     DateTime.local().diff(latestUpdated).milliseconds / 1000 / 60 / 60 / 24,
   );
 
+  const sectionId = 'section-introduce';
+
   return (
-    <div className="mt-5">
-      <Row>
-        <Col sm={12} md={3}>
-          <h2 style={Style.blue}>INTRODUCE</h2>
-        </Col>
-        <Col sm={12} md={9}>
-          {payload.contents.map((content, index) => (
-            <p key={index.toString()}>{content}</p>
-          ))}
-          <p className="text-end">
-            <small>Latest Updated</small>{' '}
-            <Badge color="secondary">
-              {`${latestUpdated.toFormat(
-                Util.LUXON_DATE_FORMAT.YYYY_DOT_LL_DOT_DD,
-              )} (D+${latestUpdatedByNow})`}
-            </Badge>
-          </p>
-          <p className="text-end" style={Style.sign}>
-            {payload.sign}
-          </p>
-        </Col>
-      </Row>
-    </div>
+    <SectionAnimate>
+      <section className="editorial-section" aria-labelledby={sectionId}>
+        <div className="split-row">
+          <div className="split-left">
+            <h2 id={sectionId} className="section-heading">
+              INTRODUCE
+            </h2>
+          </div>
+          <div>
+            {payload.contents.map((content, index) => (
+              <p key={index.toString()}>{content}</p>
+            ))}
+            <p className="text-end">
+              <small>Latest Updated</small>{' '}
+              <span className="tag tag--muted">
+                {`${latestUpdated.toFormat(
+                  Util.LUXON_DATE_FORMAT.YYYY_DOT_LL_DOT_DD,
+                )} (D+${latestUpdatedByNow})`}
+              </span>
+            </p>
+            <p className="text-end" style={Style.sign}>
+              {payload.sign}
+            </p>
+          </div>
+        </div>
+      </section>
+    </SectionAnimate>
   );
 }

@@ -24,7 +24,7 @@ export function SectionAnimate({ children }: PropsWithChildren) {
 
   const style: React.CSSProperties = {
     opacity: isVisible ? 1 : 0,
-    transform: isVisible ? 'none' : 'translateY(20px)',
+    transform: isVisible ? 'none' : 'translateY(12px)',
     transition: 'opacity var(--transition-enter), transform var(--transition-enter)',
   };
 

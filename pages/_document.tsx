@@ -10,7 +10,7 @@ export default function ResumeDocument() {
           rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/css?family=Parisienne&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Parisienne&family=Sora:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </Head>
@@ -18,7 +18,8 @@ export default function ResumeDocument() {
         {/* FOUC prevention: this string MUST remain static — never interpolate user data */}
         <script
           dangerouslySetInnerHTML={{
-            __html: '(function(){try{var t=localStorage.getItem(\'theme\');if(t===\'dark\'||(!t&&window.matchMedia(\'(prefers-color-scheme:dark)\').matches)){document.documentElement.setAttribute(\'data-theme\',\'dark\')}}catch(e){}})();',
+            __html:
+              "(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}})();",
           }}
         />
         <Main />

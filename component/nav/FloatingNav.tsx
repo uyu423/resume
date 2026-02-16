@@ -6,12 +6,6 @@ interface NavItem {
   title: string;
 }
 
-const listStyle: React.CSSProperties = {
-  listStyle: 'none',
-  padding: 0,
-  margin: 0,
-};
-
 export function FloatingNav() {
   const [items, setItems] = useState<NavItem[]>([]);
   const [activeId, setActiveId] = useState<string>('');
@@ -37,23 +31,63 @@ export function FloatingNav() {
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const labelId = entry.target.getAttribute('aria-labelledby');
-            if (labelId) setActiveId(labelId);
-          }
-        });
-      },
-      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
-    );
+    if (!isDesktop || items.length === 0) {
+      return undefined;
+    }
 
-    const sections = document.querySelectorAll('section[aria-labelledby]');
-    sections.forEach((section) => observer.observe(section));
+    const headings = items
+      .map((item) => document.getElementById(item.id))
+      .filter((heading): heading is HTMLElement => !!heading);
 
-    return () => observer.disconnect();
-  }, [items]);
+    const resolveActiveId = () => {
+      const activationTop = 24;
+      const passed: { id: string; top: number }[] = [];
+
+      headings.forEach((heading) => {
+        const top = heading.getBoundingClientRect().top;
+        if (top <= activationTop) {
+          passed.push({ id: heading.id, top });
+        }
+      });
+
+      if (passed.length > 0) {
+        passed.sort((a, b) => b.top - a.top);
+        return passed[0].id;
+      }
+
+      return headings[0]?.id || items[0].id;
+    };
+
+    let rafId = 0;
+    const updateActiveId = () => {
+      const id = resolveActiveId();
+      if (id) {
+        setActiveId(id);
+      }
+    };
+
+    const requestUpdate = () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      rafId = requestAnimationFrame(() => {
+        updateActiveId();
+        rafId = 0;
+      });
+    };
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    requestUpdate();
+
+    return () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      window.removeEventListener('scroll', requestUpdate);
+      window.removeEventListener('resize', requestUpdate);
+    };
+  }, [isDesktop, items]);
 
   useEffect(() => {
     const handleScroll = () => setVisible(window.scrollY > 200);
@@ -65,49 +99,30 @@ export function FloatingNav() {
   const handleClick = (id: string) => {
     const heading = document.getElementById(id);
     if (heading) {
+      setActiveId(id);
       heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
   if (!isDesktop || items.length === 0) return null;
 
-  const navStyle: React.CSSProperties = {
-    position: 'fixed',
-    right: '24px',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    zIndex: 100,
-    opacity: visible ? 1 : 0,
-    transition: 'opacity var(--transition-slow)',
-    pointerEvents: visible ? 'auto' : 'none',
-  };
-
   return (
-    <nav className="floating-nav" style={navStyle} aria-label="Section navigation">
-      <ul style={listStyle}>
+    <nav
+      className="floating-nav"
+      style={{
+        opacity: visible ? 1 : 0,
+        pointerEvents: visible ? 'auto' : 'none',
+      }}
+      aria-label="Section navigation"
+    >
+      <ul className="floating-nav-list">
         {items.map((item) => {
           const isActive = activeId === item.id;
           return (
-            <li key={item.id} style={{ marginBottom: '8px' }}>
+            <li key={item.id} className="floating-nav-item">
               <button
                 onClick={() => handleClick(item.id)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: '4px 12px',
-                  fontSize: '0.75rem',
-                  fontWeight: isActive ? 600 : 400,
-                  color: isActive ? 'var(--color-accent)' : 'var(--color-text-muted)',
-                  borderRight: isActive
-                    ? '2px solid var(--color-accent)'
-                    : '2px solid transparent',
-                  textAlign: 'right',
-                  display: 'block',
-                  width: '100%',
-                  transition: 'all var(--transition-fast)',
-                  whiteSpace: 'nowrap',
-                }}
+                className={`floating-nav-button ${isActive ? 'is-active' : ''}`}
               >
                 {item.title}
               </button>

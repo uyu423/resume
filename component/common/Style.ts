@@ -31,7 +31,8 @@ export const Style: Record<TStyleKey, CSSProperties> = {
 
   sign: {
     fontFamily: 'var(--font-signature)',
-    fontSize: '1.5em',
+    fontSize: '1.2em',
+    fontWeight: 300,
   },
 
   profileImg: {

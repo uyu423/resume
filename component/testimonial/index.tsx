@@ -1,29 +1,9 @@
 import { CSSProperties } from 'react';
-import { Row, Col } from 'reactstrap';
 import { Section } from '../common/Section';
 import { CommonSection } from '../common/CommonSection';
 import { TestimonialPayload, TestimonialItem } from '../../types/ITestimonial';
 
 type Payload = TestimonialPayload;
-
-const cardStyle: CSSProperties = {
-  background: 'var(--color-bg-subtle)',
-  borderRadius: '12px',
-  padding: '32px',
-  height: '100%',
-  position: 'relative',
-};
-
-const quoteMarkStyle: CSSProperties = {
-  fontSize: '4rem',
-  color: 'var(--color-accent)',
-  opacity: 0.2,
-  position: 'absolute',
-  top: '8px',
-  left: '16px',
-  fontFamily: 'Georgia, serif',
-  lineHeight: 1,
-};
 
 const quoteStyle: CSSProperties = {
   fontSize: '1rem',
@@ -42,8 +22,8 @@ const authorStyle: CSSProperties = {
 };
 
 const avatarStyle: CSSProperties = {
-  width: '48px',
-  height: '48px',
+  width: '44px',
+  height: '44px',
   borderRadius: '50%',
   objectFit: 'cover',
   background: 'var(--color-bg-highlight)',
@@ -52,7 +32,7 @@ const avatarStyle: CSSProperties = {
   justifyContent: 'center',
   color: 'var(--color-accent)',
   fontWeight: 600,
-  fontSize: '1.1rem',
+  fontSize: '1rem',
   flexShrink: 0,
 };
 
@@ -67,13 +47,11 @@ export function TestimonialSection({ payload }: { payload: Payload }) {
 function TestimonialContent({ payload }: { payload: Payload }) {
   return (
     <CommonSection title="TESTIMONIAL">
-      <Row>
+      <div className="card-grid-2">
         {payload.list.map((item, index) => (
-          <Col md={6} xs={12} key={index.toString()} className="mb-4">
-            <TestimonialCard item={item} />
-          </Col>
+          <TestimonialCard key={index.toString()} item={item} />
         ))}
-      </Row>
+      </div>
     </CommonSection>
   );
 }
@@ -82,8 +60,7 @@ function TestimonialCard({ item }: { item: TestimonialItem }) {
   const initial = item.name.charAt(0);
 
   return (
-    <div className="testimonial-card" style={cardStyle}>
-      <span style={quoteMarkStyle}>{'\u201C'}</span>
+    <div className="pullquote">
       <div style={quoteStyle}>{item.quote}</div>
       <div style={authorStyle}>
         {item.image ? (
@@ -96,13 +73,13 @@ function TestimonialCard({ item }: { item: TestimonialItem }) {
           <div style={avatarStyle}>{initial}</div>
         )}
         <div>
-          <div style={{ fontWeight: 600, color: 'var(--color-primary)', fontSize: '0.95rem' }}>
+          <div style={{ fontWeight: 600, color: 'var(--color-primary)', fontSize: '0.9rem' }}>
             {item.name}
           </div>
-          <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.85rem' }}>
+          <div style={{ color: 'var(--color-text-secondary)', fontSize: '0.8rem' }}>
             {item.title}
           </div>
-          <div style={{ color: 'var(--color-text-muted)', fontSize: '0.8rem' }}>
+          <div style={{ color: 'var(--color-text-muted)', fontSize: '0.75rem' }}>
             {item.relation}
           </div>
         </div>

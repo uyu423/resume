@@ -1,4 +1,3 @@
-import { Badge, Col, Row } from 'reactstrap';
 import { DateTime, Duration } from 'luxon';
 
 import { CommonSection } from '../common/CommonSection';
@@ -21,22 +20,14 @@ function ExperienceContent({ payload }: { payload: Payload }) {
   return (
     <CommonSection title="EXPERIENCE">
       {!payload.disableTotalPeriod && (
-        <Row className="mb-3">
-          <Col>
-            <Badge
-              style={{
-                background: 'var(--color-bg-highlight)',
-                color: 'var(--color-text)',
-                fontSize: '0.875rem',
-                fontWeight: 500,
-                padding: '4px 12px',
-                borderRadius: '4px',
-              }}
-            >
-              {getFormattingExperienceTotalDuration(payload)}
-            </Badge>
-          </Col>
-        </Row>
+        <div className="split-row experience-summary-row">
+          <div className="split-left">
+            <span className="experience-summary-label">TOTAL</span>
+          </div>
+          <div className="experience-total-period">
+            <span className="tag tag--muted">{getFormattingExperienceTotalDuration(payload)}</span>
+          </div>
+        </div>
       )}
       {payload.list.map((item, index) => (
         <ExperienceRow key={index.toString()} item={item} index={index} />

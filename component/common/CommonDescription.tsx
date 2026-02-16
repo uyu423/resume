@@ -7,11 +7,14 @@ import { RowDescription, FontWeightType } from '../../types/IRow';
 export function CommonDescription({
   descriptions,
   option,
-}: { descriptions: RowDescription[]; option?: { padding?: boolean } }) {
+}: {
+  descriptions: RowDescription[];
+  option?: { padding?: boolean };
+}) {
   return (
     <>
       {descriptions ? (
-        <ul className={option?.padding ? 'pt-2' : ''}>
+        <ul className={option?.padding ? 'description-list--padded' : ''}>
           {descriptions.map((description, descIndex) => {
             return (
               <React.Fragment key={descIndex.toString()}>
@@ -33,9 +36,7 @@ export function CommonDescription({
 }
 
 // ul 태그 depth 표현을 위한 재귀
-function DescriptionRecursion({
-  descriptions,
-}: { descriptions: RowDescription[] }) {
+function DescriptionRecursion({ descriptions }: { descriptions: RowDescription[] }) {
   return (
     <ul>
       {descriptions.map((description, index) => {

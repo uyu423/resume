@@ -1,4 +1,3 @@
-import { Row, Col } from 'reactstrap';
 import { SkillPayload } from '../../types/ISkill';
 import SkillRow, { createDots } from './row';
 import { Section } from '../common/Section';
@@ -17,25 +16,11 @@ export function SkillSection({ payload }: { payload: Payload }) {
 function SkillContent({ payload }: { payload: Payload }) {
   return (
     <CommonSection title="SKILL">
-      <Row className="mb-3">
-        <Col>
-          <div
-            style={{
-              color: 'var(--color-text-muted)',
-              fontSize: '0.8rem',
-              marginBottom: 'var(--space-md)',
-            }}
-          >
-            <span style={{ marginRight: '12px' }}>
-              {createDots(1)} Beginner
-            </span>
-            <span style={{ marginRight: '12px' }}>
-              {createDots(2)} Intermediate
-            </span>
-            <span>{createDots(3)} Expert</span>
-          </div>
-        </Col>
-      </Row>
+      <div className="skill-legend">
+        <span className="skill-legend-item">{createDots(1)} Beginner</span>
+        <span className="skill-legend-item">{createDots(2)} Intermediate</span>
+        <span className="skill-legend-item">{createDots(3)} Expert</span>
+      </div>
       {payload.skills.map((skill, index) => (
         <SkillRow key={index.toString()} skill={skill} index={index} />
       ))}

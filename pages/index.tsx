@@ -1,5 +1,3 @@
-import { Container } from 'reactstrap';
-
 import Head from 'next/head';
 import { EducationSection } from '../component/education';
 import { EtcSection } from '../component/etc';
@@ -13,7 +11,6 @@ import { PresentationSection } from '../component/presentation';
 import { ProfileSection } from '../component/profile';
 import { ProjectSection } from '../component/project';
 import { SkillSection } from '../component/skill';
-import { Style } from '../component/common/Style';
 import { FloatingNav } from '../component/nav/FloatingNav';
 import { DarkModeToggle } from '../component/common/DarkModeToggle';
 import Payload from '../payload';
@@ -71,7 +68,7 @@ function Yosume() {
       <FloatingNav />
       <DarkModeToggle />
       <main>
-        <Container style={Style.global}>
+        <div className="resume-container">
           <ProfileSection payload={Payload.profile} />
           <HighlightSection payload={Payload.highlight} />
           <ExperienceSection payload={Payload.experience} />
@@ -85,7 +82,7 @@ function Yosume() {
           <IntroduceSection payload={Payload.introduce} />
           <EtcSection payload={Payload.etc} />
           <FooterSection payload={Payload.footer} />
-        </Container>
+        </div>
       </main>
     </>
   );

@@ -1,12 +1,7 @@
-import { Row, Col } from 'reactstrap';
 import { PropsWithChildren } from 'react';
 
 export function EmptyRowCol<T = Record<string, never>>({ children }: PropsWithChildren<T>) {
-  return (
-    <Row>
-      <Col>{children}</Col>
-    </Row>
-  );
+  return <div>{children}</div>;
 }
 
 export function HrefTargetBlank({ url, text }: PropsWithChildren<{ url: string; text?: string }>) {

@@ -40,14 +40,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^3.2.0",
     "@types/debug": "^4.1.7",
-    "bootstrap": "^5.3.8",
     "chalk": "^4.1.2",
     "debug": "^4.3.2",
     "luxon": "^3.7.2",
     "next": "^16.1.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "reactstrap": "^9.2.3",
     "shelljs": "^0.8.5"
   },
   "devDependencies": {

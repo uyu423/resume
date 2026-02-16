@@ -1,8 +1,6 @@
-import { Col, Row } from 'reactstrap';
 import { PropsWithChildren } from 'react';
 
 import { SkillItem, SkillSubItem } from '../../types/ISkill';
-import { Style } from '../common/Style';
 import Util from '../common/Util';
 import { useMediaQuery } from '../common/useMediaQuery';
 
@@ -15,16 +13,12 @@ export default function SkillRow({
   return (
     <div>
       {index > 0 ? <hr /> : null}
-      <Row>
-        <Col sm={12} md={3} className="text-md-end">
-          <h4 style={Style.gray}>{skill.category}</h4>
-        </Col>
-        <Col sm={12} md={9}>
-          {/* {skill.items.map((item) => JSON.stringify(item, null, 2))} */}
-          {createCalculatedSkillItems(skill.items, isMobileScreen)}{' '}
-          {/* isVerticalScreen을 인자로 전달 */}
-        </Col>
-      </Row>
+      <div className="split-row">
+        <div className="split-left">
+          <h4 className="skill-category">{skill.category}</h4>
+        </div>
+        <div>{createCalculatedSkillItems(skill.items, isMobileScreen)}</div>
+      </div>
     </div>
   );
 }
@@ -37,7 +31,6 @@ function createCalculatedSkillItems(items: SkillSubItem[], isVerticalScreen: boo
    */
   const layer = 3;
 
-  // const splitPoint = layer % 2 ? Math.ceil(items.length / layer) : Math.floor(items.length / layer);
   const splitPoint = Math.ceil(items.length / layer);
 
   const list: SkillSubItem[][] = [];
@@ -51,42 +44,36 @@ function createCalculatedSkillItems(items: SkillSubItem[], isVerticalScreen: boo
 
   if (isVerticalScreen) {
     return (
-      <Row className="mt-2 mt-md-0">
-        <Col xs={12}>
-          <ul>
-            {items.map((skill, skillIndex) => {
+      <ul>
+        {items.map((skill, skillIndex) => {
+          return (
+            <li key={skillIndex.toString()} className="skill-item">
+              <span className="skill-item-title">{skill.title}</span>
+              {createDots(skill.level)}
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
+
+  return (
+    <div className="skill-columns">
+      {list.map((skills, index) => {
+        return (
+          <ul key={index.toString()}>
+            {skills.map((skill, skillIndex) => {
               return (
-                <li key={skillIndex.toString()}>
-                  {skill.title}
+                <li key={skillIndex.toString()} className="skill-item">
+                  <span className="skill-item-title">{skill.title}</span>
                   {createDots(skill.level)}
                 </li>
               );
             })}
           </ul>
-        </Col>
-      </Row>
-    );
-  }
-
-  return (
-    <Row className="mt-2 mt-md-0">
-      {list.map((skills, index) => {
-        return (
-          <Col md={4} xs={12} key={index.toString()}>
-            <ul>
-              {skills.map((skill, skillIndex) => {
-                return (
-                  <li key={skillIndex.toString()}>
-                    {skill.title}
-                    {createDots(skill.level)}
-                  </li>
-                );
-              })}
-            </ul>
-          </Col>
         );
       })}
-    </Row>
+    </div>
   );
 }
 
@@ -96,19 +83,9 @@ export function createDots(level?: number) {
   }
   const maxLevel = 3;
   return (
-    <span style={{ marginLeft: '6px', whiteSpace: 'nowrap' }}>
+    <span className="skill-level-dots" aria-label={`skill level ${level}`}>
       {Array.from({ length: maxLevel }, (_, i) => (
-        <span
-          key={i}
-          style={{
-            display: 'inline-block',
-            width: '8px',
-            height: '8px',
-            borderRadius: '50%',
-            background: i < level ? 'var(--color-accent)' : 'var(--color-border)',
-            marginRight: '3px',
-          }}
-        />
+        <span key={i} className={`skill-level-dot ${i < level ? 'is-active' : ''}`} />
       ))}
     </span>
   );

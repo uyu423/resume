@@ -1,4 +1,3 @@
-import { Row, Col, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProfileContact from './contact';
 import ProfileImage from './image';
@@ -17,127 +16,102 @@ export function ProfileSection({ payload }: { payload: Payload }) {
 
 function ProfileContent({ payload }: { payload: Payload }) {
   const { image, contact, name, tagline, headings, ctas, notice } = payload;
+  const ctaLinkSet = new Set(
+    (ctas ?? []).map((cta) => normalizeLink(cta.link)).filter((link): link is string => !!link),
+  );
+
+  const visibleContacts = contact.filter((item) => {
+    const normalized = normalizeLink(item.link);
+    if (!normalized) {
+      return true;
+    }
+    if (!isGithubLink(item.link)) {
+      return true;
+    }
+    return !ctaLinkSet.has(normalized);
+  });
+
   return (
-    <div className="mt-5">
+    <div className="profile-section">
       <div className="text-center">
-        {/* 프로필 이미지 */}
         <ProfileImage src={image} />
 
-        {/* 이름 */}
-        <h1
-          style={{
-            fontSize: '2.5rem',
-            fontWeight: 800,
-            color: 'var(--color-primary)',
-            marginBottom: 'var(--space-sm)',
-          }}
-        >
-          {name.title} {name.small && <small style={{ fontSize: '1.5rem' }}>{name.small}</small>}
+        <h1 className="profile-name">
+          {name.title} {name.small && <small>{name.small}</small>}
         </h1>
 
-        {/* 태그라인 */}
-        {tagline && (
-          <p
-            style={{
-              fontSize: '1.25rem',
-              fontWeight: 400,
-              color: 'var(--color-text-secondary)',
-              marginBottom: 'var(--space-lg)',
-            }}
-          >
-            {tagline}
-          </p>
-        )}
+        {tagline && <p className="profile-tagline">{tagline}</p>}
 
-        {/* 핵심 수치 카드 */}
         {headings && headings.length > 0 && (
-          <Row className="justify-content-center mb-4">
+          <div className="stats-grid profile-stats">
             {headings.map((heading, index) => (
-              <Col key={index.toString()} xs={12} sm={6} md={4} className="mb-3">
-                <div
-                  style={{
-                    padding: 'var(--space-md)',
-                    backgroundColor: 'var(--color-bg-highlight)',
-                    borderRadius: '8px',
-                    border: '1px solid var(--color-border)',
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: '2rem',
-                      fontWeight: 700,
-                      color: 'var(--color-accent)',
-                      marginBottom: 'var(--space-xs)',
-                    }}
-                  >
-                    {heading.value}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '0.875rem',
-                      color: 'var(--color-text-secondary)',
-                    }}
-                  >
-                    {heading.label}
-                  </div>
-                </div>
-              </Col>
+              <div key={index.toString()} className="profile-stat-item">
+                <div className="profile-stat-value">{heading.value}</div>
+                <div className="profile-stat-label">{heading.label}</div>
+              </div>
             ))}
-          </Row>
+          </div>
         )}
 
-        {/* 연락처 */}
-        <div className="profile-contacts mb-4" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'var(--space-xs)' }}>
-          {contact.map((contactItem, index) => (
+        <div className="profile-contacts">
+          {visibleContacts.map((contactItem, index) => (
             <ProfileContact key={index.toString()} payload={contactItem} />
           ))}
         </div>
 
-        {/* CTA 버튼 */}
         {ctas && ctas.length > 0 && (
-          <div className="mb-4" style={{ display: 'flex', gap: 'var(--space-sm)', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div className="profile-cta-group">
             {ctas.map((cta, index) => {
               const isPrimary = cta.variant === 'primary';
               return (
-                <Button
+                <a
                   key={index.toString()}
-                  tag="a"
                   href={cta.link}
                   className={`cta-button ${isPrimary ? 'cta-button-primary' : 'cta-button-outline'}`}
-                  style={{
-                    backgroundColor: isPrimary ? 'var(--color-accent)' : 'transparent',
-                    borderColor: 'var(--color-accent)',
-                    color: isPrimary ? 'white' : 'var(--color-accent)',
-                    fontWeight: 600,
-                    padding: '0.75rem 1.5rem',
-                    borderRadius: '8px',
-                    transition: 'all 0.2s',
-                  }}
                 >
-                  {cta.icon && <FontAwesomeIcon icon={cta.icon} style={{ marginRight: 'var(--space-xs)' }} />}
+                  {cta.icon && <FontAwesomeIcon icon={cta.icon} />}
                   {cta.label}
-                </Button>
+                </a>
               );
             })}
           </div>
         )}
 
-        {/* 공지 */}
-        <div
-          className="notice-banner"
-          style={{
-            borderLeft: '3px solid var(--color-accent)',
-            backgroundColor: 'var(--color-bg-highlight)',
-            padding: 'var(--space-md)',
-            borderRadius: '4px',
-            textAlign: 'left',
-            marginTop: 'var(--space-lg)',
-          }}
-        >
-          {notice.icon && <FontAwesomeIcon icon={notice.icon} style={{ marginRight: 'var(--space-sm)' }} />}
+        <div className="notice-banner">
+          {notice.icon && <FontAwesomeIcon icon={notice.icon} className="notice-icon" />}
           {notice.title}
         </div>
       </div>
     </div>
   );
+}
+
+function normalizeLink(link?: string) {
+  if (!link) {
+    return null;
+  }
+  const trimmed = link.trim();
+
+  if (trimmed.startsWith('mailto:') || trimmed.startsWith('tel:')) {
+    return trimmed.toLowerCase();
+  }
+
+  try {
+    const parsed = new URL(trimmed);
+    const normalizedPath = parsed.pathname.replace(/\/+$/, '').toLowerCase();
+    return `${parsed.hostname.replace(/^www\./, '').toLowerCase()}${normalizedPath}`;
+  } catch {
+    return trimmed.toLowerCase();
+  }
+}
+
+function isGithubLink(link?: string) {
+  if (!link) {
+    return false;
+  }
+  try {
+    return new URL(link).hostname.replace(/^www\./, '').toLowerCase() === 'github.com';
+  } catch {
+    return false;
+  }
 }
