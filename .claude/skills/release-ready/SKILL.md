@@ -9,7 +9,7 @@ Prepare a new version release for resume-nextjs. This skill:
 
 1. Bumps the version in project files
 2. Runs typecheck, lint, and build
-3. Verifies static build output (`docs/`)
+3. Verifies build succeeds (build output is gitignored, not committed)
 4. **Analyzes code changes since last tag**
 5. **Verifies README documentation is up-to-date**
 6. **Offers to auto-update README** if needed
@@ -196,8 +196,7 @@ git add package.json package-lock.json
 # Stage README if approved in Step 5
 # (skip if reverted or no updates)
 
-# Stage docs/ build output
-git add docs/
+# docs/ is gitignored — CI builds and deploys to gh-pages branch
 
 # Verify staged files
 git status --short
