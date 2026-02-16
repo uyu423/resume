@@ -29,6 +29,14 @@ v1 (`v1.3.1-eol` 태그)에서 대규모 업그레이드가 이루어졌다.
 - **Node.js 24**: `--openssl-legacy-provider` 옵션 불필요
 
 > v1에서 마이그레이션하려면 [MIGRATION_V1_TO_V2.md](./MIGRATION_V1_TO_V2.md)를 참고한다.
+>
+> [Claude Code](https://claude.ai/code)를 사용하면 payload 마이그레이션과 머지 충돌 해결을 자동화할 수 있다. v1 브랜치에서 아래 프롬프트를 실행한다:
+>
+> ```text
+> 아래의 URL을 확인하고, 마이그레이션 및 병합을 순서대로 실행합니다.
+>
+> https://raw.githubusercontent.com/uyu423/resume-nextjs/refs/heads/feature/v2/.claude/skills/payload-migration-v1-to-v2/SKILL.md
+> ```
 
 ## Contributors
 
