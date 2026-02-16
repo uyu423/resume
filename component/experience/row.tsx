@@ -59,7 +59,7 @@ export default function ExperienceRow({
       {index > 0 && <hr />}
       {/* 최상위 Row: 전체 재직 기간과 회사명 표시 */}
       <Row>
-        <Col sm={12} md={3} className="text-md-right">
+        <Col sm={12} md={3} className="text-md-end">
           <h4 style={Style.gray}>{periodTitle}</h4>
         </Col>
         <Col sm={12} md={9}>
@@ -67,11 +67,11 @@ export default function ExperienceRow({
             {item.title}{' '}
             <span style={{ fontSize: '65%', display: 'inline-flex', alignItems: 'center' }}>
               {isCurrentlyEmployed && (
-                <Badge color="primary" className="ml-1">
+                <Badge color="primary" className="ms-1">
                   재직 중
                 </Badge>
               )}
-              <Badge color="info" className="ml-1">
+              <Badge color="info" className="ms-1">
                 {Util.getFormattingDuration(minStartedAt, maxEndedAt)}
               </Badge>
             </span>
@@ -82,7 +82,7 @@ export default function ExperienceRow({
       {/* 각 Position을 최신 순으로 반복하여 개별 재직 기간과 직책 표시 */}
       {sortedPositions.map((position, posIndex) => (
         <Row key={posIndex.toString()} className="mt-2">
-          <Col sm={12} md={3} className="text-md-right">
+          <Col sm={12} md={3} className="text-md-end">
             {/* positions가 1개 이상일 때만 Position의 재직 기간 표시 */}
             {hasMultiplePositions && (
               <span style={Style.gray}>
@@ -146,7 +146,7 @@ function createSkillKeywords(skillKeywords?: string[]) {
             style={Style.skillKeywordBadge}
             key={index.toString()}
             color="secondary"
-            className="mr-1"
+            className="me-1"
           >
             {keyword}
           </Badge>

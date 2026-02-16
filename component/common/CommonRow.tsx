@@ -16,7 +16,7 @@ export function CommonRows({
     <div>
       {index > 0 ? <hr /> : ''}
       <Row>
-        <Col sm={12} md={3} className="text-md-right">
+        <Col sm={12} md={3} className="text-md-end">
           <Row>
             <Col md={12}>
               <h4 style={Style.gray}>{left.title}</h4>

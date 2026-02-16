@@ -36,7 +36,7 @@ function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
           {payload.contents.map((content, index) => (
             <p key={index.toString()}>{content}</p>
           ))}
-          <p className="text-right">
+          <p className="text-end">
             <small>Latest Updated</small>{' '}
             <Badge color="secondary">
               {`${latestUpdated.toFormat(
@@ -44,7 +44,7 @@ function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
               )} (D+${latestUpdatedByNow})`}
             </Badge>
           </p>
-          <p className="text-right" style={Style.sign}>
+          <p className="text-end" style={Style.sign}>
             {payload.sign}
           </p>
         </Col>

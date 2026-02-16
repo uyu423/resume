@@ -40,7 +40,7 @@ function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
 function createNameArea(name: Payload['name']) {
   return (
     <Row>
-      <Col className="text-center text-md-left">
+      <Col className="text-center text-md-start">
         <h1 style={Style.blue}>
           {name.title} <small>{name.small || ''}</small>
         </h1>
@@ -65,7 +65,7 @@ function createNoticeArea(notice: Payload['notice']) {
   return (
     <EmptyRowCol>
       <Alert color="secondary" role="alert" className="mt-3">
-        {notice.icon ? <FontAwesomeIcon className="mr-2" icon={notice.icon} /> : ''}
+        {notice.icon ? <FontAwesomeIcon className="me-2" icon={notice.icon} /> : ''}
         {notice.title}
       </Alert>
     </EmptyRowCol>

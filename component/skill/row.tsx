@@ -26,7 +26,7 @@ export default function SkillRow({
     <div>
       {index > 0 ? <hr /> : ''}
       <Row>
-        <Col sm={12} md={3} className="text-md-right">
+        <Col sm={12} md={3} className="text-md-end">
           <h4 style={Style.gray}>{skill.category}</h4>
         </Col>
         <Col sm={12} md={9}>
