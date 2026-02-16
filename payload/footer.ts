@@ -1,8 +1,8 @@
 import { homepage, version } from '../package.json';
 
-import { IFooter } from '../component/footer/IFooter';
+import { FooterPayload } from '../types/footer';
 
-const footer: IFooter.Payload = {
+const footer: FooterPayload = {
   version,
   github: homepage,
 };

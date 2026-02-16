@@ -1,13 +1,7 @@
-import { PropsWithChildren } from 'react';
-import { Row, Col } from 'reactstrap';
-import { IRow } from './IRow';
-import { Style } from './Style';
+import { RowPayload } from '../../types/row';
 import { CommonDescription } from './CommonDescription';
 
-export function CommonRows({
-  index,
-  payload,
-}: PropsWithChildren<{ payload: IRow.Payload; index: number }>) {
+export function CommonRows({ index, payload }: { payload: RowPayload; index: number }) {
   const { left, right } = payload;
 
   const isNeedDescriptionPadding = !!(right.title || right.subTitle);
@@ -15,18 +9,14 @@ export function CommonRows({
   return (
     <div>
       {index > 0 ? <hr /> : ''}
-      <Row>
-        <Col sm={12} md={3} className="text-md-right">
-          <Row>
-            <Col md={12}>
-              <h4 style={Style.gray}>{left.title}</h4>
-            </Col>
-            {left.subTitle ? <Col md={12}>{left.subTitle}</Col> : ''}
-          </Row>
-        </Col>
-        <Col sm={12} md={9}>
+      <div className="split-row">
+        <div className="split-left">
+          <h4 className="experience-period">{left.title}</h4>
+          {left.subTitle ? <div>{left.subTitle}</div> : ''}
+        </div>
+        <div>
           {right.title ? <h4>{right.title}</h4> : ''}
-          {right.subTitle ? <i style={Style.gray}>{right.subTitle}</i> : ''}
+          {right.subTitle ? <i className="experience-position-title">{right.subTitle}</i> : ''}
           {right.descriptions ? (
             <CommonDescription
               descriptions={right.descriptions}
@@ -35,8 +25,8 @@ export function CommonRows({
           ) : (
             ''
           )}
-        </Col>
-      </Row>
+        </div>
+      </div>
     </div>
   );
 }

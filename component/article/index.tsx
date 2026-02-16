@@ -1,23 +1,21 @@
-import { PropsWithChildren } from 'react';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
-import { IArticle } from './IArticle';
+import { Section } from '../common/Section';
+import { ArticlePayload } from '../../types/article';
 import { EmptyRowCol } from '../common';
 import { CommonSection } from '../common/CommonSection';
 import { CommonDescription } from '../common/CommonDescription';
 import Util from '../common/Util';
 
-type Payload = IArticle.Payload;
+type Payload = ArticlePayload;
 
-export const Article = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
+export function ArticleSection({ payload }: { payload: Payload }) {
+  return (
+    <Section payload={payload}>
+      <ArticleContent payload={payload} />
+    </Section>
+  );
+}
 
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function ArticleContent({ payload }: { payload: Payload }) {
   return (
     <CommonSection title="ARTICLE">
       <ArticleRow payload={payload} />
@@ -25,7 +23,7 @@ function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
   );
 }
 
-function ArticleRow({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function ArticleRow({ payload }: { payload: Payload }) {
   const log = Util.debug('ArticleRow');
 
   log(payload);

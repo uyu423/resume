@@ -1,4 +1,4 @@
-import { IProject } from '../component/project/IProject';
+import { ProjectPayload } from '../types/project';
 
 const WHERE = {
   YA: '야놀자 (Yanolja)',
@@ -9,7 +9,7 @@ const WHERE = {
   NV_NSPA: '네이버 (NAVER) 쇼핑 앱 백엔드 개발',
 };
 
-const nvShoppingAppServer: IProject.Item = {
+const nvShoppingAppServer = {
   title: '네이버 쇼핑 앱 서버 개발',
   startedAt: '2024-02',
   endedAt: '2025-04',
@@ -17,7 +17,7 @@ const nvShoppingAppServer: IProject.Item = {
   descriptions: [
     {
       content: '네이버 쇼핑 앱 서비스 출시',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         {
           content:
@@ -49,7 +49,7 @@ const nvShoppingAppServer: IProject.Item = {
   ],
 };
 
-const nvHighlightEnhance: IProject.Item = {
+const nvHighlightEnhance = {
   title: '쇼핑라이브 하이라이트 고도화',
   startedAt: '2023-03',
   endedAt: '2023-05',
@@ -72,7 +72,7 @@ const nvHighlightEnhance: IProject.Item = {
   ],
 };
 
-const nvShortclip: IProject.Item = {
+const nvShortclip = {
   title: '쇼핑라이브 숏클립 서비스 백엔드 개발 및 운영',
   startedAt: '2022-04',
   endedAt: '2022-09',
@@ -97,7 +97,7 @@ const nvShortclip: IProject.Item = {
   ],
 };
 
-const nvBroadcastClip: IProject.Item = {
+const nvBroadcastClip = {
   title: '쇼핑라이브 하이라이트/상품 구간 클립 서비스 개발 및 운영',
   startedAt: '2021-04',
   endedAt: '2021-09',
@@ -120,7 +120,7 @@ const nvBroadcastClip: IProject.Item = {
   ],
 };
 
-const nvBroadcastBackend: IProject.Item = {
+const nvBroadcastBackend = {
   title: '쇼핑라이브 백엔드 개발 및 유지보수 / 운영',
   startedAt: '2021-03',
   endedAt: '2024-02',
@@ -131,19 +131,19 @@ const nvBroadcastBackend: IProject.Item = {
     },
     {
       content: '2023년 네이버 숏폼판 데이터 제공을 위한 숏클립 연동 작업',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
     },
     {
       content: '2022년 Service Config 동기화를 위한 신규 ZooKeeper 라이브러리 구현',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
     },
     {
       content: '2022년 쇼핑라이브 ADMIN 개선 및 신규 기능 추가',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
     },
     {
       content: ' 2021년 실시간 방송 재생 정보 HTTP → Socket 방식으로 전환',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         {
           content: '순간적인 트래픽이 몰렸을 때 API 대역폭 리스크 감소',
@@ -152,7 +152,7 @@ const nvBroadcastBackend: IProject.Item = {
     },
     {
       content: '2021년 방송 트레일러(미리보기) 개션',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         {
           content:
@@ -170,7 +170,7 @@ const nvBroadcastBackend: IProject.Item = {
   ],
 };
 
-const yaNol2020Dlc: IProject.Item = {
+const yaNol2020Dlc = {
   title: '야놀자 놀력 이벤트 성수기 업데이트 및 운영',
   startedAt: '2020-05',
   endedAt: '2020-07',
@@ -185,7 +185,7 @@ const yaNol2020Dlc: IProject.Item = {
   ],
 };
 
-const yaRedisDist: IProject.Item = {
+const yaRedisDist = {
   title: 'Redis 구조 추가 개선/개편',
   startedAt: '2020-04',
   endedAt: '2020-06',
@@ -206,7 +206,7 @@ const yaRedisDist: IProject.Item = {
   ],
 };
 
-const yaNol2020: IProject.Item = {
+const yaNol2020 = {
   title: '야놀자 2020 놀력 포인트 지급 이벤트 개발 및 운영',
   startedAt: '2019-10',
   endedAt: '2020-01',
@@ -231,7 +231,7 @@ const yaNol2020: IProject.Item = {
   ],
 };
 
-const yaRedis: IProject.Item = {
+const yaRedis = {
   title: 'Legacy Redis 청산 및 구조 개편',
   startedAt: '2019-07',
   endedAt: '2019-10',
@@ -246,7 +246,7 @@ const yaRedis: IProject.Item = {
   ],
 };
 
-const yaJoyAPI: IProject.Item = {
+const yaJoyAPI = {
   title: '야놀자 Mashup API 개발 및 유지보수 / 운영',
   startedAt: '2018-02',
   endedAt: '2021-02',
@@ -255,7 +255,7 @@ const yaJoyAPI: IProject.Item = {
     { content: 'Aggregation Layer의 Mashup API 개발 및 운영' },
     {
       content: ' 2020년 국내 숙소 상세 실시간 인기도 메시지 기능 추가',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         {
           content:
@@ -266,7 +266,7 @@ const yaJoyAPI: IProject.Item = {
     },
     {
       content: '2020년 국내 레저 찜 기능 추가',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         { content: '기존 국내 숙소/해외 숙소만 존재하던 야놀자 서비스에 국내 레저 찜 기능을 추가' },
         {
@@ -281,7 +281,7 @@ const yaJoyAPI: IProject.Item = {
     },
     {
       content: '2020년 신규 쿠폰 유형 적용',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         {
           content:
@@ -291,7 +291,7 @@ const yaJoyAPI: IProject.Item = {
     },
     {
       content: '2020년 숙소 후기 Freshness 정책 적용',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         { content: '신규 후기 정책 Aggregation Layer API 적용으로 사용자 신뢰성 향상' },
         { content: 'Legacy 로 판단되던 정책 개선을 서비스에 반영한 것에 의의' },
@@ -299,22 +299,22 @@ const yaJoyAPI: IProject.Item = {
     },
     {
       content: '2019년 숙소 리스트 신규 광고 상품 추가',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [{ content: '신규 광고 상품 추가로 신규 매출 발생에 기여' }],
     },
     {
       content: '2019년 쇼킹특가/핫딜 서비스 런칭',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [{ content: '신규 할인 상품 추가로 추가 매출 발생 및 사용자 구매율 향상' }],
     },
     {
       content: '2019년 해외숙소 예약 서비스 런칭',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [{ content: '해외 OTA 연동으로 해외 숙소 예약 가능하도록 런칭' }],
     },
     {
       content: '2018년 레저 서비스 런칭',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         { content: '레저 상품 데이터 연동으로 레저 서비스 예약 기능 런칭' },
         {
@@ -326,7 +326,7 @@ const yaJoyAPI: IProject.Item = {
     },
     {
       content: '2018년 국내 숙소 상세 개편 및 유지보수',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         { content: '2018년 상반기에 국내 숙소 상세(PDP) 리팩토링 및 서비스 개선 완료' },
         { content: 'Redis 활용한 Response Cache 도입 및 리팩토링으로 기존 대비 Latency 90% 감소' },
@@ -335,7 +335,7 @@ const yaJoyAPI: IProject.Item = {
     },
     {
       content: 'AWS 인프라 유지보수 및 ISMS 인증 작업',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         { content: '주기적으로 변경 및 강화되는 인프라 정책을 팀 프로젝트에 적용' },
         { content: '팀 내 AWS 사용 구조 개선과 비용 최적화' },
@@ -346,7 +346,7 @@ const yaJoyAPI: IProject.Item = {
   ],
 };
 
-const plBackend: IProject.Item = {
+const plBackend = {
   title: '플레이팅 백엔드/프론트엔드 서비스 개발',
   startedAt: '2016-10',
   endedAt: '2017-11',
@@ -354,7 +354,7 @@ const plBackend: IProject.Item = {
   descriptions: [
     {
       content: 'API Server v1 / v2',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         { content: '플레이팅 서비스에 사용되는 API 서버 개발' },
         {
@@ -367,7 +367,7 @@ const plBackend: IProject.Item = {
     },
     {
       content: 'Socket Server',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         { content: '주문 관련 백오피스에 사용되는 소켓 서버 개발' },
         { content: 'Node.js와 Socket.io, Express.js를 사용하여 개발' },
@@ -376,7 +376,7 @@ const plBackend: IProject.Item = {
     },
     {
       content: 'ETC',
-      weight: 'MEDIUM',
+      weight: 'MEDIUM' as const,
       descriptions: [
         {
           content: 'Admin 서비스 개발',
@@ -407,7 +407,7 @@ const plBackend: IProject.Item = {
   ],
 };
 
-const plDelivery: IProject.Item = {
+const plDelivery = {
   title: '플레이팅 새벽 배송 서비스 런칭',
   startedAt: '2017-03',
   endedAt: '2017-05',
@@ -421,7 +421,7 @@ const plDelivery: IProject.Item = {
   ],
 };
 
-const ecBackend: IProject.Item = {
+const ecBackend = {
   title: '클릭시티네트웍스 백엔드 개발',
   startedAt: '2015-07',
   endedAt: '2016-02',
@@ -434,7 +434,7 @@ const ecBackend: IProject.Item = {
   ],
 };
 
-const kyToto: IProject.Item = {
+const kyToto = {
   title: '스포츠 경기 승률 계산 서비스 개발',
   startedAt: '2014-09',
   endedAt: '2015-03',
@@ -451,7 +451,7 @@ const kyToto: IProject.Item = {
   ],
 };
 
-const project: IProject.Payload = {
+const project: ProjectPayload = {
   disable: false,
   list: [
     nvShoppingAppServer,

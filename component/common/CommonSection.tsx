@@ -1,21 +1,16 @@
 import { PropsWithChildren } from 'react';
-import { Row, Col } from 'reactstrap';
-import { EmptyRowCol } from '.';
-import { Style } from './Style';
+import { SectionAnimate } from './SectionAnimate';
 
 export function CommonSection({ title, children }: PropsWithChildren<{ title: string }>) {
+  const sectionId = `section-${title.toLowerCase().replace(/\s+/g, '-')}`;
   return (
-    <div className="mt-5">
-      <EmptyRowCol>
-        <Row className="pb-3">
-          <Col>
-            <h2 style={Style.blue}>
-              <span>{title}</span>
-            </h2>
-          </Col>
-        </Row>
+    <SectionAnimate>
+      <section className="editorial-section" aria-labelledby={sectionId}>
+        <h2 id={sectionId} className="section-heading">
+          {title}
+        </h2>
         {children}
-      </EmptyRowCol>
-    </div>
+      </section>
+    </SectionAnimate>
   );
 }

@@ -1,26 +1,24 @@
-import { DateTime } from 'luxon';
 import { PropsWithChildren } from 'react';
 import { CommonSection } from '../common/CommonSection';
 import { EmptyRowCol } from '../common';
 import { CommonRows } from '../common/CommonRow';
-import { IEducation } from './IEducation';
-import { IRow } from '../common/IRow';
+import { EducationPayload, EducationItem } from '../../types/education';
+import { RowPayload } from '../../types/row';
 import Util from '../common/Util';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
+import { Section } from '../common/Section';
 
-type Payload = IEducation.Payload;
-type Item = IEducation.Item;
+type Payload = EducationPayload;
+type Item = EducationItem;
 
-export const Education = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
+export function EducationSection({ payload }: { payload: Payload }) {
+  return (
+    <Section payload={payload}>
+      <EducationContent payload={payload} />
+    </Section>
+  );
+}
 
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function EducationContent({ payload }: { payload: Payload }) {
   return (
     <CommonSection title="EDUCATION">
       <EducationRow payload={payload} />
@@ -38,21 +36,9 @@ function EducationRow({ payload }: PropsWithChildren<{ payload: Payload }>) {
   );
 }
 
-function serialize(item: Item): IRow.Payload {
-  const DATE_FORMAT = Util.LUXON_DATE_FORMAT;
-  const [startedAt] = [item.startedAt].map((at) =>
-    DateTime.fromFormat(at, DATE_FORMAT.YYYY_LL).toFormat(DATE_FORMAT.YYYY_DOT_LL),
-  );
-
-  const endedAt =
-    item.endedAt === undefined
-      ? ' '
-      : [item.endedAt].map((at) =>
-          DateTime.fromFormat(at, DATE_FORMAT.YYYY_LL).toFormat(DATE_FORMAT.YYYY_DOT_LL),
-        );
-
+function serialize(item: Item): RowPayload {
   return {
-    left: { title: `${startedAt} ~ ${endedAt}` },
+    left: { title: Util.formatDateRange(item.startedAt, item.endedAt) },
     right: {
       ...item,
     },

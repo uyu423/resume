@@ -1,31 +1,30 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import { Head, Html, Main, NextScript } from 'next/document';
 
-export default class ResumeDocument extends Document {
-  render() {
-    return (
-      <Html lang="ko-KR">
-        <Head>
-          {/* Step 5: Output the styles in the head  */}
-          <meta charSet="utf-8" />
-          {/* <meta name="viewport" content="initial-scale=1.0, width=device-width" /> */}
-          <link
-            href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700|Parisienne&display=swap&subset=korean"
-            rel="stylesheet"
-          />
-          <link
-            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-            rel="stylesheet"
-          />
-          <link
-            href="https://fonts.googleapis.com/css?family=Parisienne&display=swap"
-            rel="stylesheet"
-          />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    );
-  }
+export default function ResumeDocument() {
+  return (
+    <Html lang="ko-KR">
+      <Head>
+        <meta charSet="utf-8" />
+        <link
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Parisienne&family=Sora:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <body>
+        {/* FOUC prevention: this string MUST remain static — never interpolate user data */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}})();",
+          }}
+        />
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
 }

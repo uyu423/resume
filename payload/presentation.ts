@@ -1,6 +1,6 @@
-import { IPresentation } from '../component/presentation/IPresentation';
+import { PresentationPayload } from '../types/presentation';
 
-const presentation: IPresentation.Payload = {
+const presentation: PresentationPayload = {
   disable: false,
 
   list: [

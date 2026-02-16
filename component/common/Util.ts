@@ -35,6 +35,20 @@ function getFormattingDuration(from: DateTime, to: DateTime = DateTime.local()) 
   return diff.toFormat(format);
 }
 
+/** YYYY-LL 형식의 날짜 문자열을 YYYY. LL 형식으로 포맷 */
+function formatYearMonth(dateStr: string): string {
+  return DateTime.fromFormat(dateStr, LUXON_DATE_FORMAT.YYYY_LL).toFormat(
+    LUXON_DATE_FORMAT.YYYY_DOT_LL,
+  );
+}
+
+/** 시작일~종료일 날짜 범위 문자열 생성 */
+function formatDateRange(startedAt: string, endedAt?: string): string {
+  const start = formatYearMonth(startedAt);
+  if (!endedAt) return `${start} ~`;
+  return `${start} ~ ${formatYearMonth(endedAt)}`;
+}
+
 function debug(channel: string) {
   return _debug(`yosume:${channel}`);
 }
@@ -42,6 +56,8 @@ function debug(channel: string) {
 const Util = {
   LUXON_DATE_FORMAT,
   getFormattingDuration,
+  formatYearMonth,
+  formatDateRange,
   debug,
 };
 

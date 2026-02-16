@@ -1,69 +1,62 @@
-import { Badge, Col, Row } from 'reactstrap';
 import { DateTime, Duration } from 'luxon';
 
-import { PropsWithChildren } from 'react';
-import { EmptyRowCol } from '../common';
+import { CommonSection } from '../common/CommonSection';
 import ExperienceRow from './row';
-import { IExperience } from './IExperience';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
-import { Style } from '../common/Style';
+import { ExperiencePayload, ExperienceItem } from '../../types/experience';
+import { Section } from '../common/Section';
 import Util from '../common/Util';
 
-type Payload = IExperience.Payload;
+type Payload = ExperiencePayload;
 
-export const Experience = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
-
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
-  const totalPeriod = () => {
-    if (payload.disableTotalPeriod) {
-      return '';
-    }
-    return (
-      <span style={{ fontSize: '50%' }}>
-        <Badge>{getFormattingExperienceTotalDuration(payload)}</Badge>
-      </span>
-    );
-  };
-
+export function ExperienceSection({ payload }: { payload: Payload }) {
   return (
-    <div className="mt-5">
-      <EmptyRowCol>
-        <Row className="pb-3">
-          <Col>
-            <h2 style={Style.blue}>EXPERIENCE {totalPeriod()}</h2>
-          </Col>
-        </Row>
-        {payload.list.map((item, index) => (
-          <ExperienceRow key={index.toString()} item={item} index={index} />
-        ))}
-      </EmptyRowCol>
-    </div>
+    <Section payload={payload}>
+      <ExperienceContent payload={payload} />
+    </Section>
   );
 }
 
-function getFormattingExperienceTotalDuration(payload: IExperience.Payload) {
-  const durations = payload.list.reduce((acc: Duration[], item: IExperience.Item) => {
-    const itemDurations = item.positions.map((position: IExperience.Position) => {
-      const endedAt = position.endedAt
-        ? DateTime.fromFormat(position.endedAt, Util.LUXON_DATE_FORMAT.YYYY_LL)
-        : DateTime.local();
-      const startedAt = DateTime.fromFormat(position.startedAt, Util.LUXON_DATE_FORMAT.YYYY_LL);
-      return endedAt.diff(startedAt);
-    });
-    return acc.concat(itemDurations); // 중첩된 배열 평탄화
-  }, []);
-
-  const totalExperience = durations.reduce(
-    (prev: Duration, cur: Duration) => prev.plus(cur),
-    Duration.fromMillis(0),
+function ExperienceContent({ payload }: { payload: Payload }) {
+  return (
+    <CommonSection title="EXPERIENCE">
+      {!payload.disableTotalPeriod && (
+        <div className="split-row experience-summary-row">
+          <div className="split-left">
+            <span className="experience-summary-label">TOTAL</span>
+          </div>
+          <div className="experience-total-period">
+            <span className="tag tag--muted">{getFormattingExperienceTotalDuration(payload)}</span>
+          </div>
+        </div>
+      )}
+      {payload.list.map((item, index) => (
+        <ExperienceRow key={index.toString()} item={item} index={index} />
+      ))}
+    </CommonSection>
   );
+}
+
+function getFormattingExperienceTotalDuration(payload: ExperiencePayload) {
+  // 회사(item) 단위로 전체 재직 기간을 계산하여 포지션 간 중복을 방지
+  const durations = payload.list.map((item: ExperienceItem) => {
+    const startDates = item.positions.map((p) =>
+      DateTime.fromFormat(p.startedAt, Util.LUXON_DATE_FORMAT.YYYY_LL),
+    );
+    const endDates = item.positions.map((p) =>
+      p.endedAt
+        ? DateTime.fromFormat(p.endedAt, Util.LUXON_DATE_FORMAT.YYYY_LL)
+        : DateTime.local(),
+    );
+    const minStart = DateTime.min(...startDates) ?? DateTime.local();
+    const maxEnd = DateTime.max(...endDates) ?? DateTime.local();
+
+    // 햇수 계산을 위해 +1개월 적용 (getFormattingDuration과 동일)
+    return maxEnd.plus({ month: 1 }).diff(minStart, ['years', 'months']);
+  });
+
+  const totalExperience = durations
+    .reduce((prev: Duration, cur: Duration) => prev.plus(cur), Duration.fromMillis(0))
+    .shiftTo('years', 'months');
 
   return totalExperience.toFormat(`총 ${Util.LUXON_DATE_FORMAT.DURATION_KINDNESS}`);
 }

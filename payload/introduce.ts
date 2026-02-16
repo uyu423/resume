@@ -1,7 +1,7 @@
-import { IIntroduce } from '../component/introduce/IIntroduce';
-import { lastestUpdatedAt } from '../package.json';
+import { IntroducePayload } from '../types/introduce';
+import { latestUpdatedAt } from '../package.json';
 
-const introduce: IIntroduce.Payload = {
+const introduce: IntroducePayload = {
   disable: false,
 
   contents: [
@@ -12,7 +12,7 @@ const introduce: IIntroduce.Payload = {
   sign: 'Yongwoo',
   // sign: packageJson.author.name,
   // latestUpdated: '2019-07-24',
-  latestUpdated: lastestUpdatedAt,
+  latestUpdated: latestUpdatedAt,
 };
 
 export default introduce;

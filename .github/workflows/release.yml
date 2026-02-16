@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read Node.js version from .nvmrc
+        id: nvmrc
+        run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ steps.nvmrc.outputs.NODE_VERSION }}
+          cache: npm
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run build
+
+  release:
+    needs: ci
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify tag matches package.json version
+        run: |
+          PKG_VERSION="v$(node -p "require('./package.json').version")"
+          GIT_TAG="${GITHUB_REF#refs/tags/}"
+          if [ "$PKG_VERSION" != "$GIT_TAG" ]; then
+            echo "::error::Tag $GIT_TAG does not match package.json version $PKG_VERSION"
+            exit 1
+          fi
+
+      - name: Generate changelog
+        id: changelog
+        uses: requarks/changelog-action@v1
+        with:
+          token: ${{ github.token }}
+          tag: ${{ github.ref_name }}
+          writeToFile: false
+          excludeTypes: build,docs,other,style,ci,test,chore
+
+      - name: Create GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          body: ${{ steps.changelog.outputs.changes }}
+          tag: ${{ github.ref_name }}

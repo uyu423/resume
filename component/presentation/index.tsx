@@ -1,21 +1,19 @@
-import { PropsWithChildren } from 'react';
 import { CommonSection } from '../common/CommonSection';
 import PresentationRow from './row';
-import { IPresentation } from './IPresentation';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
+import { PresentationPayload } from '../../types/presentation';
+import { Section } from '../common/Section';
 
-type Payload = IPresentation.Payload;
+type Payload = PresentationPayload;
 
-export const Presentation = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
+export function PresentationSection({ payload }: { payload: Payload }) {
+  return (
+    <Section payload={payload}>
+      <PresentationContent payload={payload} />
+    </Section>
+  );
+}
 
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function PresentationContent({ payload }: { payload: Payload }) {
   return (
     <CommonSection title="PRESENTATION">
       <PresentationRow payload={payload} />

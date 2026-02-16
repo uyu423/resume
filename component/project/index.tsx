@@ -1,21 +1,19 @@
-import { PropsWithChildren } from 'react';
 import ProjectRow from './row';
 import { CommonSection } from '../common/CommonSection';
-import { IProject } from './IProject';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
+import { ProjectPayload } from '../../types/project';
+import { Section } from '../common/Section';
 
-type Payload = IProject.Payload;
+type Payload = ProjectPayload;
 
-export const Project = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
+export function ProjectSection({ payload }: { payload: Payload }) {
+  return (
+    <Section payload={payload}>
+      <ProjectContent payload={payload} />
+    </Section>
+  );
+}
 
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function ProjectContent({ payload }: { payload: Payload }) {
   return (
     <CommonSection title="PROJECT">
       <ProjectRow payload={payload} />

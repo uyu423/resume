@@ -1,5 +1,6 @@
 import profile from './profile';
 import introduce from './introduce';
+import highlight from './highlight';
 import skill from './skill';
 import experience from './experience';
 import openSource from './openSource';
@@ -7,33 +8,38 @@ import project from './project';
 import presentation from './presentation';
 import education from './education';
 import article from './article';
+import testimonial from './testimonial';
 import etc from './etc';
 import footer from './footer';
 
 import { _global } from './_global';
 
-import { IProfile } from '../component/profile/IProfile';
-import { IIntroduce } from '../component/introduce/IIntroduce';
-import { ISkill } from '../component/skill/ISkill';
-import { IOpenSource } from '../component/openSource/IOpenSource';
-import { IExperience } from '../component/experience/IExperience';
-import { IProject } from '../component/project/IProject';
-import { IPresentation } from '../component/presentation/IPresentation';
-import { IEducation } from '../component/education/IEducation';
-import { IEtc } from '../component/etc/IEtc';
-import { IFooter } from '../component/footer/IFooter';
-import { IGlobal } from '../component/common/IGlobal';
-import { IArticle } from '../component/article/IArticle';
+import { ProfilePayload } from '../types/profile';
+import { IntroducePayload } from '../types/introduce';
+import { HighlightPayload } from '../types/highlight';
+import { TestimonialPayload } from '../types/testimonial';
+import { SkillPayload } from '../types/skill';
+import { OpenSourcePayload } from '../types/open-source';
+import { ExperiencePayload } from '../types/experience';
+import { ProjectPayload } from '../types/project';
+import { PresentationPayload } from '../types/presentation';
+import { EducationPayload } from '../types/education';
+import { EtcPayload } from '../types/etc';
+import { FooterPayload } from '../types/footer';
+import { GlobalPayload } from '../types/global';
+import { ArticlePayload } from '../types/article';
 
 const Payload: Payload = {
   profile,
   introduce,
+  highlight,
   skill,
   openSource,
   experience,
   project,
   presentation,
   article,
+  testimonial,
   education,
   etc,
   footer,
@@ -42,19 +48,21 @@ const Payload: Payload = {
 };
 
 interface Payload {
-  profile: IProfile.Payload;
-  introduce: IIntroduce.Payload;
-  skill: ISkill.Payload;
-  openSource: IOpenSource.Payload;
-  experience: IExperience.Payload;
-  project: IProject.Payload;
-  presentation: IPresentation.Payload;
-  education: IEducation.Payload;
-  article: IArticle.Payload;
-  etc: IEtc.Payload;
-  footer: IFooter.Payload;
+  profile: ProfilePayload;
+  introduce: IntroducePayload;
+  highlight: HighlightPayload;
+  skill: SkillPayload;
+  openSource: OpenSourcePayload;
+  experience: ExperiencePayload;
+  project: ProjectPayload;
+  presentation: PresentationPayload;
+  education: EducationPayload;
+  article: ArticlePayload;
+  testimonial: TestimonialPayload;
+  etc: EtcPayload;
+  footer: FooterPayload;
 
-  _global: IGlobal.Payload;
+  _global: GlobalPayload;
 }
 
 export default Payload;

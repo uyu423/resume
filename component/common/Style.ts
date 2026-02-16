@@ -13,24 +13,26 @@ type TStyleKey =
 
 export const Style: Record<TStyleKey, CSSProperties> = {
   blue: {
-    color: '#3c78d8',
+    color: 'var(--color-accent)',
   },
 
   gray: {
-    color: 'gray',
+    color: 'var(--color-text-secondary)',
   },
 
   global: {
-    fontFamily: 'Pretendard, sans-serif',
-    fontWeight: 300,
+    fontFamily: 'var(--font-body)',
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    fontWeight: 'var(--fw-light)' as any,
     wordWrap: 'break-word',
     wordBreak: 'keep-all',
     lineHeight: 1.8,
   },
 
   sign: {
-    fontFamily: "'Parisienne', cursive",
-    fontSize: '1.5em',
+    fontFamily: 'var(--font-signature)',
+    fontSize: '1.2em',
+    fontWeight: 300,
   },
 
   profileImg: {
@@ -38,7 +40,7 @@ export const Style: Record<TStyleKey, CSSProperties> = {
   },
 
   footerCover: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: 'var(--color-bg-subtle)',
     paddingLeft: 0,
     paddingRight: 0,
     marginTop: '50px',
@@ -50,6 +52,7 @@ export const Style: Record<TStyleKey, CSSProperties> = {
   },
 
   skillKeywordBadge: {
-    fontWeight: 400,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    fontWeight: 'var(--fw-regular)' as any,
   },
 };

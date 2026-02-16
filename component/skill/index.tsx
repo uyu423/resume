@@ -1,65 +1,24 @@
-import { Row, Col, Tooltip } from 'reactstrap';
-import { PropsWithChildren, useState } from 'react';
-import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Style } from '../common/Style';
-import { ISkill } from './ISkill';
+import { SkillPayload } from '../../types/skill';
 import SkillRow from './row';
-import { EmptyRowCol } from '../common';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
+import { Section } from '../common/Section';
+import { CommonSection } from '../common/CommonSection';
 
-type Payload = ISkill.Payload;
+type Payload = SkillPayload;
 
-export const Skill = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
-
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
+export function SkillSection({ payload }: { payload: Payload }) {
   return (
-    <div className="mt-5">
-      <EmptyRowCol>
-        <Row className="pb-3">
-          <Col>
-            <h2>
-              <span style={Style.blue}>SKILL</span>
-              {createTooltip(payload.tooltip)}
-            </h2>
-          </Col>
-        </Row>
-        {payload.skills.map((skill, index) => (
-          <SkillRow key={index.toString()} skill={skill} index={index} />
-        ))}
-      </EmptyRowCol>
-    </div>
+    <Section payload={payload}>
+      <SkillContent payload={payload} />
+    </Section>
   );
 }
 
-function createTooltip(content?: string) {
-  if (!content) {
-    return '';
-  }
-
-  const [tooltipOpen, setTooltipOpen] = useState(false);
-  const toggle = () => setTooltipOpen(!tooltipOpen);
-
+function SkillContent({ payload }: { payload: Payload }) {
   return (
-    <small>
-      {' '}
-      <FontAwesomeIcon icon={faQuestionCircle} id="skill-tooltip" />
-      <Tooltip
-        style={{ whiteSpace: 'pre-wrap' }}
-        placement="right"
-        target="skill-tooltip"
-        isOpen={tooltipOpen}
-        toggle={toggle}
-      >
-        {content}
-      </Tooltip>
-    </small>
+    <CommonSection title="SKILL">
+      {payload.skills.map((skill, index) => (
+        <SkillRow key={index.toString()} skill={skill} index={index} />
+      ))}
+    </CommonSection>
   );
 }

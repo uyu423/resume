@@ -1,6 +1,6 @@
-import { IOpenSource } from '../component/openSource/IOpenSource';
+import { OpenSourcePayload } from '../types/open-source';
 
-const resume: IOpenSource.Item = {
+const resume = {
   title: 'resume-nextjs',
   descriptions: [
     { content: 'next.js 로 누구나 쉽게 만드는 웹 이력서 프로젝트' },
@@ -21,7 +21,7 @@ const resume: IOpenSource.Item = {
   ],
 };
 
-const yowuDevtools: IOpenSource.Item = {
+const yowuDevtools = {
   title: 'yowu-devtools',
   descriptions: [
     {
@@ -55,7 +55,7 @@ const yowuDevtools: IOpenSource.Item = {
   ],
 };
 
-const r2curl: IOpenSource.Item = {
+const r2curl = {
   title: 'r2curl',
   descriptions: [
     {
@@ -86,7 +86,7 @@ const r2curl: IOpenSource.Item = {
   ],
 };
 
-const nodeEscpos: IOpenSource.Item = {
+const nodeEscpos = {
   title: 'node-escpos',
   descriptions: [
     {
@@ -112,7 +112,7 @@ const nodeEscpos: IOpenSource.Item = {
   ],
 };
 
-// const yop: IOpenSource.Item = {
+// const yop = {
 //   title: 'yop',
 //   descriptions: [
 //     {
@@ -131,7 +131,7 @@ const nodeEscpos: IOpenSource.Item = {
 //   ],
 // };
 
-const kanboard: IOpenSource.Item = {
+const kanboard = {
   title: 'kanboard',
   descriptions: [
     {
@@ -157,7 +157,7 @@ const kanboard: IOpenSource.Item = {
   ],
 };
 
-const ossDeveloperComunity: IOpenSource.Item = {
+const ossDeveloperComunity = {
   title: 'OSS 개발자 커뮤니티',
   descriptions: [
     {
@@ -172,7 +172,7 @@ const ossDeveloperComunity: IOpenSource.Item = {
   ],
 };
 
-const nineXdDeveloperComunity: IOpenSource.Item = {
+const nineXdDeveloperComunity = {
   title: '9XD 개발자 커뮤니티',
   descriptions: [
     {
@@ -184,7 +184,7 @@ const nineXdDeveloperComunity: IOpenSource.Item = {
   ],
 };
 
-const openSource: IOpenSource.Payload = {
+const openSource: OpenSourcePayload = {
   disable: false,
   list: [
     yowuDevtools,

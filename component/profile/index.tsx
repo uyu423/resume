@@ -1,73 +1,58 @@
-import { Row, Col, Alert } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { PropsWithChildren } from 'react';
 import ProfileContact from './contact';
 import ProfileImage from './image';
-import { EmptyRowCol } from '../common';
-import { IProfile } from './IProfile';
-import { Style } from '../common/Style';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
+import { ProfilePayload } from '../../types/profile';
+import { Section } from '../common/Section';
 
-type Payload = IProfile.Payload;
+type Payload = ProfilePayload;
 
-export const Profile = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
-
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
-  const { image, contact, name, notice } = payload;
+export function ProfileSection({ payload }: { payload: Payload }) {
   return (
-    <div className="mt-5">
-      <Row>
-        <Col md={3} sm={12}>
-          <ProfileImage src={image} />
-        </Col>
-        <Col md={9} sm={12}>
-          {createNameArea(name)}
-          {createProfileContactMap(contact)}
-          {createNoticeArea(notice)}
-        </Col>
-      </Row>
-    </div>
+    <Section payload={payload}>
+      <ProfileContent payload={payload} />
+    </Section>
   );
 }
 
-function createNameArea(name: Payload['name']) {
-  return (
-    <Row>
-      <Col className="text-center text-md-left">
-        <h1 style={Style.blue}>
-          {name.title} <small>{name.small || ''}</small>
-        </h1>
-      </Col>
-    </Row>
-  );
-}
+function ProfileContent({ payload }: { payload: Payload }) {
+  const { image, contact, name, tagline, headings, notice } = payload;
 
-function createProfileContactMap(contacts: Payload['contact']) {
   return (
-    <Row>
-      <Col className="pt-3">
-        {contacts.map((contact, index) => (
-          <ProfileContact key={index.toString()} payload={contact} />
-        ))}
-      </Col>
-    </Row>
-  );
-}
+    <div className="profile-section">
+      {/* Identity Group */}
+      <div className="profile-identity">
+        <ProfileImage src={image} name={name.title} />
+        <div className="profile-identity-text">
+          <h1 className="profile-name">
+            {name.title} {name.small && <small>{name.small}</small>}
+          </h1>
+          {tagline && <p className="profile-tagline">{tagline}</p>}
+          <div className="profile-contacts">
+            {contact.map((contactItem, index) => (
+              <ProfileContact key={index.toString()} payload={contactItem} />
+            ))}
+          </div>
+        </div>
+      </div>
 
-function createNoticeArea(notice: Payload['notice']) {
-  return (
-    <EmptyRowCol>
-      <Alert color="secondary" role="alert" className="mt-3">
-        {notice.icon ? <FontAwesomeIcon className="mr-2" icon={notice.icon} /> : ''}
+      <div className="notice-banner">
+        {notice.icon && <FontAwesomeIcon icon={notice.icon} className="notice-icon" />}
         {notice.title}
-      </Alert>
-    </EmptyRowCol>
+      </div>
+
+      {/* Evidence Group */}
+      {headings && headings.length > 0 && (
+        <div className="profile-stats-band">
+          <div className="stats-grid profile-stats">
+            {headings.map((heading, index) => (
+              <div key={index.toString()} className="profile-stat-item">
+                <div className="profile-stat-value">{heading.value}</div>
+                <div className="profile-stat-label">{heading.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

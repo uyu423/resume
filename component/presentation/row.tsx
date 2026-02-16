@@ -1,14 +1,13 @@
-import { DateTime } from 'luxon';
 import { PropsWithChildren } from 'react';
 import { CommonRows } from '../common/CommonRow';
-import { IRow } from '../common/IRow';
+import { RowPayload } from '../../types/row';
 import Util from '../common/Util';
 import { EmptyRowCol } from '../common';
-import { IPresentation } from './IPresentation';
+import { PresentationPayload, PresentationItem } from '../../types/presentation';
 
 export default function PresentationRow({
   payload,
-}: PropsWithChildren<{ payload: IPresentation.Payload }>) {
+}: PropsWithChildren<{ payload: PresentationPayload }>) {
   return (
     <EmptyRowCol>
       {payload.list.map((item, index) => {
@@ -18,12 +17,10 @@ export default function PresentationRow({
   );
 }
 
-function serialize(item: IPresentation.Item): IRow.Payload {
+function serialize(item: PresentationItem): RowPayload {
   return {
     left: {
-      title: DateTime.fromFormat(item.at, Util.LUXON_DATE_FORMAT.YYYY_LL).toFormat(
-        Util.LUXON_DATE_FORMAT.YYYY_DOT_LL,
-      ),
+      title: Util.formatYearMonth(item.at),
     },
     right: {
       ...item,

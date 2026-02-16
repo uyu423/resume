@@ -1,70 +1,51 @@
-import { ISkill } from '../component/skill/ISkill';
+import { SkillPayload, SkillItem } from '../types/skill';
 
-const backendLanguage: ISkill.Skill = {
+const backendLanguage: SkillItem = {
   category: 'Languages',
   items: [
     {
       title: 'Kotlin',
-      // level: 3,
     },
     {
       title: 'Java',
-      // level: 3,
     },
     {
       title: 'TypeScript',
-      // level: 3,
     },
     {
       title: 'javascript',
-      // level: 2,
     },
     {
       title: 'HTML/CSS',
-      // level: 2,
     },
   ],
 };
 
-const frameworkLib: ISkill.Skill = {
+const frameworkLib: SkillItem = {
   category: 'Fameworks & Libraries',
   items: [
     {
       title: 'Spring Boot',
-      // level: 3,
     },
     {
       title: 'Node.js',
-      // level: 3,
     },
     {
       title: 'Express.js',
-      // level: 3,
     },
-    // {
-    // title: 'Nest.js',
-    // level: 2,
-    // },
     {
       title: 'Next.js',
-      // level: 2,
     },
     {
       title: 'React.js',
-      // level: 2,
     },
-    // {
-    // title: 'CodeIgniter',
-    // level: 1,
-    // },
     {
       title: 'Coroutine',
-      // level: 3,
     },
   ],
 };
 
-const infraDb: ISkill.Skill = {
+const infraDb: SkillItem = {
   category: 'Infrastructure & Databases',
   items: [
     {
@@ -103,7 +84,7 @@ const infraDb: ISkill.Skill = {
   ],
 };
 
-const toolIde: ISkill.Skill = {
+const toolIde: SkillItem = {
   category: 'Tools & IDEs',
   items: [
     {
@@ -136,7 +117,7 @@ const toolIde: ISkill.Skill = {
   ],
 };
 
-const misc: ISkill.Skill = {
+const misc: SkillItem = {
   category: 'Misc',
   items: [
     {
@@ -157,10 +138,9 @@ const misc: ISkill.Skill = {
   ],
 };
 
-const skill: ISkill.Payload = {
+const skill: SkillPayload = {
   disable: false,
   skills: [backendLanguage, frameworkLib, infraDb, toolIde, misc],
-  // tooltip: '1: 기초 수준\n2: 취미 개발 수준\n3: Production 개발 가능 수준',
 };
 
 export default skill;

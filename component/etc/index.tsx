@@ -1,34 +1,32 @@
-import { DateTime } from 'luxon';
 import { PropsWithChildren } from 'react';
 import { CommonSection } from '../common/CommonSection';
 import { EmptyRowCol } from '../common';
 import { CommonRows } from '../common/CommonRow';
-import { IRow } from '../common/IRow';
+import { RowPayload } from '../../types/row';
 import Util from '../common/Util';
-import { IEtc } from './IEtc';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
+import { EtcPayload, EtcItem } from '../../types/etc';
+import { Section } from '../common/Section';
 
-type Payload = IEtc.Payload;
-type Item = IEtc.Item;
+type Payload = EtcPayload;
+type Item = EtcItem;
 
-export const Etc = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<IEtc.Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
+export function EtcSection({ payload }: { payload: Payload }) {
+  return (
+    <Section payload={payload}>
+      <EtcContent payload={payload} />
+    </Section>
+  );
+}
 
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function EtcContent({ payload }: { payload: Payload }) {
   return (
     <CommonSection title="ETC">
-      <EducationRow payload={payload} />
+      <EtcRow payload={payload} />
     </CommonSection>
   );
 }
 
-function EducationRow({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function EtcRow({ payload }: PropsWithChildren<{ payload: Payload }>) {
   return (
     <EmptyRowCol>
       {payload.list.map((item, index) => {
@@ -38,24 +36,10 @@ function EducationRow({ payload }: PropsWithChildren<{ payload: Payload }>) {
   );
 }
 
-function serialize(item: Item): IRow.Payload {
-  const DATE_FORMAT = Util.LUXON_DATE_FORMAT;
-  const startedAt = DateTime.fromFormat(item.startedAt, DATE_FORMAT.YYYY_LL).toFormat(
-    DATE_FORMAT.YYYY_DOT_LL,
-  );
-  const title = (() => {
-    if (item.endedAt) {
-      const endedAt = DateTime.fromFormat(item.endedAt, DATE_FORMAT.YYYY_LL).toFormat(
-        DATE_FORMAT.YYYY_DOT_LL,
-      );
-      return `${startedAt} ~ ${endedAt}`;
-    }
-    return startedAt;
-  })();
-
+function serialize(item: Item): RowPayload {
   return {
     left: {
-      title,
+      title: Util.formatDateRange(item.startedAt, item.endedAt),
     },
     right: {
       ...item,

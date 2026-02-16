@@ -1,6 +1,6 @@
-import { IEtc } from '../component/etc/IEtc';
+import { EtcPayload } from '../types/etc';
 
-const etc: IEtc.Payload = {
+const etc: EtcPayload = {
   disable: false,
 
   list: [
