@@ -1,4 +1,4 @@
-import { CSSProperties, PropsWithChildren } from 'react';
+import React, { CSSProperties, PropsWithChildren } from 'react';
 
 import { HrefTargetBlank } from '.';
 import { IRow } from './IRow';
@@ -14,17 +14,14 @@ export function CommonDescription({
         <ul className={option?.padding ? 'pt-2' : ''}>
           {descriptions.map((description, descIndex) => {
             return (
-              <>
-                <Description description={description} key={descIndex.toString()} />
+              <React.Fragment key={descIndex.toString()}>
+                <Description description={description} />
                 {description.descriptions ? (
-                  <DescriptionRecursion
-                    descriptions={description.descriptions}
-                    key={descIndex.toString()}
-                  />
+                  <DescriptionRecursion descriptions={description.descriptions} />
                 ) : (
                   ''
                 )}
-              </>
+              </React.Fragment>
             );
           })}
         </ul>
@@ -43,17 +40,14 @@ function DescriptionRecursion({
     <ul>
       {descriptions.map((description, index) => {
         return (
-          <>
-            <Description description={description} key={index.toString()} />
+          <React.Fragment key={index.toString()}>
+            <Description description={description} />
             {description.descriptions ? (
-              <DescriptionRecursion
-                descriptions={description.descriptions}
-                key={index.toString()}
-              />
+              <DescriptionRecursion descriptions={description.descriptions} />
             ) : (
               ''
             )}
-          </>
+          </React.Fragment>
         );
       })}
     </ul>
