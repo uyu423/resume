@@ -27,7 +27,7 @@ function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
           <Col>
             <h2>
               <span style={Style.blue}>SKILL</span>
-              {createTooltip(payload.tooltip)}
+              {payload.tooltip ? <SkillTooltip content={payload.tooltip} /> : ''}
             </h2>
           </Col>
         </Row>
@@ -39,11 +39,7 @@ function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
   );
 }
 
-function createTooltip(content?: string) {
-  if (!content) {
-    return '';
-  }
-
+function SkillTooltip({ content }: { content: string }) {
   const [tooltipOpen, setTooltipOpen] = useState(false);
   const toggle = () => setTooltipOpen(!tooltipOpen);
 
