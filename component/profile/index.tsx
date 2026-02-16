@@ -10,7 +10,7 @@ type Payload = ProfilePayload;
 export function ProfileSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <ProfileContent payload={data} />}
+      <ProfileContent payload={payload} />
     </Section>
   );
 }

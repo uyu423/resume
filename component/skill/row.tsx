@@ -1,30 +1,20 @@
 import { Col, Row } from 'reactstrap';
-import { PropsWithChildren, useEffect, useState } from 'react';
+import { PropsWithChildren } from 'react';
 
 import { SkillItem, SkillSubItem } from '../../types/ISkill';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
+import { useMediaQuery } from '../common/useMediaQuery';
 
 export default function SkillRow({
   skill,
   index,
 }: PropsWithChildren<{ skill: SkillItem; index: number }>) {
-  const [isMobileScreen, setIsMobileScreen] = useState(false);
-
-  useEffect(() => {
-    setIsMobileScreen(window.innerWidth < 768);
-    const handleResize = () => {
-      setIsMobileScreen(window.innerWidth < 768);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const isMobileScreen = !useMediaQuery('(min-width: 768px)');
 
   return (
     <div>
-      {index > 0 ? <hr /> : ''}
+      {index > 0 ? <hr /> : null}
       <Row>
         <Col sm={12} md={3} className="text-md-end">
           <h4 style={Style.gray}>{skill.category}</h4>

@@ -179,6 +179,12 @@
   }
 }
 
+/* Below-fold sections: skip rendering until near viewport */
+.section-animate {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .section-animate {

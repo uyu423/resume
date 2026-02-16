@@ -9,7 +9,7 @@ type Payload = SkillPayload;
 export function SkillSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <SkillContent payload={data} />}
+      <SkillContent payload={payload} />
     </Section>
   );
 }

@@ -8,7 +8,7 @@ type Payload = OpenSourcePayload;
 export function OpenSourceSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <OpenSourceContent payload={data} />}
+      <OpenSourceContent payload={payload} />
     </Section>
   );
 }

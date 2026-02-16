@@ -10,7 +10,7 @@ type Payload = IntroducePayload;
 export function IntroduceSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <IntroduceContent payload={data} />}
+      <IntroduceContent payload={payload} />
     </Section>
   );
 }

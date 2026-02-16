@@ -13,7 +13,7 @@ type Item = EtcItem;
 export function EtcSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <EtcContent payload={data} />}
+      <EtcContent payload={payload} />
     </Section>
   );
 }

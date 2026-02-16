@@ -6,10 +6,60 @@ import { TestimonialPayload, TestimonialItem } from '../../types/ITestimonial';
 
 type Payload = TestimonialPayload;
 
+const cardStyle: CSSProperties = {
+  background: 'var(--color-bg-subtle)',
+  borderRadius: '12px',
+  padding: '32px',
+  height: '100%',
+  position: 'relative',
+};
+
+const quoteMarkStyle: CSSProperties = {
+  fontSize: '4rem',
+  color: 'var(--color-accent)',
+  opacity: 0.2,
+  position: 'absolute',
+  top: '8px',
+  left: '16px',
+  fontFamily: 'Georgia, serif',
+  lineHeight: 1,
+};
+
+const quoteStyle: CSSProperties = {
+  fontSize: '1rem',
+  fontWeight: 400,
+  lineHeight: 1.8,
+  color: 'var(--color-text)',
+  position: 'relative',
+  zIndex: 1,
+};
+
+const authorStyle: CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  marginTop: '20px',
+  gap: '12px',
+};
+
+const avatarStyle: CSSProperties = {
+  width: '48px',
+  height: '48px',
+  borderRadius: '50%',
+  objectFit: 'cover',
+  background: 'var(--color-bg-highlight)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: 'var(--color-accent)',
+  fontWeight: 600,
+  fontSize: '1.1rem',
+  flexShrink: 0,
+};
+
 export function TestimonialSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <TestimonialContent payload={data} />}
+      <TestimonialContent payload={payload} />
     </Section>
   );
 }
@@ -29,56 +79,6 @@ function TestimonialContent({ payload }: { payload: Payload }) {
 }
 
 function TestimonialCard({ item }: { item: TestimonialItem }) {
-  const cardStyle: CSSProperties = {
-    background: 'var(--color-bg-subtle)',
-    borderRadius: '12px',
-    padding: '32px',
-    height: '100%',
-    position: 'relative',
-  };
-
-  const quoteMarkStyle: CSSProperties = {
-    fontSize: '4rem',
-    color: 'var(--color-accent)',
-    opacity: 0.2,
-    position: 'absolute',
-    top: '8px',
-    left: '16px',
-    fontFamily: 'Georgia, serif',
-    lineHeight: 1,
-  };
-
-  const quoteStyle: CSSProperties = {
-    fontSize: '1rem',
-    fontWeight: 400,
-    lineHeight: 1.8,
-    color: 'var(--color-text)',
-    position: 'relative',
-    zIndex: 1,
-  };
-
-  const authorStyle: CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    marginTop: '20px',
-    gap: '12px',
-  };
-
-  const avatarStyle: CSSProperties = {
-    width: '48px',
-    height: '48px',
-    borderRadius: '50%',
-    objectFit: 'cover',
-    background: 'var(--color-bg-highlight)',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'var(--color-accent)',
-    fontWeight: 600,
-    fontSize: '1.1rem',
-    flexShrink: 0,
-  };
-
   const initial = item.name.charAt(0);
 
   return (

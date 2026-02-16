@@ -10,7 +10,7 @@ type Payload = ArticlePayload;
 export function ArticleSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <ArticleContent payload={data} />}
+      <ArticleContent payload={payload} />
     </Section>
   );
 }

@@ -12,7 +12,7 @@ type Payload = ExperiencePayload;
 export function ExperienceSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <ExperienceContent payload={data} />}
+      <ExperienceContent payload={payload} />
     </Section>
   );
 }

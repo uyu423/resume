@@ -8,7 +8,7 @@ type Payload = ProjectPayload;
 export function ProjectSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <ProjectContent payload={data} />}
+      <ProjectContent payload={payload} />
     </Section>
   );
 }

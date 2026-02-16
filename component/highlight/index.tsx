@@ -5,10 +5,25 @@ import { HighlightPayload, HighlightItem } from '../../types/IHighlight';
 
 type Payload = HighlightPayload;
 
+const titleStyle: CSSProperties = {
+  fontWeight: 600,
+  color: 'var(--color-primary)',
+  fontSize: '1.1rem',
+  marginBottom: 'var(--space-sm)',
+};
+
+const descriptionStyle: CSSProperties = {
+  fontWeight: 300,
+  color: 'var(--color-text)',
+  fontSize: '0.95rem',
+  marginBottom: 'var(--space-md)',
+  lineHeight: 1.6,
+};
+
 export function HighlightSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <HighlightContent payload={data} />}
+      <HighlightContent payload={payload} />
     </Section>
   );
 }
@@ -54,21 +69,6 @@ function HighlightCard({ item }: { item: HighlightItem }) {
           boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
         }
       : {}),
-  };
-
-  const titleStyle: CSSProperties = {
-    fontWeight: 600,
-    color: 'var(--color-primary)',
-    fontSize: '1.1rem',
-    marginBottom: 'var(--space-sm)',
-  };
-
-  const descriptionStyle: CSSProperties = {
-    fontWeight: 300,
-    color: 'var(--color-text)',
-    fontSize: '0.95rem',
-    marginBottom: 'var(--space-md)',
-    lineHeight: 1.6,
   };
 
   return (

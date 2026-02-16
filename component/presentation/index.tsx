@@ -8,7 +8,7 @@ type Payload = PresentationPayload;
 export function PresentationSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <PresentationContent payload={data} />}
+      <PresentationContent payload={payload} />
     </Section>
   );
 }

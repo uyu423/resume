@@ -10,7 +10,7 @@ type Payload = FooterPayload;
 export function FooterSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <FooterContent payload={data} />}
+      <FooterContent payload={payload} />
     </Section>
   );
 }

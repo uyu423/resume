@@ -13,7 +13,7 @@ type Item = EducationItem;
 export function EducationSection({ payload }: { payload: Payload }) {
   return (
     <Section payload={payload}>
-      {(data) => <EducationContent payload={data} />}
+      <EducationContent payload={payload} />
     </Section>
   );
 }

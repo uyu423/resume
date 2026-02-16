@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react';
+import { useMediaQuery } from '../common/useMediaQuery';
 
 interface NavItem {
   id: string;
   title: string;
 }
 
+const listStyle: React.CSSProperties = {
+  listStyle: 'none',
+  padding: 0,
+  margin: 0,
+};
+
 export function FloatingNav() {
   const [items, setItems] = useState<NavItem[]>([]);
   const [activeId, setActiveId] = useState<string>('');
   const [visible, setVisible] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsDesktop(window.innerWidth >= 992);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
+  const isDesktop = useMediaQuery('(min-width: 992px)');
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[aria-labelledby]');
@@ -80,12 +80,6 @@ export function FloatingNav() {
     opacity: visible ? 1 : 0,
     transition: 'opacity var(--transition-slow)',
     pointerEvents: visible ? 'auto' : 'none',
-  };
-
-  const listStyle: React.CSSProperties = {
-    listStyle: 'none',
-    padding: 0,
-    margin: 0,
   };
 
   return (
