@@ -34,6 +34,12 @@ export interface ProfilePayload extends CommonPayload {
      */
     icon?: IconDefinition;
   };
+  /** ### 한 줄 브랜드 스테이트먼트 */
+  tagline?: string;
+  /** ### 핵심 수치 카드 목록 (3~5개 권장) */
+  headings?: ProfileHeading[];
+  /** ### CTA 버튼 목록 (최대 2개 권장) */
+  ctas?: ProfileCTA[];
 }
 
 /**
@@ -61,4 +67,22 @@ export interface ProfileContact {
    * @description Bootstrap 4 의 Badge 로 표시하고 싶을 경우 true
    */
   badge?: true;
+}
+
+export interface ProfileHeading {
+  /** ### 수치 (예: "10+", "50K") */
+  value: string;
+  /** ### 설명 (예: "경력 연차") */
+  label: string;
+}
+
+export interface ProfileCTA {
+  /** ### 버튼 텍스트 */
+  label: string;
+  /** ### 클릭 시 이동할 URL (mailto:, 파일 다운로드 등) */
+  link: string;
+  /** ### 버튼 아이콘 (optional) */
+  icon?: IconDefinition;
+  /** ### primary 또는 secondary 스타일 */
+  variant?: 'primary' | 'secondary';
 }

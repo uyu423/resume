@@ -40,6 +40,26 @@ const profile: ProfilePayload = {
       "The content below is all fictitious and is just a sample from 'https://github.com/uyu423/resume-nextjs'.",
     icon: faBell,
   },
+  tagline: 'Open Source Enthusiast | Full Stack Developer',
+  headings: [
+    { value: '5+', label: 'Years of Experience' },
+    { value: '10+', label: 'Projects Completed' },
+    { value: '1K+', label: 'GitHub Contributions' },
+  ],
+  ctas: [
+    {
+      label: 'Email Me',
+      link: 'mailto:tux@linux.org',
+      icon: faEnvelope,
+      variant: 'primary',
+    },
+    {
+      label: 'GitHub',
+      link: 'https://github.com/uyu423/resume-nextjs',
+      icon: faGithub,
+      variant: 'secondary',
+    },
+  ],
 };
 
 export default profile;

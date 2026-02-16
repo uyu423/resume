@@ -5,6 +5,7 @@ import { EducationSection } from '../component/education';
 import { EtcSection } from '../component/etc';
 import { ExperienceSection } from '../component/experience';
 import { FooterSection } from '../component/footer';
+import { HighlightSection } from '../component/highlight';
 import { IntroduceSection } from '../component/introduce';
 import { OpenSourceSection } from '../component/openSource';
 import { PresentationSection } from '../component/presentation';
@@ -35,14 +36,15 @@ function Yosume() {
       <main>
         <Container style={Style.global}>
           <ProfileSection payload={Payload.profile} />
-          <IntroduceSection payload={Payload.introduce} />
-          <SkillSection payload={Payload.skill} />
+          <HighlightSection payload={Payload.highlight} />
           <ExperienceSection payload={Payload.experience} />
           <ProjectSection payload={Payload.project} />
+          <SkillSection payload={Payload.skill} />
           <OpenSourceSection payload={Payload.openSource} />
           <PresentationSection payload={Payload.presentation} />
           <ArticleSection payload={Payload.article} />
           <EducationSection payload={Payload.education} />
+          <IntroduceSection payload={Payload.introduce} />
           <EtcSection payload={Payload.etc} />
           <FooterSection payload={Payload.footer} />
         </Container>

@@ -1,5 +1,6 @@
 import profile from './profile';
 import introduce from './introduce';
+import highlight from './highlight';
 import skill from './skill';
 import experience from './experience';
 import openSource from './openSource';
@@ -14,6 +15,7 @@ import { _global } from './_global';
 
 import { ProfilePayload } from '../types/IProfile';
 import { IntroducePayload } from '../types/IIntroduce';
+import { HighlightPayload } from '../types/IHighlight';
 import { SkillPayload } from '../types/ISkill';
 import { OpenSourcePayload } from '../types/IOpenSource';
 import { ExperiencePayload } from '../types/IExperience';
@@ -28,6 +30,7 @@ import { ArticlePayload } from '../types/IArticle';
 const Payload: Payload = {
   profile,
   introduce,
+  highlight,
   skill,
   openSource,
   experience,
@@ -44,6 +47,7 @@ const Payload: Payload = {
 interface Payload {
   profile: ProfilePayload;
   introduce: IntroducePayload;
+  highlight: HighlightPayload;
   skill: SkillPayload;
   openSource: OpenSourcePayload;
   experience: ExperiencePayload;
