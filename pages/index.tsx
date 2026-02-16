@@ -1,8 +1,6 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { Container } from 'reactstrap';
 
 import Head from 'next/head';
-import { NextSeo } from 'next-seo';
 import { Education } from '../component/education';
 import { Etc } from '../component/etc';
 import { Experience } from '../component/experience';
@@ -18,12 +16,21 @@ import Payload from '../payload';
 import { Article } from '../component/article';
 
 function Yosume() {
+  const { seo } = Payload._global;
   return (
     <>
-      <NextSeo {...Payload._global.seo} />
       <Head>
         <title>{Payload._global.headTitle}</title>
         <link rel="shortcut icon" href={Payload._global.favicon} />
+        {seo.description && <meta name="description" content={seo.description} />}
+        {seo.openGraph?.title && <meta property="og:title" content={seo.openGraph.title} />}
+        {seo.openGraph?.description && (
+          <meta property="og:description" content={seo.openGraph.description} />
+        )}
+        {seo.openGraph?.type && <meta property="og:type" content={seo.openGraph.type} />}
+        {seo.openGraph?.images?.[0]?.url && (
+          <meta property="og:image" content={seo.openGraph.images[0].url} />
+        )}
       </Head>
       <Container style={Style.global}>
         <Profile.Component payload={Payload.profile} />

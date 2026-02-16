@@ -29,7 +29,7 @@ export default function ExperienceRow({
     .slice()
     .sort((a, b) => b.startedAtDate.toMillis() - a.startedAtDate.toMillis());
 
-  const minStartedAt = DateTime.min(...sortedPositions.map((position) => position.startedAtDate));
+  const minStartedAt = DateTime.min(...sortedPositions.map((position) => position.startedAtDate)) ?? DateTime.local();
   const isCurrentlyEmployed = sortedPositions.some((position) => position.isCurrent);
 
   function hasEndedAtDate(
@@ -42,11 +42,11 @@ export default function ExperienceRow({
     .filter(hasEndedAtDate)
     .map((position) => position.endedAtDate);
 
-  let maxEndedAt: DateTime;
+  let maxEndedAt: DateTime<boolean>;
   if (isCurrentlyEmployed) {
     maxEndedAt = DateTime.local();
   } else if (endedAtDates.length > 0) {
-    maxEndedAt = DateTime.max(...endedAtDates);
+    maxEndedAt = DateTime.max(...endedAtDates) ?? DateTime.local();
   } else {
     maxEndedAt = DateTime.local();
   }
@@ -123,9 +123,9 @@ function createOverallWorkingPeriod(positions: PositionWithDates[]) {
 
   const endedAtDates = positions.filter(hasEndedAtDate).map((position) => position.endedAtDate);
 
-  let endedAt: DateTime;
+  let endedAt: DateTime<boolean>;
   if (endedAtDates.length > 0) {
-    endedAt = DateTime.max(...endedAtDates);
+    endedAt = DateTime.max(...endedAtDates) ?? DateTime.local();
   } else {
     endedAt = DateTime.local();
   }

@@ -1,25 +1,40 @@
-import { NextSeoProps } from 'next-seo';
-
 export declare namespace IGlobal {
+  export interface OpenGraphImage {
+    url: string;
+    width?: number;
+    height?: number;
+    alt?: string;
+  }
+
+  export interface OpenGraphProfile {
+    firstName?: string;
+    lastName?: string;
+    username?: string;
+    gender?: string;
+  }
+
+  export interface OpenGraph {
+    title?: string;
+    description?: string;
+    images?: OpenGraphImage[];
+    type?: string;
+    profile?: OpenGraphProfile;
+  }
+
+  export interface Seo {
+    title?: string;
+    description?: string;
+    openGraph?: OpenGraph;
+  }
+
   export interface Payload {
-    /**
-     * ### Resume 제목
-     *
-     * @description `<head>` 태그 내 `<title>` 을 정의한다.
-     */
+    /** Resume 제목 - `<head>` 태그 내 `<title>` 을 정의한다. */
     headTitle: string;
 
-    /**
-     * ### favicon 이미지
-     */
+    /** favicon 이미지 */
     favicon: string;
 
-    /**
-     * ### SEO Properties
-     *
-     * @description OpenGraph 메타 태그를 포함한 SEO 를 위한 요소를 정의한다. `next-seo` 를 사용했으므로 해당 패키지를 참고한다.
-     * @see https://github.com/garmeeh/next-seo
-     */
-    seo: NextSeoProps;
+    /** OpenGraph 메타 태그를 포함한 SEO 요소 */
+    seo: Seo;
   }
 }
