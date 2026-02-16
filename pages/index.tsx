@@ -34,6 +34,38 @@ function Yosume() {
         {seo.openGraph?.images?.[0]?.url && (
           <meta property="og:image" content={seo.openGraph.images[0].url} />
         )}
+        {seo.openGraph?.profile?.firstName && (
+          <meta property="profile:first_name" content={seo.openGraph.profile.firstName} />
+        )}
+        {seo.openGraph?.profile?.lastName && (
+          <meta property="profile:last_name" content={seo.openGraph.profile.lastName} />
+        )}
+        {seo.openGraph?.profile?.username && (
+          <meta property="profile:username" content={seo.openGraph.profile.username} />
+        )}
+        {Payload._global.jsonLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'ProfilePage',
+                mainEntity: {
+                  '@type': 'Person',
+                  name: Payload._global.jsonLd.name,
+                  jobTitle: Payload._global.jsonLd.jobTitle,
+                  worksFor: {
+                    '@type': 'Organization',
+                    name: Payload._global.jsonLd.worksFor,
+                  },
+                  url: Payload._global.jsonLd.url,
+                  ...(Payload._global.jsonLd.sameAs && { sameAs: Payload._global.jsonLd.sameAs }),
+                  ...(Payload._global.jsonLd.knowsAbout && { knowsAbout: Payload._global.jsonLd.knowsAbout }),
+                },
+              }),
+            }}
+          />
+        )}
       </Head>
       <FloatingNav />
       <main>

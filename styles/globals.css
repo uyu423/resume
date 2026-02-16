@@ -71,54 +71,112 @@
 
 /* Print styles */
 @media print {
+  /* === 1. 인터랙티브 요소 숨김 === */
   .floating-nav,
   .cta-button,
   .dark-mode-toggle,
-  .notice-banner {
+  .notice-banner,
+  .scroll-to-top,
+  .language-toggle {
     display: none !important;
   }
 
+  /* === 2. 애니메이션/전환 제거 === */
   .section-animate {
     opacity: 1 !important;
     transform: none !important;
   }
 
   * {
+    animation: none !important;
+    transition: none !important;
     box-shadow: none !important;
   }
 
+  /* === 3. 레이아웃 === */
+  body {
+    width: 210mm;
+    margin: 0;
+    padding: 0;
+    font-size: 11pt;
+    line-height: 1.5;
+    color: #000 !important;
+    background: #fff !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  h1 { font-size: 20pt; }
+  h2 { font-size: 14pt; }
+  h4 { font-size: 11pt; }
+
+  /* === 4. 카드 스타일 간소화 === */
   .highlight-card,
   .testimonial-card {
     border: 1px solid #ddd !important;
     background: white !important;
+    padding: 12px !important;
   }
 
+  /* === 5. 링크 URL 표시 === */
   a[href^="http"]::after {
     content: " (" attr(href) ")";
     font-size: 0.8em;
     color: #666;
+    word-break: break-all;
+  }
+  /* 내부 링크는 URL 미표시 */
+  a[href^="mailto"]::after,
+  a[href^="tel"]::after,
+  a[href^="#"]::after {
+    content: "" !important;
   }
 
+  /* === 6. 외부 이미지 뱃지 숨김 (인쇄 시 깨짐 방지) === */
+  img[src*="shields.io"],
+  img[src*="badge"],
+  img[src*="img.shields.io"] {
+    display: none !important;
+  }
+
+  /* === 7. 페이지 분할 제어 === */
   .experience-item,
-  .project-item {
+  .project-item,
+  .testimonial-card {
     break-inside: avoid;
   }
   h2, h3, h4 {
     break-after: avoid;
   }
+  section {
+    break-before: auto;
+  }
 
+  /* === 8. A4 레이아웃 === */
   @page {
     margin: 15mm;
     size: A4;
   }
 
-  body {
-    font-size: 11pt;
-    line-height: 1.5;
+  /* === 9. 다크 모드 강제 해제 === */
+  html[data-theme="dark"],
+  html[data-theme="dark"] * {
+    color: #000 !important;
+    background-color: #fff !important;
+    border-color: #ddd !important;
   }
-  h1 { font-size: 20pt; }
-  h2 { font-size: 14pt; }
-  h4 { font-size: 11pt; }
+
+  /* === 10. 프로필 사진 인쇄 최적화 === */
+  .profile-image,
+  img[alt*="profile"],
+  img[alt*="Profile"] {
+    width: 100px !important;
+    height: 100px !important;
+    border: 1px solid #ddd !important;
+  }
 }
 
 /* Reduced motion */

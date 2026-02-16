@@ -3,8 +3,9 @@ import { GlobalPayload } from '../types/IGlobal';
 const favicon = '/favicon.ico';
 const previewImage = '/preview.jpg';
 
-const title = 'RESUME-NEXTJS Sample Page';
-const description = 'This is a simple web resume sample.';
+// TODO: 실제 이력서 정보로 변경하세요
+const title = 'Your Name | Web Resume';
+const description = 'Experienced software engineer specializing in web development. View my interactive resume.';
 
 export const _global: GlobalPayload = {
   favicon,
@@ -20,16 +21,29 @@ export const _global: GlobalPayload = {
           url: previewImage,
           width: 800,
           height: 600,
-          alt: 'OpenGraph Image Sample.png',
+          alt: 'Resume preview image',
         },
       ],
       type: 'profile',
       profile: {
-        firstName: 'Lorem',
-        lastName: 'ipsum',
-        username: 'lorem',
-        gender: 'female',
+        // TODO: 실제 이름으로 변경하세요
+        firstName: 'Your',
+        lastName: 'Name',
+        username: 'yourname',
+        gender: 'male',
       },
     },
+  },
+  // TODO: 실제 정보로 변경하세요
+  jsonLd: {
+    name: 'Your Name',
+    jobTitle: 'Software Engineer',
+    worksFor: 'Company Name',
+    url: 'https://your-resume-url.com',
+    sameAs: [
+      'https://github.com/yourname',
+      'https://linkedin.com/in/yourname',
+    ],
+    knowsAbout: ['TypeScript', 'React', 'Node.js'],
   },
 };
