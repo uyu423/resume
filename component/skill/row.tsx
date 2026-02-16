@@ -1,5 +1,5 @@
 import { Badge, Col, Row } from 'reactstrap';
-import React, { PropsWithChildren, useEffect, useState } from 'react';
+import { PropsWithChildren, useEffect, useState } from 'react';
 
 import { ISkill } from './ISkill';
 import { Style } from '../common/Style';
