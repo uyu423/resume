@@ -8,11 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env DEBUG=yosume:* next",
     "build": "next build",
-    "prebuild": "npm install",
+    "prebuild": "npm install && npm run lint",
     "postbuild": "node shellwork.js",
     "start": "next start",
     "clean": "npx rimraf docs",
-    "lint": "eslint \"component/**/*\" \"pages/**/*\" \"payload/**/*\" \"*.ts\" --fix"
+    "lint": "eslint \"component/**/*\" \"pages/**/*\" \"payload/**/*\" --fix"
   },
   "homepage": "https://uyu423.github.io/resume-nextjs",
   "repository": {
@@ -51,6 +51,7 @@
     "shelljs": "^0.8.5"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/luxon": "^3.7.1",
     "@types/node": "^25.2.3",
     "@types/react": "^19.2.14",
@@ -58,9 +59,15 @@
     "@types/shelljs": "^0.8.9",
     "cpy-cli": "^3.1.1",
     "cross-env": "^7.0.3",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^17.3.0",
+    "prettier": "^3.8.1",
     "rimraf": "^3.0.2",
-    "typedoc": "~0.19.2",
-    "typescript": "~5.9"
+    "typescript": "~5.9",
+    "typescript-eslint": "^8.56.0"
   },
   "resolutions": {
     "**/minimist": "^1.2.3"

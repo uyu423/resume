@@ -1,7 +1,7 @@
 import { Row, Col } from 'reactstrap';
 import { PropsWithChildren } from 'react';
 
-export function EmptyRowCol<T = {}>({ children }: PropsWithChildren<T>) {
+export function EmptyRowCol<T = Record<string, never>>({ children }: PropsWithChildren<T>) {
   return (
     <Row>
       <Col>{children}</Col>
