@@ -23,12 +23,12 @@ export const Etc = {
 function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
   return (
     <CommonSection title="ETC">
-      <EducationRow payload={payload} />
+      <EtcRow payload={payload} />
     </CommonSection>
   );
 }
 
-function EducationRow({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function EtcRow({ payload }: PropsWithChildren<{ payload: Payload }>) {
   return (
     <EmptyRowCol>
       {payload.list.map((item, index) => {
