@@ -1,7 +1,6 @@
 import { Badge, Col, Row } from 'reactstrap';
 
 import { DateTime } from 'luxon';
-import { PropsWithChildren } from 'react';
 import { ExperienceItem, ExperiencePosition } from '../../types/IExperience';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
@@ -12,10 +11,16 @@ type PositionWithDates = ExperiencePosition & {
   isCurrent: boolean;
 };
 
+function hasEndedAtDate(
+  position: PositionWithDates,
+): position is PositionWithDates & { endedAtDate: DateTime } {
+  return position.endedAtDate !== null;
+}
+
 export default function ExperienceRow({
   item,
   index,
-}: PropsWithChildren<{ item: ExperienceItem; index: number }>) {
+}: { item: ExperienceItem; index: number }) {
   const positionsWithDates: PositionWithDates[] = item.positions.map((position) => ({
     ...position,
     startedAtDate: DateTime.fromFormat(position.startedAt, Util.LUXON_DATE_FORMAT.YYYY_LL),
@@ -31,12 +36,6 @@ export default function ExperienceRow({
 
   const minStartedAt = DateTime.min(...sortedPositions.map((position) => position.startedAtDate)) ?? DateTime.local();
   const isCurrentlyEmployed = sortedPositions.some((position) => position.isCurrent);
-
-  function hasEndedAtDate(
-    position: PositionWithDates,
-  ): position is PositionWithDates & { endedAtDate: DateTime } {
-    return position.endedAtDate !== null;
-  }
 
   const endedAtDates = sortedPositions
     .filter(hasEndedAtDate)
@@ -146,12 +145,6 @@ function createOverallWorkingPeriod(positions: PositionWithDates[]) {
   // 재직 중일 때는 종료일 없이 표시
   if (isCurrentlyEmployed) {
     return `${startedAt.toFormat(DATE_FORMAT)} ~`;
-  }
-
-  function hasEndedAtDate(
-    position: PositionWithDates,
-  ): position is PositionWithDates & { endedAtDate: DateTime } {
-    return position.endedAtDate !== null;
   }
 
   const endedAtDates = positions.filter(hasEndedAtDate).map((position) => position.endedAtDate);

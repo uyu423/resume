@@ -103,7 +103,7 @@ function ProfileContent({ payload }: { payload: Payload }) {
                   key={index.toString()}
                   tag="a"
                   href={cta.link}
-                  className="cta-button"
+                  className={`cta-button ${isPrimary ? 'cta-button-primary' : 'cta-button-outline'}`}
                   style={{
                     backgroundColor: isPrimary ? 'var(--color-accent)' : 'transparent',
                     borderColor: 'var(--color-accent)',
@@ -112,20 +112,6 @@ function ProfileContent({ payload }: { payload: Payload }) {
                     padding: '0.75rem 1.5rem',
                     borderRadius: '8px',
                     transition: 'all 0.2s',
-                  }}
-                  onMouseEnter={(e) => {
-                    if (isPrimary) {
-                      e.currentTarget.style.backgroundColor = 'var(--color-accent-hover)';
-                    } else {
-                      e.currentTarget.style.backgroundColor = 'var(--color-bg-highlight)';
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (isPrimary) {
-                      e.currentTarget.style.backgroundColor = 'var(--color-accent)';
-                    } else {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                    }
                   }}
                 >
                   {cta.icon && <FontAwesomeIcon icon={cta.icon} style={{ marginRight: 'var(--space-xs)' }} />}

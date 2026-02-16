@@ -7,7 +7,7 @@ const globals = require('globals');
 
 module.exports = tseslint.config(
   {
-    ignores: ['docs/**', 'node_modules/**', '*.js', 'shellwork.js', 'next-env.d.ts'],
+    ignores: ['docs/**', 'node_modules/**', '*.js', 'next-env.d.ts'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
@@ -40,7 +40,7 @@ module.exports = tseslint.config(
       'no-underscore-dangle': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/no-use-before-define': 'off',
-      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
       'react/react-in-jsx-scope': 'off',
       'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
       quotes: ['error', 'single', { avoidEscape: true }],

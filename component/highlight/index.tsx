@@ -1,5 +1,5 @@
 import { Row, Col, Badge } from 'reactstrap';
-import { CSSProperties, useState } from 'react';
+import { CSSProperties } from 'react';
 import { Section } from '../common/Section';
 import { HighlightPayload, HighlightItem } from '../../types/IHighlight';
 
@@ -53,8 +53,6 @@ function HighlightContent({ payload }: { payload: Payload }) {
 }
 
 function HighlightCard({ item }: { item: HighlightItem }) {
-  const [hovered, setHovered] = useState(false);
-
   const cardStyle: CSSProperties = {
     background: 'var(--color-bg)',
     border: '1px solid var(--color-border)',
@@ -62,21 +60,12 @@ function HighlightCard({ item }: { item: HighlightItem }) {
     borderRadius: '0 8px 8px 0',
     padding: 'var(--space-lg)',
     height: '100%',
-    transition: 'transform var(--transition-base), box-shadow var(--transition-base)',
-    ...(hovered
-      ? {
-          transform: 'translateY(-2px)',
-          boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
-        }
-      : {}),
   };
 
   return (
     <div
       className="highlight-card"
       style={cardStyle}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
     >
       <div style={titleStyle}>{item.title}</div>
       <div style={descriptionStyle}>{item.description}</div>

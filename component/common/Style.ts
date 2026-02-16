@@ -22,6 +22,7 @@ export const Style: Record<TStyleKey, CSSProperties> = {
 
   global: {
     fontFamily: 'var(--font-body)',
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     fontWeight: 'var(--fw-light)' as any,
     wordWrap: 'break-word',
     wordBreak: 'keep-all',
@@ -50,6 +51,7 @@ export const Style: Record<TStyleKey, CSSProperties> = {
   },
 
   skillKeywordBadge: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     fontWeight: 'var(--fw-regular)' as any,
   },
 };

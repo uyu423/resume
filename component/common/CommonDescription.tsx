@@ -1,4 +1,4 @@
-import React, { CSSProperties, PropsWithChildren } from 'react';
+import React, { CSSProperties } from 'react';
 
 import { HrefTargetBlank } from '.';
 import { RowDescription, FontWeightType } from '../../types/IRow';
@@ -7,7 +7,7 @@ import { RowDescription, FontWeightType } from '../../types/IRow';
 export function CommonDescription({
   descriptions,
   option,
-}: PropsWithChildren<{ descriptions: RowDescription[]; option?: { padding?: boolean } }>) {
+}: { descriptions: RowDescription[]; option?: { padding?: boolean } }) {
   return (
     <>
       {descriptions ? (
@@ -35,7 +35,7 @@ export function CommonDescription({
 // ul 태그 depth 표현을 위한 재귀
 function DescriptionRecursion({
   descriptions,
-}: PropsWithChildren<{ descriptions: RowDescription[] }>) {
+}: { descriptions: RowDescription[] }) {
   return (
     <ul>
       {descriptions.map((description, index) => {
@@ -54,7 +54,7 @@ function DescriptionRecursion({
   );
 }
 
-function Description({ description }: PropsWithChildren<{ description: RowDescription }>) {
+function Description({ description }: { description: RowDescription }) {
   const { content, href, postImage, postHref, weight } = description;
 
   const mainContent = href ? <HrefTargetBlank url={href} text={content} /> : content;
@@ -71,7 +71,7 @@ function Description({ description }: PropsWithChildren<{ description: RowDescri
       {postImage && (
         <>
           {' '}
-          <img src={postImage} alt={postImage} />
+          <img src={postImage} alt={`Badge for ${content}`} />
         </>
       )}
     </li>

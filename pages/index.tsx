@@ -63,7 +63,7 @@ function Yosume() {
                   ...(Payload._global.jsonLd.sameAs && { sameAs: Payload._global.jsonLd.sameAs }),
                   ...(Payload._global.jsonLd.knowsAbout && { knowsAbout: Payload._global.jsonLd.knowsAbout }),
                 },
-              }),
+              }).replace(/</g, '\\u003c'),
             }}
           />
         )}

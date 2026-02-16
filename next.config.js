@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { homepage } = require('./package.json');
 
 const { NODE_ENV } = process.env;

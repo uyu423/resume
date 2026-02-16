@@ -13,11 +13,6 @@ export interface SkillPayload extends CommonPayload {
    */
   skills: SkillItem[];
 
-  /** ### 수치에 대한 설명
-   *
-   * @description 'SKILL' 타이틀 옆에 붙는 tooltip 이다.
-   */
-  tooltip?: string;
 }
 
 export interface SkillItem {

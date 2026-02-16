@@ -10,6 +10,7 @@ const { homepage } = require('./package.json');
 function judgeCnameCreation() {
   if (!homepage) {
     console.error('shellwork: The homepage field in package.json is required.');
+    process.exit(1);
   }
 
   // ! 아래 정규표현식에 걸리면 github pages 도메인으로 간주하고 CNAME 을 생성하지 않는다.

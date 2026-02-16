@@ -8,7 +8,7 @@ export default function YosumeApp({
   pageProps,
 }: {
   Component: NextComponentType;
-  pageProps: any;
+  pageProps: Record<string, unknown>;
 }) {
   return <Component {...pageProps} />;
 }

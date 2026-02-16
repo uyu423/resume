@@ -1,6 +1,4 @@
-import { PropsWithChildren } from 'react';
-
-export default function ProfileImage({ src }: PropsWithChildren<{ src: string }>) {
+export default function ProfileImage({ src }: { src: string }) {
   return (
     <div className="text-center mb-4">
       <img

@@ -1,5 +1,5 @@
 import { IntroducePayload } from '../types/IIntroduce';
-import { lastestUpdatedAt } from '../package.json';
+import { latestUpdatedAt } from '../package.json';
 
 const introduce: IntroducePayload = {
   disable: false,
@@ -11,7 +11,7 @@ const introduce: IntroducePayload = {
   sign: 'Tux',
   // sign: packageJson.author.name,
   // latestUpdated: '2019-07-24',
-  latestUpdated: lastestUpdatedAt,
+  latestUpdated: latestUpdatedAt,
 };
 
 export default introduce;

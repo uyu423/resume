@@ -185,6 +185,21 @@
   contain-intrinsic-size: auto 500px;
 }
 
+/* Hover effects */
+.cta-button-primary:hover {
+  background-color: var(--color-accent-hover) !important;
+}
+.cta-button-outline:hover {
+  background-color: var(--color-bg-highlight) !important;
+}
+.highlight-card {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.highlight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .section-animate {

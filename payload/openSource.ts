@@ -4,7 +4,7 @@ const openSource: OpenSourcePayload = {
   disable: false,
   list: [
     {
-      title: 'Linux Kernal',
+      title: 'Linux Kernel',
       descriptions: [
         {
           content: 'Regular contributor to kernel patches.',
