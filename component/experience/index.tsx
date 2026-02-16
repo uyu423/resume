@@ -2,7 +2,7 @@ import { DateTime, Duration } from 'luxon';
 
 import { CommonSection } from '../common/CommonSection';
 import ExperienceRow from './row';
-import { ExperiencePayload, ExperienceItem, ExperiencePosition } from '../../types/experience';
+import { ExperiencePayload, ExperienceItem } from '../../types/experience';
 import { Section } from '../common/Section';
 import Util from '../common/Util';
 
@@ -37,21 +37,26 @@ function ExperienceContent({ payload }: { payload: Payload }) {
 }
 
 function getFormattingExperienceTotalDuration(payload: ExperiencePayload) {
-  const durations = payload.list.reduce((acc: Duration[], item: ExperienceItem) => {
-    const itemDurations = item.positions.map((position: ExperiencePosition) => {
-      const endedAt = position.endedAt
-        ? DateTime.fromFormat(position.endedAt, Util.LUXON_DATE_FORMAT.YYYY_LL)
-        : DateTime.local();
-      const startedAt = DateTime.fromFormat(position.startedAt, Util.LUXON_DATE_FORMAT.YYYY_LL);
-      return endedAt.diff(startedAt);
-    });
-    return acc.concat(itemDurations); // 중첩된 배열 평탄화
-  }, []);
+  // 회사(item) 단위로 전체 재직 기간을 계산하여 포지션 간 중복을 방지
+  const durations = payload.list.map((item: ExperienceItem) => {
+    const startDates = item.positions.map((p) =>
+      DateTime.fromFormat(p.startedAt, Util.LUXON_DATE_FORMAT.YYYY_LL),
+    );
+    const endDates = item.positions.map((p) =>
+      p.endedAt
+        ? DateTime.fromFormat(p.endedAt, Util.LUXON_DATE_FORMAT.YYYY_LL)
+        : DateTime.local(),
+    );
+    const minStart = DateTime.min(...startDates) ?? DateTime.local();
+    const maxEnd = DateTime.max(...endDates) ?? DateTime.local();
 
-  const totalExperience = durations.reduce(
-    (prev: Duration, cur: Duration) => prev.plus(cur),
-    Duration.fromMillis(0),
-  );
+    // 햇수 계산을 위해 +1개월 적용 (getFormattingDuration과 동일)
+    return maxEnd.plus({ month: 1 }).diff(minStart, ['years', 'months']);
+  });
+
+  const totalExperience = durations
+    .reduce((prev: Duration, cur: Duration) => prev.plus(cur), Duration.fromMillis(0))
+    .shiftTo('years', 'months');
 
   return totalExperience.toFormat(`총 ${Util.LUXON_DATE_FORMAT.DURATION_KINDNESS}`);
 }

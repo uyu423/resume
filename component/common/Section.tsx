@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { CommonPayload } from '../../types/common';
 
-/** disable 플래그를 확인하여 조건부 렌더링하는 섹션 래퍼 */
+/** disable / printExclude 플래그를 확인하여 조건부 렌더링하는 섹션 래퍼 */
 export function Section({
   payload,
   children,
@@ -10,5 +10,8 @@ export function Section({
   children: ReactNode;
 }) {
   if (payload?.disable) return null;
+  if (payload?.printExclude) {
+    return <div className="print-exclude">{children}</div>;
+  }
   return <>{children}</>;
 }
