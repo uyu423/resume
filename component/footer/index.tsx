@@ -4,12 +4,20 @@ import { EmptyRowCol, HrefTargetBlank } from '../common';
 
 import { IFooter } from './IFooter';
 import { Style } from '../common/Style';
+import { PreProcessingComponent } from '../common/PreProcessingComponent';
+
+type Payload = IFooter.Payload;
 
 export const Footer = {
-  Component,
+  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
+    return PreProcessingComponent<Payload>({
+      payload,
+      component: Component,
+    });
+  },
 };
 
-function Component({ payload }: PropsWithChildren<{ payload: IFooter.Payload }>) {
+function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
   return (
     <Row>
       <Col style={Style.footerCover}>
