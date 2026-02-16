@@ -57,52 +57,25 @@ function DescriptionRecursion({
 function Description({ description }: PropsWithChildren<{ description: IRow.Description }>) {
   const { content, href, postImage, postHref, weight } = description;
 
-  const component = (() => {
-    if (href && postImage) {
-      return (
-        <li style={getFontWeight(weight)}>
-          <HrefTargetBlank url={href} text={content} /> <img src={postImage} alt={postImage} />
-        </li>
-      );
-    }
-    if (href) {
-      return (
-        <li style={getFontWeight(weight)}>
-          <HrefTargetBlank url={href} text={content} />
-        </li>
-      );
-    }
-    if (postHref && postImage) {
-      return (
-        <li style={getFontWeight(weight)}>
-          {content} <HrefTargetBlank url={postHref} text={postHref} />{' '}
-          <img src={postImage} alt={postImage} />
-        </li>
-      );
-    }
-    if (postHref) {
-      return (
-        <li style={getFontWeight(weight)}>
-          {content} <HrefTargetBlank url={postHref} text={postHref} />
-        </li>
-      );
-    }
-    if (postImage) {
-      return (
-        <li style={getFontWeight(weight)}>
-          {content} <img src={postImage} alt={postImage} />
-        </li>
-      );
-    }
-    return (
-      <>
-        <meta name="format-detection" content="telephone=no" />
-        <li style={getFontWeight(weight)}>{content}</li>
-      </>
-    );
-  })();
+  const mainContent = href ? <HrefTargetBlank url={href} text={content} /> : content;
 
-  return component;
+  return (
+    <li style={getFontWeight(weight)}>
+      {mainContent}
+      {postHref && (
+        <>
+          {' '}
+          <HrefTargetBlank url={postHref} text={postHref} />
+        </>
+      )}
+      {postImage && (
+        <>
+          {' '}
+          <img src={postImage} alt={postImage} />
+        </>
+      )}
+    </li>
+  );
 }
 
 function getFontWeight(weight?: IRow.Description['weight']): CSSProperties {
