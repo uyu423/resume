@@ -1,23 +1,21 @@
 import { Row, Col, Badge } from 'reactstrap';
-import { PropsWithChildren } from 'react';
 import { DateTime } from 'luxon';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
 import { IIntroduce } from '../../types/IIntroduce';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
+import { Section } from '../common/Section';
 
 type Payload = IIntroduce.Payload;
 
-export const Introduce = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
+export function IntroduceSection({ payload }: { payload: Payload }) {
+  return (
+    <Section payload={payload}>
+      {(data) => <IntroduceContent payload={data} />}
+    </Section>
+  );
+}
 
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function IntroduceContent({ payload }: { payload: Payload }) {
   const latestUpdated = DateTime.fromFormat(
     payload.latestUpdated,
     Util.LUXON_DATE_FORMAT.YYYY_LL_DD,

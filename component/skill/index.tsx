@@ -1,25 +1,24 @@
 import { Row, Col, Tooltip } from 'reactstrap';
-import { PropsWithChildren, useState } from 'react';
+import { useState } from 'react';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Style } from '../common/Style';
 import { ISkill } from '../../types/ISkill';
 import SkillRow from './row';
 import { EmptyRowCol } from '../common';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
+import { Section } from '../common/Section';
 
 type Payload = ISkill.Payload;
 
-export const Skill = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
+export function SkillSection({ payload }: { payload: Payload }) {
+  return (
+    <Section payload={payload}>
+      {(data) => <SkillContent payload={data} />}
+    </Section>
+  );
+}
 
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function SkillContent({ payload }: { payload: Payload }) {
   return (
     <div className="mt-5">
       <EmptyRowCol>

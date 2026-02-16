@@ -1,19 +1,19 @@
 import { Container } from 'reactstrap';
 
 import Head from 'next/head';
-import { Education } from '../component/education';
-import { Etc } from '../component/etc';
-import { Experience } from '../component/experience';
-import { Footer } from '../component/footer';
-import { Introduce } from '../component/introduce';
-import { OpenSource } from '../component/openSource';
-import { Presentation } from '../component/presentation';
-import { Profile } from '../component/profile';
-import { Project } from '../component/project';
-import { Skill } from '../component/skill';
+import { EducationSection } from '../component/education';
+import { EtcSection } from '../component/etc';
+import { ExperienceSection } from '../component/experience';
+import { FooterSection } from '../component/footer';
+import { IntroduceSection } from '../component/introduce';
+import { OpenSourceSection } from '../component/openSource';
+import { PresentationSection } from '../component/presentation';
+import { ProfileSection } from '../component/profile';
+import { ProjectSection } from '../component/project';
+import { SkillSection } from '../component/skill';
 import { Style } from '../component/common/Style';
 import Payload from '../payload';
-import { Article } from '../component/article';
+import { ArticleSection } from '../component/article';
 
 function Yosume() {
   const { seo } = Payload._global;
@@ -33,17 +33,17 @@ function Yosume() {
         )}
       </Head>
       <Container style={Style.global}>
-        <Profile.Component payload={Payload.profile} />
-        <Introduce.Component payload={Payload.introduce} />
-        <Skill.Component payload={Payload.skill} />
-        <Experience.Component payload={Payload.experience} />
-        <Project.Component payload={Payload.project} />
-        <OpenSource.Component payload={Payload.openSource} />
-        <Presentation.Component payload={Payload.presentation} />
-        <Article.Component payload={Payload.article} />
-        <Education.Component payload={Payload.education} />
-        <Etc.Component payload={Payload.etc} />
-        <Footer.Component payload={Payload.footer} />
+        <ProfileSection payload={Payload.profile} />
+        <IntroduceSection payload={Payload.introduce} />
+        <SkillSection payload={Payload.skill} />
+        <ExperienceSection payload={Payload.experience} />
+        <ProjectSection payload={Payload.project} />
+        <OpenSourceSection payload={Payload.openSource} />
+        <PresentationSection payload={Payload.presentation} />
+        <ArticleSection payload={Payload.article} />
+        <EducationSection payload={Payload.education} />
+        <EtcSection payload={Payload.etc} />
+        <FooterSection payload={Payload.footer} />
       </Container>
     </>
   );

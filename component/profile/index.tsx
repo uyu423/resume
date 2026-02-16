@@ -1,25 +1,23 @@
 import { Row, Col, Alert } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { PropsWithChildren } from 'react';
 import ProfileContact from './contact';
 import ProfileImage from './image';
 import { EmptyRowCol } from '../common';
 import { IProfile } from '../../types/IProfile';
 import { Style } from '../common/Style';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
+import { Section } from '../common/Section';
 
 type Payload = IProfile.Payload;
 
-export const Profile = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
+export function ProfileSection({ payload }: { payload: Payload }) {
+  return (
+    <Section payload={payload}>
+      {(data) => <ProfileContent payload={data} />}
+    </Section>
+  );
+}
 
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function ProfileContent({ payload }: { payload: Payload }) {
   const { image, contact, name, notice } = payload;
   return (
     <div className="mt-5">

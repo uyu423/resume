@@ -1,26 +1,24 @@
 import { Badge, Col, Row } from 'reactstrap';
 import { DateTime, Duration } from 'luxon';
 
-import { PropsWithChildren } from 'react';
 import { EmptyRowCol } from '../common';
 import ExperienceRow from './row';
 import { IExperience } from '../../types/IExperience';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
+import { Section } from '../common/Section';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
 
 type Payload = IExperience.Payload;
 
-export const Experience = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
+export function ExperienceSection({ payload }: { payload: Payload }) {
+  return (
+    <Section payload={payload}>
+      {(data) => <ExperienceContent payload={data} />}
+    </Section>
+  );
+}
 
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function ExperienceContent({ payload }: { payload: Payload }) {
   const totalPeriod = () => {
     if (payload.disableTotalPeriod) {
       return '';

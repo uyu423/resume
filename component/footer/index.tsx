@@ -1,23 +1,21 @@
 import { Col, Row } from 'reactstrap';
-import { PropsWithChildren } from 'react';
 import { EmptyRowCol, HrefTargetBlank } from '../common';
 
 import { IFooter } from '../../types/IFooter';
 import { Style } from '../common/Style';
-import { PreProcessingComponent } from '../common/PreProcessingComponent';
+import { Section } from '../common/Section';
 
 type Payload = IFooter.Payload;
 
-export const Footer = {
-  Component: ({ payload }: PropsWithChildren<{ payload: Payload }>) => {
-    return PreProcessingComponent<Payload>({
-      payload,
-      component: Component,
-    });
-  },
-};
+export function FooterSection({ payload }: { payload: Payload }) {
+  return (
+    <Section payload={payload}>
+      {(data) => <FooterContent payload={data} />}
+    </Section>
+  );
+}
 
-function Component({ payload }: PropsWithChildren<{ payload: Payload }>) {
+function FooterContent({ payload }: { payload: Payload }) {
   return (
     <Row>
       <Col style={Style.footerCover}>
