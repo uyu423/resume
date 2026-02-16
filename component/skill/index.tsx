@@ -1,4 +1,4 @@
-import { SkillPayload } from '../../types/ISkill';
+import { SkillPayload } from '../../types/skill';
 import SkillRow, { createDots } from './row';
 import { Section } from '../common/Section';
 import { CommonSection } from '../common/CommonSection';

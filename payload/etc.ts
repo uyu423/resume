@@ -1,4 +1,4 @@
-import { EtcPayload } from '../types/IEtc';
+import { EtcPayload } from '../types/etc';
 
 const etc: EtcPayload = {
   disable: false,

@@ -2,8 +2,8 @@ import { PropsWithChildren } from 'react';
 import { CommonSection } from '../common/CommonSection';
 import { EmptyRowCol } from '../common';
 import { CommonRows } from '../common/CommonRow';
-import { EducationPayload, EducationItem } from '../../types/IEducation';
-import { RowPayload } from '../../types/IRow';
+import { EducationPayload, EducationItem } from '../../types/education';
+import { RowPayload } from '../../types/row';
 import Util from '../common/Util';
 import { Section } from '../common/Section';
 

@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react';
-import { OpenSourcePayload, OpenSourceItem } from '../../types/IOpenSource';
+import { OpenSourcePayload, OpenSourceItem } from '../../types/open-source';
 import { EmptyRowCol } from '../common';
 import { CommonRows } from '../common/CommonRow';
-import { RowPayload } from '../../types/IRow';
+import { RowPayload } from '../../types/row';
 
 export default function OpenSourceRow({
   payload,

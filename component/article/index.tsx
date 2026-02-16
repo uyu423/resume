@@ -1,5 +1,5 @@
 import { Section } from '../common/Section';
-import { ArticlePayload } from '../../types/IArticle';
+import { ArticlePayload } from '../../types/article';
 import { EmptyRowCol } from '../common';
 import { CommonSection } from '../common/CommonSection';
 import { CommonDescription } from '../common/CommonDescription';

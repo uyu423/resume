@@ -1,4 +1,4 @@
-import { CommonPayload } from './ICommon';
+import { CommonPayload } from './common';
 
 /**
  * Testimonial 섹션 - 동료/상사의 추천사를 표시

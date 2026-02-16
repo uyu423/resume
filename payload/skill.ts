@@ -1,4 +1,4 @@
-import { SkillPayload, SkillItem } from '../types/ISkill';
+import { SkillPayload, SkillItem } from '../types/skill';
 
 const programmingLanguages: SkillItem = {
   category: 'Programming Languages',

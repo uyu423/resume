@@ -1,4 +1,4 @@
-import { CommonPayload } from './ICommon';
+import { CommonPayload } from './common';
 
 /**
  * Highlight 섹션 - 핵심 성과를 카드 형태로 표시

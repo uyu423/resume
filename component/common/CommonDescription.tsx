@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 
 import { HrefTargetBlank } from '.';
-import { RowDescription, FontWeightType } from '../../types/IRow';
+import { RowDescription, FontWeightType } from '../../types/row';
 
 /** Description Recusion Generator */
 export function CommonDescription({

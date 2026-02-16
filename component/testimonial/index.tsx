@@ -1,7 +1,7 @@
 import { CSSProperties } from 'react';
 import { Section } from '../common/Section';
 import { CommonSection } from '../common/CommonSection';
-import { TestimonialPayload, TestimonialItem } from '../../types/ITestimonial';
+import { TestimonialPayload, TestimonialItem } from '../../types/testimonial';
 
 type Payload = TestimonialPayload;
 

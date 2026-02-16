@@ -1,4 +1,4 @@
-import { OpenSourcePayload } from '../../types/IOpenSource';
+import { OpenSourcePayload } from '../../types/open-source';
 import OpenSourceRow from './row';
 import { CommonSection } from '../common/CommonSection';
 import { Section } from '../common/Section';

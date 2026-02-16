@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { ExperienceItem, ExperiencePosition } from '../../types/IExperience';
+import { ExperienceItem, ExperiencePosition } from '../../types/experience';
 import Util from '../common/Util';
 
 type PositionWithDates = ExperiencePosition & {

@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
-import { ProjectPayload, ProjectItem } from '../../types/IProject';
+import { ProjectPayload, ProjectItem } from '../../types/project';
 import { CommonRows } from '../common/CommonRow';
-import { RowPayload } from '../../types/IRow';
+import { RowPayload } from '../../types/row';
 import Util from '../common/Util';
 import { EmptyRowCol } from '../common';
 

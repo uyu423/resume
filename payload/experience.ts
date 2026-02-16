@@ -1,4 +1,4 @@
-import { ExperiencePayload } from '../types/IExperience';
+import { ExperiencePayload } from '../types/experience';
 
 const experience: ExperiencePayload = {
   disable: false,

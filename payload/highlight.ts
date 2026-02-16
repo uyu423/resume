@@ -1,4 +1,4 @@
-import { HighlightPayload } from '../types/IHighlight';
+import { HighlightPayload } from '../types/highlight';
 
 const highlight: HighlightPayload = {
   disable: false,

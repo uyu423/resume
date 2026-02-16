@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
-import { IntroducePayload } from '../../types/IIntroduce';
+import { IntroducePayload } from '../../types/introduce';
 import { Section } from '../common/Section';
 import { SectionAnimate } from '../common/SectionAnimate';
 

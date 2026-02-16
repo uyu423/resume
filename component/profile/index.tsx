@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProfileContact from './contact';
 import ProfileImage from './image';
-import { ProfilePayload } from '../../types/IProfile';
+import { ProfilePayload } from '../../types/profile';
 import { Section } from '../common/Section';
 
 type Payload = ProfilePayload;

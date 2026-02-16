@@ -1,5 +1,5 @@
-import { CommonPayload } from './ICommon';
-import { RowDescription } from './IRow';
+import { CommonPayload } from './common';
+import { RowDescription } from './row';
 
 /**
  * ### Sample Rendering

@@ -1,9 +1,9 @@
 import { PropsWithChildren } from 'react';
 import { CommonRows } from '../common/CommonRow';
-import { RowPayload } from '../../types/IRow';
+import { RowPayload } from '../../types/row';
 import Util from '../common/Util';
 import { EmptyRowCol } from '../common';
-import { PresentationPayload, PresentationItem } from '../../types/IPresentation';
+import { PresentationPayload, PresentationItem } from '../../types/presentation';
 
 export default function PresentationRow({
   payload,

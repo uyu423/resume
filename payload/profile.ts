@@ -2,7 +2,7 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import { faBell } from '@fortawesome/free-regular-svg-icons';
-import { ProfilePayload } from '../types/IProfile';
+import { ProfilePayload } from '../types/profile';
 
 const image = '/sample_tux.png';
 

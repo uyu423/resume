@@ -2,7 +2,7 @@ import { DateTime, Duration } from 'luxon';
 
 import { CommonSection } from '../common/CommonSection';
 import ExperienceRow from './row';
-import { ExperiencePayload, ExperienceItem, ExperiencePosition } from '../../types/IExperience';
+import { ExperiencePayload, ExperienceItem, ExperiencePosition } from '../../types/experience';
 import { Section } from '../common/Section';
 import Util from '../common/Util';
 

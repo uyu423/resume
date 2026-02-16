@@ -1,4 +1,4 @@
-import { CommonPayload } from './ICommon';
+import { CommonPayload } from './common';
 
 /**
  * ### Sample Rendering

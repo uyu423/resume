@@ -1,4 +1,4 @@
-import { GlobalPayload } from '../types/IGlobal';
+import { GlobalPayload } from '../types/global';
 
 const favicon = '/favicon.ico';
 const previewImage = '/preview.jpg';

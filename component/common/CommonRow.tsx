@@ -1,4 +1,4 @@
-import { RowPayload } from '../../types/IRow';
+import { RowPayload } from '../../types/row';
 import { CommonDescription } from './CommonDescription';
 
 export function CommonRows({ index, payload }: { payload: RowPayload; index: number }) {

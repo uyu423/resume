@@ -1,4 +1,4 @@
-import { PresentationPayload } from '../types/IPresentation';
+import { PresentationPayload } from '../types/presentation';
 
 const presentation: PresentationPayload = {
   disable: false,

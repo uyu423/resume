@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-import { SkillItem, SkillSubItem } from '../../types/ISkill';
+import { SkillItem, SkillSubItem } from '../../types/skill';
 import Util from '../common/Util';
 import { useMediaQuery } from '../common/useMediaQuery';
 

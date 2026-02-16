@@ -14,20 +14,20 @@ import footer from './footer';
 
 import { _global } from './_global';
 
-import { ProfilePayload } from '../types/IProfile';
-import { IntroducePayload } from '../types/IIntroduce';
-import { HighlightPayload } from '../types/IHighlight';
-import { TestimonialPayload } from '../types/ITestimonial';
-import { SkillPayload } from '../types/ISkill';
-import { OpenSourcePayload } from '../types/IOpenSource';
-import { ExperiencePayload } from '../types/IExperience';
-import { ProjectPayload } from '../types/IProject';
-import { PresentationPayload } from '../types/IPresentation';
-import { EducationPayload } from '../types/IEducation';
-import { EtcPayload } from '../types/IEtc';
-import { FooterPayload } from '../types/IFooter';
-import { GlobalPayload } from '../types/IGlobal';
-import { ArticlePayload } from '../types/IArticle';
+import { ProfilePayload } from '../types/profile';
+import { IntroducePayload } from '../types/introduce';
+import { HighlightPayload } from '../types/highlight';
+import { TestimonialPayload } from '../types/testimonial';
+import { SkillPayload } from '../types/skill';
+import { OpenSourcePayload } from '../types/open-source';
+import { ExperiencePayload } from '../types/experience';
+import { ProjectPayload } from '../types/project';
+import { PresentationPayload } from '../types/presentation';
+import { EducationPayload } from '../types/education';
+import { EtcPayload } from '../types/etc';
+import { FooterPayload } from '../types/footer';
+import { GlobalPayload } from '../types/global';
+import { ArticlePayload } from '../types/article';
 
 const Payload: Payload = {
   profile,

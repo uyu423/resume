@@ -1,5 +1,5 @@
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { CommonPayload } from './ICommon';
+import { CommonPayload } from './common';
 
 /**
  * ### Sample Rendering

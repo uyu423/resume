@@ -1,6 +1,6 @@
 import { CommonSection } from '../common/CommonSection';
 import PresentationRow from './row';
-import { PresentationPayload } from '../../types/IPresentation';
+import { PresentationPayload } from '../../types/presentation';
 import { Section } from '../common/Section';
 
 type Payload = PresentationPayload;

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import type { ProfileContact as ProfileContactType } from '../../types/IProfile';
+import type { ProfileContact as ProfileContactType } from '../../types/profile';
 import { HrefTargetBlank } from '../common';
 
 export default function ProfileContact({ payload }: { payload: ProfileContactType }) {

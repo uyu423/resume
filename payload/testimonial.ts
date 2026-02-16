@@ -1,4 +1,4 @@
-import { TestimonialPayload } from '../types/ITestimonial';
+import { TestimonialPayload } from '../types/testimonial';
 
 const testimonial: TestimonialPayload = {
   disable: false,

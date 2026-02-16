@@ -2,9 +2,9 @@ import { PropsWithChildren } from 'react';
 import { CommonSection } from '../common/CommonSection';
 import { EmptyRowCol } from '../common';
 import { CommonRows } from '../common/CommonRow';
-import { RowPayload } from '../../types/IRow';
+import { RowPayload } from '../../types/row';
 import Util from '../common/Util';
-import { EtcPayload, EtcItem } from '../../types/IEtc';
+import { EtcPayload, EtcItem } from '../../types/etc';
 import { Section } from '../common/Section';
 
 type Payload = EtcPayload;

@@ -1,5 +1,5 @@
 import { HrefTargetBlank } from '../common';
-import { FooterPayload } from '../../types/IFooter';
+import { FooterPayload } from '../../types/footer';
 import { Section } from '../common/Section';
 
 type Payload = FooterPayload;

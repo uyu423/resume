@@ -1,4 +1,4 @@
-import { ProjectPayload } from '../types/IProject';
+import { ProjectPayload } from '../types/project';
 
 const project: ProjectPayload = {
   disable: false,

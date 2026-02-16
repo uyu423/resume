@@ -1,5 +1,5 @@
 import { Section } from '../common/Section';
-import { HighlightPayload, HighlightItem } from '../../types/IHighlight';
+import { HighlightPayload, HighlightItem } from '../../types/highlight';
 
 type Payload = HighlightPayload;
 
