@@ -1,10 +1,9 @@
 /* eslint-disable */
-const withImages = require('next-images');
 const { homepage } = require('./package.json');
 
 const { NODE_ENV } = process.env;
 
-module.exports = withImages({
+module.exports = {
   assetPrefix: (() => {
     if (NODE_ENV === 'production' && homepage) {
       try {
@@ -22,10 +21,4 @@ module.exports = withImages({
     }
     return '';
   })(),
-});
-// withCSS({
-// webpack: config => {
-//   config.resolve.alias['@'] = __dirname;
-//   return config;
-// }
-// }),
+};
