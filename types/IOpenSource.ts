@@ -1,5 +1,5 @@
-import { IRow } from '../common/IRow';
-import { ICommon } from '../common/ICommon';
+import { IRow } from './IRow';
+import { ICommon } from './ICommon';
 
 export declare namespace IOpenSource {
   /**

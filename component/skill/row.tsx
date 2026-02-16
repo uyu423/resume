@@ -1,7 +1,7 @@
 import { Badge, Col, Row } from 'reactstrap';
 import { PropsWithChildren, useEffect, useState } from 'react';
 
-import { ISkill } from './ISkill';
+import { ISkill } from '../../types/ISkill';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
 

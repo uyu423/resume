@@ -3,7 +3,7 @@ import { PropsWithChildren, useState } from 'react';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Style } from '../common/Style';
-import { ISkill } from './ISkill';
+import { ISkill } from '../../types/ISkill';
 import SkillRow from './row';
 import { EmptyRowCol } from '../common';
 import { PreProcessingComponent } from '../common/PreProcessingComponent';

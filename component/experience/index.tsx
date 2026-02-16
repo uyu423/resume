@@ -4,7 +4,7 @@ import { DateTime, Duration } from 'luxon';
 import { PropsWithChildren } from 'react';
 import { EmptyRowCol } from '../common';
 import ExperienceRow from './row';
-import { IExperience } from './IExperience';
+import { IExperience } from '../../types/IExperience';
 import { PreProcessingComponent } from '../common/PreProcessingComponent';
 import { Style } from '../common/Style';
 import Util from '../common/Util';

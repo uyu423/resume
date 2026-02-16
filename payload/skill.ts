@@ -1,4 +1,4 @@
-import { ISkill } from '../component/skill/ISkill';
+import { ISkill } from '../types/ISkill';
 
 const programmingLanguages: ISkill.Skill = {
   category: 'Programming Languages',

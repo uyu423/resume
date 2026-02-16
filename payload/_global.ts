@@ -1,4 +1,4 @@
-import { IGlobal } from '../component/common/IGlobal';
+import { IGlobal } from '../types/IGlobal';
 
 const favicon = '/favicon.ico';
 const previewImage = '/preview.jpg';

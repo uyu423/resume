@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { PreProcessingComponent } from '../common/PreProcessingComponent';
-import { IArticle } from './IArticle';
+import { IArticle } from '../../types/IArticle';
 import { EmptyRowCol } from '../common';
 import { CommonSection } from '../common/CommonSection';
 import { CommonDescription } from '../common/CommonDescription';

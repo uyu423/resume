@@ -4,7 +4,7 @@ import { PropsWithChildren } from 'react';
 import ProfileContact from './contact';
 import ProfileImage from './image';
 import { EmptyRowCol } from '../common';
-import { IProfile } from './IProfile';
+import { IProfile } from '../../types/IProfile';
 import { Style } from '../common/Style';
 import { PreProcessingComponent } from '../common/PreProcessingComponent';
 

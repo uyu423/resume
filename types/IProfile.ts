@@ -1,5 +1,5 @@
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { ICommon } from '../common/ICommon';
+import { ICommon } from './ICommon';
 
 export declare namespace IProfile {
   /**

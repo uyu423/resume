@@ -2,7 +2,7 @@ import { Col, Row } from 'reactstrap';
 import { PropsWithChildren } from 'react';
 import { EmptyRowCol, HrefTargetBlank } from '../common';
 
-import { IFooter } from './IFooter';
+import { IFooter } from '../../types/IFooter';
 import { Style } from '../common/Style';
 import { PreProcessingComponent } from '../common/PreProcessingComponent';
 

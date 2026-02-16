@@ -3,8 +3,8 @@ import { PropsWithChildren } from 'react';
 import { CommonSection } from '../common/CommonSection';
 import { EmptyRowCol } from '../common';
 import { CommonRows } from '../common/CommonRow';
-import { IEducation } from './IEducation';
-import { IRow } from '../common/IRow';
+import { IEducation } from '../../types/IEducation';
+import { IRow } from '../../types/IRow';
 import Util from '../common/Util';
 import { PreProcessingComponent } from '../common/PreProcessingComponent';
 

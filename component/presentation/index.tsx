@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import { CommonSection } from '../common/CommonSection';
 import PresentationRow from './row';
-import { IPresentation } from './IPresentation';
+import { IPresentation } from '../../types/IPresentation';
 import { PreProcessingComponent } from '../common/PreProcessingComponent';
 
 type Payload = IPresentation.Payload;

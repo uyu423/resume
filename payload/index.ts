@@ -12,18 +12,18 @@ import footer from './footer';
 
 import { _global } from './_global';
 
-import { IProfile } from '../component/profile/IProfile';
-import { IIntroduce } from '../component/introduce/IIntroduce';
-import { ISkill } from '../component/skill/ISkill';
-import { IOpenSource } from '../component/openSource/IOpenSource';
-import { IExperience } from '../component/experience/IExperience';
-import { IProject } from '../component/project/IProject';
-import { IPresentation } from '../component/presentation/IPresentation';
-import { IEducation } from '../component/education/IEducation';
-import { IEtc } from '../component/etc/IEtc';
-import { IFooter } from '../component/footer/IFooter';
-import { IGlobal } from '../component/common/IGlobal';
-import { IArticle } from '../component/article/IArticle';
+import { IProfile } from '../types/IProfile';
+import { IIntroduce } from '../types/IIntroduce';
+import { ISkill } from '../types/ISkill';
+import { IOpenSource } from '../types/IOpenSource';
+import { IExperience } from '../types/IExperience';
+import { IProject } from '../types/IProject';
+import { IPresentation } from '../types/IPresentation';
+import { IEducation } from '../types/IEducation';
+import { IEtc } from '../types/IEtc';
+import { IFooter } from '../types/IFooter';
+import { IGlobal } from '../types/IGlobal';
+import { IArticle } from '../types/IArticle';
 
 const Payload: Payload = {
   profile,

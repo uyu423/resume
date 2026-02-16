@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { ICommon } from './ICommon';
+import { ICommon } from '../../types/ICommon';
 
 type Component<T> = (props: PropsWithChildren<{ payload: T }>) => React.JSX.Element;
 

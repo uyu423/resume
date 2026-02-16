@@ -1,7 +1,7 @@
 import React, { CSSProperties, PropsWithChildren } from 'react';
 
 import { HrefTargetBlank } from '.';
-import { IRow } from './IRow';
+import { IRow } from '../../types/IRow';
 
 /** Description Recusion Generator */
 export function CommonDescription({

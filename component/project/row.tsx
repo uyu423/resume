@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon';
 import { PropsWithChildren } from 'react';
-import { IProject } from './IProject';
+import { IProject } from '../../types/IProject';
 import { CommonRows } from '../common/CommonRow';
-import { IRow } from '../common/IRow';
+import { IRow } from '../../types/IRow';
 import Util from '../common/Util';
 import { EmptyRowCol } from '../common';
 

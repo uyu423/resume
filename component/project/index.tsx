@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react';
 import ProjectRow from './row';
 import { CommonSection } from '../common/CommonSection';
-import { IProject } from './IProject';
+import { IProject } from '../../types/IProject';
 import { PreProcessingComponent } from '../common/PreProcessingComponent';
 
 type Payload = IProject.Payload;

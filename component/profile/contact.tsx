@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PropsWithChildren } from 'react';
 import { Row, Col, Badge } from 'reactstrap';
-import { IProfile } from './IProfile';
+import { IProfile } from '../../types/IProfile';
 import { HrefTargetBlank } from '../common';
 
 export default function ProfileContact({

@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react';
 import { DateTime } from 'luxon';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
-import { IIntroduce } from './IIntroduce';
+import { IIntroduce } from '../../types/IIntroduce';
 import { PreProcessingComponent } from '../common/PreProcessingComponent';
 
 type Payload = IIntroduce.Payload;

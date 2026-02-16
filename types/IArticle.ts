@@ -1,5 +1,5 @@
-import { ICommon } from '../common/ICommon';
-import { IRow } from '../common/IRow';
+import { ICommon } from './ICommon';
+import { IRow } from './IRow';
 
 export declare namespace IArticle {
   /**

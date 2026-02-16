@@ -1,4 +1,4 @@
-import { IIntroduce } from '../component/introduce/IIntroduce';
+import { IIntroduce } from '../types/IIntroduce';
 import { lastestUpdatedAt } from '../package.json';
 
 const introduce: IIntroduce.Payload = {

@@ -1,10 +1,10 @@
 import { DateTime } from 'luxon';
 import { PropsWithChildren } from 'react';
 import { CommonRows } from '../common/CommonRow';
-import { IRow } from '../common/IRow';
+import { IRow } from '../../types/IRow';
 import Util from '../common/Util';
 import { EmptyRowCol } from '../common';
-import { IPresentation } from './IPresentation';
+import { IPresentation } from '../../types/IPresentation';
 
 export default function PresentationRow({
   payload,

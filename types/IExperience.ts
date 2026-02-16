@@ -1,4 +1,4 @@
-import { ICommon } from '../common/ICommon';
+import { ICommon } from './ICommon';
 
 export declare namespace IExperience {
   /**

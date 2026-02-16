@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { IOpenSource } from './IOpenSource';
+import { IOpenSource } from '../../types/IOpenSource';
 import OpenSourceRow from './row';
 import { CommonSection } from '../common/CommonSection';
 import { PreProcessingComponent } from '../common/PreProcessingComponent';

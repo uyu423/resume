@@ -2,7 +2,7 @@ import { Badge, Col, Row } from 'reactstrap';
 
 import { DateTime } from 'luxon';
 import { PropsWithChildren } from 'react';
-import { IExperience } from './IExperience';
+import { IExperience } from '../../types/IExperience';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
 

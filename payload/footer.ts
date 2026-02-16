@@ -1,6 +1,6 @@
 import { homepage, version } from '../package.json';
 
-import { IFooter } from '../component/footer/IFooter';
+import { IFooter } from '../types/IFooter';
 
 const footer: IFooter.Payload = {
   version,

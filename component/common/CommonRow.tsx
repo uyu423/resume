@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 import { Row, Col } from 'reactstrap';
-import { IRow } from './IRow';
+import { IRow } from '../../types/IRow';
 import { Style } from './Style';
 import { CommonDescription } from './CommonDescription';
 
