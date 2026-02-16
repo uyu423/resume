@@ -202,11 +202,18 @@ Sub Path를 가지는 도메인 구조일 경우 (예: `https://uyu423.github.io
 
 #### GitHub Actions (권장)
 
-`master` 브랜치에 push하면 `.github/workflows/ci.yml`에 의해 자동으로 빌드 및 GitHub Pages 배포가 수행된다.
+`master` 브랜치에 push하면 `.github/workflows/ci.yml`에 의해 자동으로 빌드되고, `gh-pages` 브랜치로 배포된다.
+
+- Repository Settings → Pages → Source: **Deploy from a branch**
+- Branch: **`gh-pages`** / **`/ (root)`**
+
+#### GitHub Release
+
+`v*` 태그를 push하면 `.github/workflows/release.yml`에 의해 CI 검증 후 GitHub Release가 자동 생성된다. changelog는 커밋 메시지 기반으로 자동 생성된다.
 
 #### 수동 배포
 
-1. Repository Settings → Pages → Source에서 배포 소스를 설정한다.
+1. Repository Settings → Pages → Source에서 `gh-pages` 브랜치를 선택한다.
 2. `npm run build`를 실행하여 `docs/` 내 Static HTML을 갱신한다.
 3. 외부 도메인이 있는 경우 Custom Domain 항목에 기입한다.
    - `docs/CNAME` 파일은 빌드 과정에서 `package.json`의 `homepage` 필드를 기반으로 자동 생성된다.
