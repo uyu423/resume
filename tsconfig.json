@@ -20,7 +20,6 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "outDir": "docs",
     "incremental": true
   },
   "exclude": [
@@ -29,11 +28,5 @@
   "include": [
     "**/*.ts",
     "**/*.tsx"
-  ],
-  "typedocOptions": {
-    "out": "docs/typedoc",
-    "mode": "file",
-    "name": "Resume Next.js: TypeDoc",
-    "externalPattern": "!**/I*.ts"
-  }
+  ]
 }

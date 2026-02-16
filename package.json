@@ -8,11 +8,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env DEBUG=yosume:* next",
     "build": "next build",
-    "prebuild": "npm install && npm run lint",
     "postbuild": "node shellwork.js",
     "start": "next start",
-    "clean": "npx rimraf docs",
-    "lint": "eslint \"component/**/*\" \"pages/**/*\" \"payload/**/*\" --fix"
+    "clean": "npx rimraf docs .next",
+    "lint": "eslint \"component/**/*\" \"pages/**/*\" \"payload/**/*\" \"types/**/*\"",
+    "lint:fix": "npm run lint -- --fix",
+    "typecheck": "tsc --noEmit"
   },
   "homepage": "https://uyu423.github.io/resume-nextjs",
   "repository": {
@@ -40,13 +41,11 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^3.2.0",
     "@types/debug": "^4.1.7",
-    "chalk": "^4.1.2",
     "debug": "^4.3.2",
     "luxon": "^3.7.2",
     "next": "^16.1.6",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "shelljs": "^0.8.5"
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -55,7 +54,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/shelljs": "^0.8.9",
-    "cpy-cli": "^3.1.1",
+    "chalk": "^4.1.2",
     "cross-env": "^7.0.3",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
@@ -64,6 +63,7 @@
     "globals": "^17.3.0",
     "prettier": "^3.8.1",
     "rimraf": "^3.0.2",
+    "shelljs": "^0.8.5",
     "typescript": "~5.9",
     "typescript-eslint": "^8.56.0"
   },
