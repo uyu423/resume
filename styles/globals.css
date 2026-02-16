@@ -488,6 +488,11 @@ img {
 
 .experience-summary-row {
   margin-bottom: var(--space-lg);
+  align-items: baseline;
+}
+
+.experience-item > .split-row:first-of-type {
+  align-items: baseline;
 }
 
 .experience-summary-label {
@@ -496,6 +501,7 @@ img {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-muted);
+  line-height: 1.6;
 }
 
 .experience-period {
@@ -535,7 +541,11 @@ img {
   margin-top: var(--space-sm);
 }
 
-.experience-position-period,
+.experience-position-period {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
 .experience-position-title {
   color: var(--color-text-secondary);
 }
@@ -793,7 +803,9 @@ a:focus-visible {
   .print-button,
   .notice-banner,
   .scroll-to-top,
-  .language-toggle {
+  .language-toggle,
+  .resume-footer,
+  .print-exclude {
     display: none !important;
   }
 
@@ -930,24 +942,12 @@ a:focus-visible {
     background: #cbd5e1 !important;
   }
 
-  /* 13. 프로필 사진 인쇄 최적화 */
+  /* 13. 프로필 사진 인쇄 최적화 — 데스크탑과 동일한 레이아웃 유지 */
   .profile-image,
   img[alt*='profile'],
   img[alt*='Profile'] {
-    width: 100px !important;
-    height: 100px !important;
-    border: 1px solid #ddd !important;
-  }
-
-  /* 13b. 프로필 레이아웃 인쇄 최적화 */
-  .profile-identity {
-    gap: var(--space-md) !important;
-  }
-
-  .profile-stats-band {
-    background: transparent !important;
-    margin-top: 16px !important;
-    padding: var(--space-sm) 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   /* 14. accent 색상 유지 */
@@ -971,17 +971,13 @@ a:focus-visible {
   .skill-dot {
     width: 6px !important;
     height: 6px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
   .tag {
     font-size: 8pt !important;
   }
 
-  /* 16. Footer 축소 */
-  .resume-footer {
-    margin-top: 24px !important;
-    padding: 8px 0 !important;
-    font-size: 9pt !important;
-  }
 }
 
 /* Below-fold sections: skip rendering until near viewport */
