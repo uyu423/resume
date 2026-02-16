@@ -151,7 +151,7 @@ img {
   padding: 0 var(--space-xl);
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .resume-container {
     padding: 0 var(--space-md);
   }
@@ -167,7 +167,7 @@ img {
   text-align: right;
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .split-row {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
@@ -189,12 +189,12 @@ img {
   gap: var(--space-lg);
 }
 
-@media (max-width: 991px) {
+@media screen and (max-width: 991px) {
   .card-grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .card-grid-2,
   .card-grid-3 {
     grid-template-columns: 1fr;
@@ -206,7 +206,7 @@ img {
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
 }
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .skill-columns {
     grid-template-columns: 1fr;
   }
@@ -217,7 +217,7 @@ img {
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
 }
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .stats-grid {
     grid-template-columns: 1fr;
   }
@@ -298,7 +298,7 @@ img {
   margin-bottom: var(--subsection-gap);
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .section-heading {
     font-size: 0.8rem;
   }
@@ -535,56 +535,77 @@ img {
   padding-top: var(--space-sm);
 }
 
-.skill-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm) var(--space-md);
-  color: var(--color-text-muted);
-  font-size: var(--text-xs);
-  margin-bottom: var(--space-lg);
-}
-
-.skill-legend-item {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-xs);
-}
-
 .skill-category {
   color: var(--color-text-secondary);
 }
 
-.skill-item {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: var(--space-sm);
-}
-
-.skill-item-title {
-  flex: 1;
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-.skill-level-dots {
+.skill-dots {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  flex-shrink: 0;
-  white-space: nowrap;
+  margin-left: 2px;
 }
 
-.skill-level-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
+.skill-dot {
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: var(--color-border);
 }
 
-.skill-level-dot.is-active {
-  background: var(--color-accent);
+.skill-dot--filled {
+  background: #3b82f6;
+}
+
+.skill-dot--empty {
+  background: #cbd5e1;
+}
+
+.skill-chip-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.skill-chip-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-bg-card);
+  padding: 4px 8px;
+  min-height: 28px;
+}
+
+.skill-chip-title {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+@media screen and (max-width: 767px) {
+  .skill-chip-item {
+    min-height: 26px;
+    padding: 3px 7px;
+    gap: 5px;
+  }
+
+  .skill-chip-title {
+    font-size: 0.82rem;
+  }
+}
+
+[data-theme='dark'] .skill-dot--filled {
+  background: #3b82f6;
+}
+
+[data-theme='dark'] .skill-dot--empty {
+  background: #475569;
 }
 
 .experience-keywords {
@@ -670,7 +691,31 @@ img {
   color: var(--color-accent);
 }
 
-@media (max-width: 767px) {
+.print-button {
+  position: fixed;
+  bottom: 74px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-card);
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all var(--transition-base);
+  z-index: 99;
+}
+
+.print-button:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+@media screen and (max-width: 767px) {
   .profile-contacts {
     flex-direction: column;
     align-items: center;
@@ -722,16 +767,20 @@ a:focus-visible {
   .floating-nav,
   .cta-button,
   .dark-mode-toggle,
+  .print-button,
   .notice-banner,
   .scroll-to-top,
-  .language-toggle {
+  .language-toggle,
+  .profile-cta-group {
     display: none !important;
   }
 
-  /* 2. 애니메이션/전환 제거 */
+  /* 2. 애니메이션/전환 제거 + content-visibility 강제 표시 */
   .section-animate {
     opacity: 1 !important;
     transform: none !important;
+    content-visibility: visible !important;
+    contain-intrinsic-size: auto !important;
   }
 
   * {
@@ -745,8 +794,8 @@ a:focus-visible {
     width: 210mm;
     margin: 0;
     padding: 0;
-    font-size: 11pt;
-    line-height: 1.5;
+    font-size: 10.5pt;
+    line-height: 1.45;
     color: #000 !important;
     background: #fff !important;
   }
@@ -771,7 +820,21 @@ a:focus-visible {
     font-size: 11pt;
   }
 
-  /* 4. 카드 스타일 간소화 */
+  /* 4. 섹션 간격 축소 */
+  .editorial-section,
+  .profile-section {
+    margin-top: 36px !important;
+  }
+
+  /* 5. Grid 레이아웃 A4 대응 (모바일 breakpoint는 screen only로 비활성) */
+  .split-row {
+    grid-template-columns: 160px 1fr !important;
+  }
+  .card-grid-3 {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* 6. 카드 스타일 간소화 */
   .highlight-card,
   .testimonial-card,
   .pullquote {
@@ -780,7 +843,7 @@ a:focus-visible {
     padding: 12px !important;
   }
 
-  /* 5. 링크 URL 표시 */
+  /* 7. 링크 URL 표시 */
   a[href^='http']::after {
     content: ' (' attr(href) ')';
     font-size: 0.8em;
@@ -792,37 +855,44 @@ a:focus-visible {
   a[href^='#']::after {
     content: '' !important;
   }
+  /* 프로필 연락처 링크는 이미 텍스트로 표시되므로 URL 중복 제거 */
+  .profile-contact-item a::after {
+    content: '' !important;
+  }
 
-  /* 6. 외부 이미지 뱃지 숨김 */
+  /* 8. 외부 이미지 뱃지 숨김 */
   img[src*='shields.io'],
   img[src*='badge'],
   img[src*='img.shields.io'] {
     display: none !important;
   }
 
-  /* 7. 페이지 분할 제어 */
+  /* 9. 페이지 분할 제어 */
   .experience-item,
   .project-item,
   .testimonial-card,
-  .pullquote {
+  .pullquote,
+  .highlight-card,
+  .split-row {
     break-inside: avoid;
   }
   h2,
   h3,
-  h4 {
+  h4,
+  .section-heading {
     break-after: avoid;
   }
   section {
     break-before: auto;
   }
 
-  /* 8. A4 레이아웃 */
+  /* 10. A4 레이아웃 */
   @page {
     margin: 15mm;
     size: A4;
   }
 
-  /* 9. 다크 모드 강제 해제 */
+  /* 11. 다크 모드 강제 해제 */
   html[data-theme='dark'],
   html[data-theme='dark'] * {
     color: #000 !important;
@@ -830,7 +900,15 @@ a:focus-visible {
     border-color: #ddd !important;
   }
 
-  /* 10. 프로필 사진 인쇄 최적화 */
+  /* 12. 다크모드에서도 skill-dot 라이트 색상 복원 */
+  html[data-theme='dark'] .skill-dot--filled {
+    background: #3b82f6 !important;
+  }
+  html[data-theme='dark'] .skill-dot--empty {
+    background: #cbd5e1 !important;
+  }
+
+  /* 13. 프로필 사진 인쇄 최적화 */
   .profile-image,
   img[alt*='profile'],
   img[alt*='Profile'] {
@@ -839,7 +917,7 @@ a:focus-visible {
     border: 1px solid #ddd !important;
   }
 
-  /* 11. accent 색상 유지 */
+  /* 14. accent 색상 유지 */
   .section-heading {
     color: #2563eb !important;
     border-bottom-color: #0f172a !important;
@@ -847,6 +925,29 @@ a:focus-visible {
   .tag--accent {
     color: #2563eb !important;
     border-color: #2563eb !important;
+  }
+
+  /* 15. Skill chip / tag 축소 */
+  .skill-chip-item {
+    padding: 2px 6px !important;
+    min-height: 22px !important;
+  }
+  .skill-chip-title {
+    font-size: 8pt !important;
+  }
+  .skill-dot {
+    width: 6px !important;
+    height: 6px !important;
+  }
+  .tag {
+    font-size: 8pt !important;
+  }
+
+  /* 16. Footer 축소 */
+  .resume-footer {
+    margin-top: 24px !important;
+    padding: 8px 0 !important;
+    font-size: 9pt !important;
   }
 }
 

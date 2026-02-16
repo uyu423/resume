@@ -1,217 +1,197 @@
-# resume-nextjs main(v1) -> release/v2 마이그레이션 가이드
+# v1.3.1-eol -> release/v2 Payload 마이그레이션 가이드
 
-이 문서는 `upstream/resume-nextjs`의 v1 대비 v2 전환 시, 기존 사용자가 실제로 수정해야 하는 항목만 빠르게 반영할 수 있도록 정리한 가이드입니다.
+이 문서는 **v1 사용자가 v2 브랜치를 머지할 때 `payload/` 충돌을 최소화**하는 데 집중합니다.
+핵심 목표는 "v2 구조를 받아오되, 내가 입력한 payload 데이터는 잃지 않는 것"입니다.
 
-## 0) 비교 기준
+## 기준
 
-- 요청 기준 브랜치: `main (v1)` -> `release/v2`
-- 참고: 공개 upstream(`uyu423/resume-nextjs`)에서는 현재 아래 브랜치명에 대응됩니다.
-  - `main (v1)` ~= `master`
-  - `release/v2` ~= `feature/v2`
+- 베이스: `upstream` 태그 `v1.3.1-eol`
+- 타깃: `upstream/release/v2`
+- 공개 upstream(`uyu423/resume-nextjs`) 대응:
+  - `v1.3.1-eol` (tag)
+  - `resume-nextjs/feature/v2` (branch)
 
-브랜치 비교 예시:
+비교 확인:
 
 ```bash
-git fetch upstream
-git diff --stat upstream/main...upstream/release/v2
+git fetch upstream --tags
+git diff --name-status v1.3.1-eol...upstream/release/v2 -- payload
 ```
 
 공개 upstream 기준:
 
 ```bash
-git fetch resume-nextjs
-git diff --stat resume-nextjs/master...resume-nextjs/feature/v2
+git fetch resume-nextjs --tags
+git diff --name-status v1.3.1-eol...resume-nextjs/feature/v2 -- payload
 ```
 
-## 1) 한 번에 끝내는 빠른 전환 순서
+## 왜 payload 충돌이 큰가
 
-1. Node 버전을 `24.13.0`으로 맞춥니다 (`.nvmrc`).
-2. CI/배포 스크립트에서 `npm run export` 호출을 `npm run build`로 변경합니다.
-3. `next-images`/`next-seo`/`styled-components`/`jquery` 의존 제거를 반영합니다.
-4. `asset/*` 이미지를 `public/*`로 옮기고, payload 이미지 참조를 문자열 경로(`/sample_tux.png`)로 변경합니다.
-5. 타입 import 경로를 `component/**/I*.ts`에서 `types/*.ts`로 전환합니다.
-6. `payload/experience.ts`의 `descriptions: string[]`를 `descriptions: { content: string }[]`로 변환합니다.
-7. `payload/skill.ts`의 `tooltip` 필드를 제거합니다.
-8. 선택적으로 `highlight`, `testimonial`, `profile.tagline/headings/ctas`, `_global.jsonLd`를 추가 적용합니다.
+v2에서 payload는 단순 텍스트 변경이 아니라 구조 자체가 바뀌었습니다.
 
-## 2) 사용자 영향이 큰 변경점 (Breaking 중심)
+1. 타입 import 경로 변경: `component/**/I*.ts` -> `types/*.ts`
+2. `experience.descriptions` 구조 변경: `string[]` -> `{ content: string }[]`
+3. 신규 payload 파일 추가: `highlight.ts`, `testimonial.ts`
+4. `payload/index.ts`에서 새 섹션 import/aggregate 추가
+5. `_global.ts`, `profile.ts`에 확장 필드 추가 (`jsonLd`, `tagline/headings/ctas`)
 
-| 영역           | v1                                            | v2                                                        | 사용자 조치                               |
-| -------------- | --------------------------------------------- | --------------------------------------------------------- | ----------------------------------------- |
-| 런타임         | Next 10 / React 17                            | Next 16 / React 19                                        | Node 24 기반으로 실행/빌드 환경 갱신      |
-| 정적 export    | `npm run export` + `next export`              | `next.config.js`의 `output: 'export'` + `distDir: 'docs'` | 배포/자동화 명령을 `npm run build`로 변경 |
-| 이미지 처리    | `next-images`, `asset/` import                | `public/` 정적 경로 문자열 사용                           | payload 이미지 경로를 `/...` 형태로 교체  |
-| SEO            | `next-seo`의 `NextSeoProps`                   | 기본 meta + `jsonLd`(optional)                            | `_global.seo` 구조와 JSON-LD 값 점검      |
-| 타입 구조      | `declare namespace I*` + `component/**/I*.ts` | 모듈 export interface + `types/*.ts`                      | 커스텀 코드 import 경로/타입명 변경       |
-| 섹션 렌더링    | `PreProcessingComponent` HOC                  | `Section` 컴포지션                                        | 커스텀 섹션 구현 시 패턴 교체             |
-| payload 스키마 | 일부 단순 구조                                | 경험 설명/신규 섹션 등 확장                               | 아래 3장 예시대로 데이터 형식 변환        |
+즉, 머지 충돌 해결에서 "ours/theirs만 선택"하면 데이터가 날아가거나 빌드가 깨질 수 있습니다.
 
-## 3) payload 마이그레이션 상세
+## 가장 안전한 작업 순서 (권장)
 
-### 3-1. 이미지 참조 방식 변경
+아래 순서는 **충돌 해결 전에 사용자 데이터 백업 -> v2 구조 수용 -> 사용자 데이터 재적용** 순서입니다.
 
-`next-images` 제거로 인해 이미지 파일 import 대신 `public/` 기반 경로 문자열을 사용합니다.
-
-Before (v1):
-
-```ts
-import image from '../asset/sample_tux.png';
-
-const profile = {
-  image,
-};
-```
-
-After (v2):
-
-```ts
-const profile = {
-  image: '/sample_tux.png',
-};
-```
-
-### 3-2. Experience descriptions 형식 변경 (필수)
-
-`string[]`에서 `RowDescription[]`로 변경되었습니다.
-
-Before (v1):
-
-```ts
-descriptions: ['Linux 커널 패치 적용', '배포 자동화'];
-```
-
-After (v2):
-
-```ts
-descriptions: [{ content: 'Linux 커널 패치 적용' }, { content: '배포 자동화' }];
-```
-
-### 3-3. Skill tooltip 제거
-
-`payload/skill.ts`의 `tooltip` 속성은 v2 타입에서 제거되었습니다.
-
-Before (v1):
-
-```ts
-const skill = {
-  disable: false,
-  skills: [...],
-  tooltip: '1: 기초, 2: 실무, 3: 전문가',
-};
-```
-
-After (v2):
-
-```ts
-const skill = {
-  disable: false,
-  skills: [...],
-};
-```
-
-### 3-4. Global SEO + JSON-LD
-
-`next-seo` 의존이 제거되어 `_global.seo`는 내부 타입(`GlobalSeo`)으로 관리됩니다.
-선택적으로 `_global.jsonLd`를 추가해 구조화 데이터를 넣을 수 있습니다.
-
-```ts
-export const _global = {
-  headTitle: 'Your Name | Web Resume',
-  favicon: '/favicon.ico',
-  seo: {
-    title: 'Your Name | Web Resume',
-    description: 'Web resume',
-    openGraph: {
-      title: 'Your Name | Web Resume',
-      description: 'Web resume',
-      images: [{ url: '/preview.jpg', width: 800, height: 600 }],
-      type: 'profile',
-      profile: { firstName: 'Your', lastName: 'Name', username: 'yourname' },
-    },
-  },
-  jsonLd: {
-    name: 'Your Name',
-    jobTitle: 'Software Engineer',
-    worksFor: 'Company Name',
-    url: 'https://your-resume-url.com',
-    sameAs: ['https://github.com/yourname'],
-  },
-};
-```
-
-### 3-5. 신규 payload (선택)
-
-v2에서는 `highlight`, `testimonial` 섹션이 추가되었습니다.
-
-- 사용하지 않을 경우 `disable: true`로 두거나, `pages/index.tsx`에서 렌더링하지 않으면 됩니다.
-- 기존 v1 UI와 최대한 유사하게 유지하려면 우선 두 섹션을 비활성화 후 점진 도입을 권장합니다.
-
-## 4) 커스텀 코드 마이그레이션 포인트
-
-### 4-1. 타입 import 경로 변경
-
-Before (v1):
-
-```ts
-import { IProfile } from '../component/profile/IProfile';
-type Payload = IProfile.Payload;
-```
-
-After (v2):
-
-```ts
-import { ProfilePayload } from '../types/IProfile';
-type Payload = ProfilePayload;
-```
-
-### 4-2. 섹션 렌더링 패턴 변경
-
-Before (v1): `PreProcessingComponent` 기반
-
-After (v2):
-
-```tsx
-import { Section } from '../common/Section';
-
-export function FooSection({ payload }: { payload: FooPayload }) {
-  return (
-    <Section payload={payload}>
-      <FooContent payload={payload} />
-    </Section>
-  );
-}
-```
-
-## 5) 배포/CI 스크립트 변경 체크
-
-- `npm run export` 제거 여부 확인
-- `npm run build`만으로 `docs/` 정적 산출물이 생성되는지 확인
-- GitHub Pages 배포가 `docs/` 경로를 계속 바라보는지 확인
-- `shellwork.js`는 `homepage`가 비어 있으면 실패(exit 1)하므로 `package.json.homepage` 필드를 유지
-
-## 6) 검증 체크리스트
+### 1) 머지 전 payload 백업
 
 ```bash
-nvm use 24.13.0
-npm ci
-npm run lint
-npm run build
+mkdir -p .migration_backup
+cp -R payload ".migration_backup/payload-v1"
 ```
 
-성공 기준:
+중요: 이 백업이 실제 사용자 입력값 보존본입니다.
 
-- lint 오류 없음
-- `docs/index.html` 생성됨
-- 브라우저에서 프로필 이미지/OG 이미지가 404 없이 출력됨
-- Experience 섹션 설명 목록이 정상 렌더링됨
+### 2) v2 머지 시작 (자동 커밋 금지)
 
-## 7) v1 사용자 최소 변경 템플릿
+```bash
+git merge upstream/release/v2 --no-commit --no-ff
+git status
+```
 
-"일단 빌드만 통과"가 목표라면 아래 4가지만 먼저 적용하세요.
+### 3) 충돌 파일 우선순위대로 해결
 
-1. Node 24 + 의존성 업데이트
-2. 이미지 경로를 `public/` 문자열 경로로 변경
-3. `experience.descriptions`를 객체 배열로 변경
-4. `npm run export` -> `npm run build`로 변경
+아래 순서로 처리하면 가장 안정적입니다.
 
-이후 `highlight/testimonial`, `jsonLd`, 다크모드/플로팅 네비게이션 등은 선택적으로 순차 도입하면 됩니다.
+1. `payload/index.ts` (최우선)
+2. `payload/experience.ts` (구조 breaking)
+3. `payload/_global.ts`
+4. `payload/profile.ts`
+5. 나머지 payload 파일
+
+### 4) "v2 구조 우선"으로 파일 선택 후, 내 데이터를 수동 이식
+
+권장 방식:
+
+```bash
+# 예시: v2 파일 구조 채택
+git checkout --theirs payload/index.ts
+git checkout --theirs payload/experience.ts
+git checkout --theirs payload/_global.ts
+git checkout --theirs payload/profile.ts
+```
+
+그 다음 `.migration_backup/payload-v1`의 내 값만 다시 복사/이식합니다.
+
+## 파일별 마이그레이션 규칙 (핵심)
+
+### 1) payload/index.ts
+
+- v2에서 `highlight`, `testimonial` import/등록이 추가됩니다.
+- 규칙: **v2 구조를 유지**하고, 내가 쓰던 payload import/필드만 누락 없이 반영합니다.
+
+필수 체크:
+
+- `highlight`와 `testimonial`이 object/interface 양쪽에 모두 있는지
+- type import가 모두 `../types/*`를 가리키는지
+
+### 2) payload/experience.ts (가장 중요한 breaking)
+
+v1:
+
+```ts
+descriptions: ['문장1', '문장2'];
+```
+
+v2:
+
+```ts
+descriptions: [{ content: '문장1' }, { content: '문장2' }];
+```
+
+이 변환을 안 하면 v2 컴포넌트 렌더링/타입에서 문제납니다.
+
+### 3) payload/\_global.ts
+
+- 파일/이미지 참조를 문자열 경로로 유지 (`/favicon.ico`, `/preview.jpg`)
+- `seo`는 v2 구조 유지
+- `jsonLd`는 optional이지만 v2에서는 추가 권장
+
+주의:
+
+- v1의 `asset` import 패턴으로 되돌리면 v2 구성과 어긋날 수 있습니다.
+
+### 4) payload/profile.ts
+
+- v2 구조 유지 후 내 값 이식
+- `tagline`, `headings`, `ctas`는 optional
+- 당장 필요 없으면 생략 가능
+
+### 5) payload/skill.ts
+
+- `tooltip` 필드는 v2 타입에서 제거됨
+- 머지 후 `tooltip`이 남아 있으면 삭제
+
+### 6) 신규 파일 추가
+
+v2 머지 후 아래 파일이 없으면 생성해야 합니다.
+
+- `payload/highlight.ts`
+- `payload/testimonial.ts`
+
+둘 다 당장 사용하지 않으면 `disable: true`로 두는 방식도 가능합니다.
+
+## 실제 작업 템플릿 (명령 중심)
+
+```bash
+# 0) 백업
+mkdir -p .migration_backup
+cp -R payload ".migration_backup/payload-v1"
+
+# 1) 머지 시작
+git merge upstream/release/v2 --no-commit --no-ff
+
+# 2) 고위험 파일부터 v2 구조 채택
+git checkout --theirs payload/index.ts
+git checkout --theirs payload/experience.ts
+git checkout --theirs payload/_global.ts
+git checkout --theirs payload/profile.ts
+
+# 3) 나머지 payload도 v2 구조 채택 (필요시)
+git checkout --theirs payload/skill.ts payload/article.ts payload/education.ts payload/etc.ts
+git checkout --theirs payload/openSource.ts payload/presentation.ts payload/project.ts payload/footer.ts payload/introduce.ts
+
+# 4) 에디터에서 .migration_backup/payload-v1 를 보면서 내 데이터 재적용
+#    - experience.descriptions 변환 필수
+#    - skill.tooltip 제거 확인
+#    - index.ts의 highlight/testimonial 누락 확인
+
+# 5) 스테이징/검증
+git add payload
+npm run lint
+npm run build
+
+# 6) 머지 완료
+git commit -m "merge: migrate payload data from v1.3.1-eol to v2"
+```
+
+## 파일별 충돌 위험도
+
+- 높음: `payload/index.ts`, `payload/experience.ts`, `payload/_global.ts`, `payload/profile.ts`
+- 중간: `payload/skill.ts`
+- 낮음(주로 import/type 경로): `article.ts`, `education.ts`, `etc.ts`, `openSource.ts`, `presentation.ts`, `project.ts`, `footer.ts`, `introduce.ts`
+- 신규 추가: `highlight.ts`, `testimonial.ts`
+
+## 마지막 확인 체크리스트
+
+- `payload/experience.ts`의 모든 descriptions가 객체 배열인가?
+- `payload/skill.ts`에 `tooltip`이 남아있지 않은가?
+- `payload/index.ts`에 `highlight`, `testimonial` import/등록이 모두 있는가?
+- `_global.ts`가 v2 스타일(문자열 이미지 경로 + seo 구조)을 유지하는가?
+- `npm run lint` / `npm run build`가 성공하는가?
+
+## 실패를 줄이는 원칙
+
+1. 충돌 파일에서 구조는 v2를 따른다.
+2. 데이터 값(내 경력/프로젝트/소개문)은 v1 백업에서 가져온다.
+3. 한 번에 다 해결하려 하지 말고, `index -> experience -> _global -> profile` 순으로 고정한다.
+
+이 원칙대로 진행하면 payload 충돌이 많아도 안정적으로 v1 -> v2 전환이 가능합니다.

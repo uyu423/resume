@@ -13,6 +13,7 @@ import { ProjectSection } from '../component/project';
 import { SkillSection } from '../component/skill';
 import { FloatingNav } from '../component/nav/FloatingNav';
 import { DarkModeToggle } from '../component/common/DarkModeToggle';
+import { PrintButton } from '../component/common/PrintButton';
 import Payload from '../payload';
 import { ArticleSection } from '../component/article';
 
@@ -67,6 +68,7 @@ function Yosume() {
       </Head>
       <FloatingNav />
       <DarkModeToggle />
+      <PrintButton />
       <main>
         <div className="resume-container">
           <ProfileSection payload={Payload.profile} />
