@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Style } from '../common/Style';
-import { ISkill } from '../../types/ISkill';
+import { SkillPayload } from '../../types/ISkill';
 import SkillRow from './row';
 import { EmptyRowCol } from '../common';
 import { Section } from '../common/Section';
 
-type Payload = ISkill.Payload;
+type Payload = SkillPayload;
 
 export function SkillSection({ payload }: { payload: Payload }) {
   return (

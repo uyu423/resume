@@ -1,4 +1,4 @@
-import { IGlobal } from '../types/IGlobal';
+import { GlobalPayload } from '../types/IGlobal';
 
 const favicon = '/favicon.ico';
 const previewImage = '/preview.jpg';
@@ -6,7 +6,7 @@ const previewImage = '/preview.jpg';
 const title = 'RESUME-NEXTJS Sample Page';
 const description = 'This is a simple web resume sample.';
 
-export const _global: IGlobal.Payload = {
+export const _global: GlobalPayload = {
   favicon,
   headTitle: title,
   seo: {

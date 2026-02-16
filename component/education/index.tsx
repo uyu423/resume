@@ -2,13 +2,13 @@ import { PropsWithChildren } from 'react';
 import { CommonSection } from '../common/CommonSection';
 import { EmptyRowCol } from '../common';
 import { CommonRows } from '../common/CommonRow';
-import { IEducation } from '../../types/IEducation';
-import { IRow } from '../../types/IRow';
+import { EducationPayload, EducationItem } from '../../types/IEducation';
+import { RowPayload } from '../../types/IRow';
 import Util from '../common/Util';
 import { Section } from '../common/Section';
 
-type Payload = IEducation.Payload;
-type Item = IEducation.Item;
+type Payload = EducationPayload;
+type Item = EducationItem;
 
 export function EducationSection({ payload }: { payload: Payload }) {
   return (
@@ -36,7 +36,7 @@ function EducationRow({ payload }: PropsWithChildren<{ payload: Payload }>) {
   );
 }
 
-function serialize(item: Item): IRow.Payload {
+function serialize(item: Item): RowPayload {
   return {
     left: { title: Util.formatDateRange(item.startedAt, item.endedAt) },
     right: {

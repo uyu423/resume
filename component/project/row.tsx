@@ -1,11 +1,11 @@
 import { PropsWithChildren } from 'react';
-import { IProject } from '../../types/IProject';
+import { ProjectPayload, ProjectItem } from '../../types/IProject';
 import { CommonRows } from '../common/CommonRow';
-import { IRow } from '../../types/IRow';
+import { RowPayload } from '../../types/IRow';
 import Util from '../common/Util';
 import { EmptyRowCol } from '../common';
 
-export default function ProjectRow({ payload }: PropsWithChildren<{ payload: IProject.Payload }>) {
+export default function ProjectRow({ payload }: PropsWithChildren<{ payload: ProjectPayload }>) {
   return (
     <EmptyRowCol>
       {payload.list.map((item, index) => {
@@ -15,7 +15,7 @@ export default function ProjectRow({ payload }: PropsWithChildren<{ payload: IPr
   );
 }
 
-function serialize(payload: IProject.Item): IRow.Payload {
+function serialize(payload: ProjectItem): RowPayload {
   return {
     left: {
       title: Util.formatDateRange(payload.startedAt, payload.endedAt),

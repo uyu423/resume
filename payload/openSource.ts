@@ -1,6 +1,6 @@
-import { IOpenSource } from '../types/IOpenSource';
+import { OpenSourcePayload } from '../types/IOpenSource';
 
-const openSource: IOpenSource.Payload = {
+const openSource: OpenSourcePayload = {
   disable: false,
   list: [
     {

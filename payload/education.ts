@@ -1,6 +1,6 @@
-import { IEducation } from '../types/IEducation';
+import { EducationPayload } from '../types/IEducation';
 
-const education: IEducation.Payload = {
+const education: EducationPayload = {
   disable: false,
 
   list: [

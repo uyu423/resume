@@ -1,9 +1,9 @@
-import { IOpenSource } from '../../types/IOpenSource';
+import { OpenSourcePayload } from '../../types/IOpenSource';
 import OpenSourceRow from './row';
 import { CommonSection } from '../common/CommonSection';
 import { Section } from '../common/Section';
 
-type Payload = IOpenSource.Payload;
+type Payload = OpenSourcePayload;
 
 export function OpenSourceSection({ payload }: { payload: Payload }) {
   return (

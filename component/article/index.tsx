@@ -1,11 +1,11 @@
 import { Section } from '../common/Section';
-import { IArticle } from '../../types/IArticle';
+import { ArticlePayload } from '../../types/IArticle';
 import { EmptyRowCol } from '../common';
 import { CommonSection } from '../common/CommonSection';
 import { CommonDescription } from '../common/CommonDescription';
 import Util from '../common/Util';
 
-type Payload = IArticle.Payload;
+type Payload = ArticlePayload;
 
 export function ArticleSection({ payload }: { payload: Payload }) {
   return (

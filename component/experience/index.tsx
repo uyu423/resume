@@ -3,12 +3,12 @@ import { DateTime, Duration } from 'luxon';
 
 import { EmptyRowCol } from '../common';
 import ExperienceRow from './row';
-import { IExperience } from '../../types/IExperience';
+import { ExperiencePayload, ExperienceItem, ExperiencePosition } from '../../types/IExperience';
 import { Section } from '../common/Section';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
 
-type Payload = IExperience.Payload;
+type Payload = ExperiencePayload;
 
 export function ExperienceSection({ payload }: { payload: Payload }) {
   return (
@@ -46,9 +46,9 @@ function ExperienceContent({ payload }: { payload: Payload }) {
   );
 }
 
-function getFormattingExperienceTotalDuration(payload: IExperience.Payload) {
-  const durations = payload.list.reduce((acc: Duration[], item: IExperience.Item) => {
-    const itemDurations = item.positions.map((position: IExperience.Position) => {
+function getFormattingExperienceTotalDuration(payload: ExperiencePayload) {
+  const durations = payload.list.reduce((acc: Duration[], item: ExperienceItem) => {
+    const itemDurations = item.positions.map((position: ExperiencePosition) => {
       const endedAt = position.endedAt
         ? DateTime.fromFormat(position.endedAt, Util.LUXON_DATE_FORMAT.YYYY_LL)
         : DateTime.local();

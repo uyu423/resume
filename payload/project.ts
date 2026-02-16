@@ -1,6 +1,6 @@
-import { IProject } from '../types/IProject';
+import { ProjectPayload } from '../types/IProject';
 
-const project: IProject.Payload = {
+const project: ProjectPayload = {
   disable: false,
   list: [
     {

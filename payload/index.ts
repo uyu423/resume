@@ -12,18 +12,18 @@ import footer from './footer';
 
 import { _global } from './_global';
 
-import { IProfile } from '../types/IProfile';
-import { IIntroduce } from '../types/IIntroduce';
-import { ISkill } from '../types/ISkill';
-import { IOpenSource } from '../types/IOpenSource';
-import { IExperience } from '../types/IExperience';
-import { IProject } from '../types/IProject';
-import { IPresentation } from '../types/IPresentation';
-import { IEducation } from '../types/IEducation';
-import { IEtc } from '../types/IEtc';
-import { IFooter } from '../types/IFooter';
-import { IGlobal } from '../types/IGlobal';
-import { IArticle } from '../types/IArticle';
+import { ProfilePayload } from '../types/IProfile';
+import { IntroducePayload } from '../types/IIntroduce';
+import { SkillPayload } from '../types/ISkill';
+import { OpenSourcePayload } from '../types/IOpenSource';
+import { ExperiencePayload } from '../types/IExperience';
+import { ProjectPayload } from '../types/IProject';
+import { PresentationPayload } from '../types/IPresentation';
+import { EducationPayload } from '../types/IEducation';
+import { EtcPayload } from '../types/IEtc';
+import { FooterPayload } from '../types/IFooter';
+import { GlobalPayload } from '../types/IGlobal';
+import { ArticlePayload } from '../types/IArticle';
 
 const Payload: Payload = {
   profile,
@@ -42,19 +42,19 @@ const Payload: Payload = {
 };
 
 interface Payload {
-  profile: IProfile.Payload;
-  introduce: IIntroduce.Payload;
-  skill: ISkill.Payload;
-  openSource: IOpenSource.Payload;
-  experience: IExperience.Payload;
-  project: IProject.Payload;
-  presentation: IPresentation.Payload;
-  education: IEducation.Payload;
-  article: IArticle.Payload;
-  etc: IEtc.Payload;
-  footer: IFooter.Payload;
+  profile: ProfilePayload;
+  introduce: IntroducePayload;
+  skill: SkillPayload;
+  openSource: OpenSourcePayload;
+  experience: ExperiencePayload;
+  project: ProjectPayload;
+  presentation: PresentationPayload;
+  education: EducationPayload;
+  article: ArticlePayload;
+  etc: EtcPayload;
+  footer: FooterPayload;
 
-  _global: IGlobal.Payload;
+  _global: GlobalPayload;
 }
 
 export default Payload;

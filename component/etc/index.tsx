@@ -2,13 +2,13 @@ import { PropsWithChildren } from 'react';
 import { CommonSection } from '../common/CommonSection';
 import { EmptyRowCol } from '../common';
 import { CommonRows } from '../common/CommonRow';
-import { IRow } from '../../types/IRow';
+import { RowPayload } from '../../types/IRow';
 import Util from '../common/Util';
-import { IEtc } from '../../types/IEtc';
+import { EtcPayload, EtcItem } from '../../types/IEtc';
 import { Section } from '../common/Section';
 
-type Payload = IEtc.Payload;
-type Item = IEtc.Item;
+type Payload = EtcPayload;
+type Item = EtcItem;
 
 export function EtcSection({ payload }: { payload: Payload }) {
   return (
@@ -36,7 +36,7 @@ function EtcRow({ payload }: PropsWithChildren<{ payload: Payload }>) {
   );
 }
 
-function serialize(item: Item): IRow.Payload {
+function serialize(item: Item): RowPayload {
   return {
     left: {
       title: Util.formatDateRange(item.startedAt, item.endedAt),

@@ -2,10 +2,10 @@ import { Row, Col, Badge } from 'reactstrap';
 import { DateTime } from 'luxon';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
-import { IIntroduce } from '../../types/IIntroduce';
+import { IntroducePayload } from '../../types/IIntroduce';
 import { Section } from '../common/Section';
 
-type Payload = IIntroduce.Payload;
+type Payload = IntroducePayload;
 
 export function IntroduceSection({ payload }: { payload: Payload }) {
   return (

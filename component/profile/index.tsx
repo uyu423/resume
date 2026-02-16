@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProfileContact from './contact';
 import ProfileImage from './image';
 import { EmptyRowCol } from '../common';
-import { IProfile } from '../../types/IProfile';
+import { ProfilePayload } from '../../types/IProfile';
 import { Style } from '../common/Style';
 import { Section } from '../common/Section';
 
-type Payload = IProfile.Payload;
+type Payload = ProfilePayload;
 
 export function ProfileSection({ payload }: { payload: Payload }) {
   return (

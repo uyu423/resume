@@ -1,11 +1,11 @@
 import { Col, Row } from 'reactstrap';
 import { EmptyRowCol, HrefTargetBlank } from '../common';
 
-import { IFooter } from '../../types/IFooter';
+import { FooterPayload } from '../../types/IFooter';
 import { Style } from '../common/Style';
 import { Section } from '../common/Section';
 
-type Payload = IFooter.Payload;
+type Payload = FooterPayload;
 
 export function FooterSection({ payload }: { payload: Payload }) {
   return (

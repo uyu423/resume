@@ -1,8 +1,6 @@
-import { ICommon } from './ICommon';
+import { CommonPayload } from './ICommon';
 
-export declare namespace IFooter {
-  export interface Payload extends ICommon.Payload {
-    github: string;
-    version: string;
-  }
+export interface FooterPayload extends CommonPayload {
+  github: string;
+  version: string;
 }

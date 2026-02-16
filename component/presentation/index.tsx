@@ -1,9 +1,9 @@
 import { CommonSection } from '../common/CommonSection';
 import PresentationRow from './row';
-import { IPresentation } from '../../types/IPresentation';
+import { PresentationPayload } from '../../types/IPresentation';
 import { Section } from '../common/Section';
 
-type Payload = IPresentation.Payload;
+type Payload = PresentationPayload;
 
 export function PresentationSection({ payload }: { payload: Payload }) {
   return (

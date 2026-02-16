@@ -1,7 +1,7 @@
-import { IIntroduce } from '../types/IIntroduce';
+import { IntroducePayload } from '../types/IIntroduce';
 import { lastestUpdatedAt } from '../package.json';
 
-const introduce: IIntroduce.Payload = {
+const introduce: IntroducePayload = {
   disable: false,
 
   contents: [

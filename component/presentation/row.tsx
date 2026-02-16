@@ -1,13 +1,13 @@
 import { PropsWithChildren } from 'react';
 import { CommonRows } from '../common/CommonRow';
-import { IRow } from '../../types/IRow';
+import { RowPayload } from '../../types/IRow';
 import Util from '../common/Util';
 import { EmptyRowCol } from '../common';
-import { IPresentation } from '../../types/IPresentation';
+import { PresentationPayload, PresentationItem } from '../../types/IPresentation';
 
 export default function PresentationRow({
   payload,
-}: PropsWithChildren<{ payload: IPresentation.Payload }>) {
+}: PropsWithChildren<{ payload: PresentationPayload }>) {
   return (
     <EmptyRowCol>
       {payload.list.map((item, index) => {
@@ -17,7 +17,7 @@ export default function PresentationRow({
   );
 }
 
-function serialize(item: IPresentation.Item): IRow.Payload {
+function serialize(item: PresentationItem): RowPayload {
   return {
     left: {
       title: Util.formatYearMonth(item.at),

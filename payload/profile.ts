@@ -2,11 +2,11 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import { faBell } from '@fortawesome/free-regular-svg-icons';
-import { IProfile } from '../types/IProfile';
+import { ProfilePayload } from '../types/IProfile';
 
 const image = '/sample_tux.png';
 
-const profile: IProfile.Payload = {
+const profile: ProfilePayload = {
   disable: false,
 
   // image: 'https://resume.yowu.dev/static/image/profile_2019.png',

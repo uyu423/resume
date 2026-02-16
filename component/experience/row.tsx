@@ -2,11 +2,11 @@ import { Badge, Col, Row } from 'reactstrap';
 
 import { DateTime } from 'luxon';
 import { PropsWithChildren } from 'react';
-import { IExperience } from '../../types/IExperience';
+import { ExperienceItem, ExperiencePosition } from '../../types/IExperience';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
 
-type PositionWithDates = IExperience.Position & {
+type PositionWithDates = ExperiencePosition & {
   startedAtDate: DateTime;
   endedAtDate: DateTime | null;
   isCurrent: boolean;
@@ -15,7 +15,7 @@ type PositionWithDates = IExperience.Position & {
 export default function ExperienceRow({
   item,
   index,
-}: PropsWithChildren<{ item: IExperience.Item; index: number }>) {
+}: PropsWithChildren<{ item: ExperienceItem; index: number }>) {
   const positionsWithDates: PositionWithDates[] = item.positions.map((position) => ({
     ...position,
     startedAtDate: DateTime.fromFormat(position.startedAt, Util.LUXON_DATE_FORMAT.YYYY_LL),
@@ -94,7 +94,7 @@ export default function ExperienceRow({
             <i style={Style.gray}>{position.title}</i>
             <ul className="pt-2">
               {position.descriptions.map((description, descIndex) => (
-                <li key={descIndex.toString()}>{description}</li>
+                <li key={descIndex.toString()}>{description.content}</li>
               ))}
               {createSkillKeywords(position.skillKeywords)}
             </ul>

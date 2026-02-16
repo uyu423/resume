@@ -1,9 +1,9 @@
 import ProjectRow from './row';
 import { CommonSection } from '../common/CommonSection';
-import { IProject } from '../../types/IProject';
+import { ProjectPayload } from '../../types/IProject';
 import { Section } from '../common/Section';
 
-type Payload = IProject.Payload;
+type Payload = ProjectPayload;
 
 export function ProjectSection({ payload }: { payload: Payload }) {
   return (

@@ -1,6 +1,6 @@
-import { IArticle } from '../types/IArticle';
+import { ArticlePayload } from '../types/IArticle';
 
-const article: IArticle.Payload = {
+const article: ArticlePayload = {
   disable: false,
 
   list: [

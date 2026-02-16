@@ -1,13 +1,13 @@
 import React, { CSSProperties, PropsWithChildren } from 'react';
 
 import { HrefTargetBlank } from '.';
-import { IRow } from '../../types/IRow';
+import { RowDescription, FontWeightType } from '../../types/IRow';
 
 /** Description Recusion Generator */
 export function CommonDescription({
   descriptions,
   option,
-}: PropsWithChildren<{ descriptions: IRow.Description[]; option?: { padding?: boolean } }>) {
+}: PropsWithChildren<{ descriptions: RowDescription[]; option?: { padding?: boolean } }>) {
   return (
     <>
       {descriptions ? (
@@ -35,7 +35,7 @@ export function CommonDescription({
 // ul 태그 depth 표현을 위한 재귀
 function DescriptionRecursion({
   descriptions,
-}: PropsWithChildren<{ descriptions: IRow.Description[] }>) {
+}: PropsWithChildren<{ descriptions: RowDescription[] }>) {
   return (
     <ul>
       {descriptions.map((description, index) => {
@@ -54,7 +54,7 @@ function DescriptionRecursion({
   );
 }
 
-function Description({ description }: PropsWithChildren<{ description: IRow.Description }>) {
+function Description({ description }: PropsWithChildren<{ description: RowDescription }>) {
   const { content, href, postImage, postHref, weight } = description;
 
   const mainContent = href ? <HrefTargetBlank url={href} text={content} /> : content;
@@ -78,7 +78,7 @@ function Description({ description }: PropsWithChildren<{ description: IRow.Desc
   );
 }
 
-function getFontWeight(weight?: IRow.Description['weight']): CSSProperties {
+function getFontWeight(weight?: RowDescription['weight']): CSSProperties {
   if (!weight) {
     // style 에 fontWeight 범벅 되는것을 방지
     return {};
@@ -89,7 +89,7 @@ function getFontWeight(weight?: IRow.Description['weight']): CSSProperties {
 }
 
 // Pretendard Weights: 100, 200, 300, 400, 500, 600, 700, 800, 900
-const fontWeight: Record<IRow.FontWeightType, number> = {
+const fontWeight: Record<FontWeightType, number> = {
   DEFAULT: 300,
   //
   THIN: 100,

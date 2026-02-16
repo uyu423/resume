@@ -1,14 +1,14 @@
 import { Badge, Col, Row } from 'reactstrap';
 import { PropsWithChildren, useEffect, useState } from 'react';
 
-import { ISkill } from '../../types/ISkill';
+import { SkillItem, SkillSubItem } from '../../types/ISkill';
 import { Style } from '../common/Style';
 import Util from '../common/Util';
 
 export default function SkillRow({
   skill,
   index,
-}: PropsWithChildren<{ skill: ISkill.Skill; index: number }>) {
+}: PropsWithChildren<{ skill: SkillItem; index: number }>) {
   const [isMobileScreen, setIsMobileScreen] = useState(false);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function SkillRow({
   );
 }
 
-function createCalculatedSkillItems(items: ISkill.Item[], isVerticalScreen: boolean) {
+function createCalculatedSkillItems(items: SkillSubItem[], isVerticalScreen: boolean) {
   const log = Util.debug('SkillRow:createCalculatedSkillItems');
 
   /**
@@ -50,7 +50,7 @@ function createCalculatedSkillItems(items: ISkill.Item[], isVerticalScreen: bool
   // const splitPoint = layer % 2 ? Math.ceil(items.length / layer) : Math.floor(items.length / layer);
   const splitPoint = Math.ceil(items.length / layer);
 
-  const list: ISkill.Item[][] = [];
+  const list: SkillSubItem[][] = [];
 
   for (let i = 0, splitAfter = splitPoint; i < layer; i += 1, splitAfter += splitPoint) {
     list.push(items.slice(splitAfter - splitPoint, i === layer - 1 ? undefined : splitAfter));
@@ -100,7 +100,7 @@ function createCalculatedSkillItems(items: ISkill.Item[], isVerticalScreen: bool
   );
 }
 
-function createBadge(level?: ISkill.Item['level']) {
+function createBadge(level?: SkillSubItem['level']) {
   if (!level) {
     return '';
   }

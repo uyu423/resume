@@ -1,6 +1,6 @@
-import { ISkill } from '../types/ISkill';
+import { SkillPayload, SkillItem } from '../types/ISkill';
 
-const programmingLanguages: ISkill.Skill = {
+const programmingLanguages: SkillItem = {
   category: 'Programming Languages',
   items: [
     {
@@ -30,7 +30,7 @@ const programmingLanguages: ISkill.Skill = {
   ],
 };
 
-const kernelDevelopment: ISkill.Skill = {
+const kernelDevelopment: SkillItem = {
   category: 'Kernel Development',
   items: [
     {
@@ -52,7 +52,7 @@ const kernelDevelopment: ISkill.Skill = {
   ],
 };
 
-const virtualization: ISkill.Skill = {
+const virtualization: SkillItem = {
   category: 'Virtualization',
   items: [
     {
@@ -78,7 +78,7 @@ const virtualization: ISkill.Skill = {
   ],
 };
 
-const automation: ISkill.Skill = {
+const automation: SkillItem = {
   category: 'Automation',
   items: [
     {
@@ -108,7 +108,7 @@ const automation: ISkill.Skill = {
   ],
 };
 
-const networkSecurity: ISkill.Skill = {
+const networkSecurity: SkillItem = {
   category: 'Network Security',
   items: [
     {
@@ -138,7 +138,7 @@ const networkSecurity: ISkill.Skill = {
   ],
 };
 
-const misc: ISkill.Skill = {
+const misc: SkillItem = {
   category: 'Misc',
   items: [
     {
@@ -162,7 +162,7 @@ const misc: ISkill.Skill = {
   ],
 };
 
-const skill: ISkill.Payload = {
+const skill: SkillPayload = {
   disable: false,
   skills: [
     programmingLanguages,
