@@ -1,12 +1,8 @@
-import { Row, Col, Tooltip } from 'reactstrap';
-import { useState } from 'react';
-import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Style } from '../common/Style';
+import { Row, Col } from 'reactstrap';
 import { SkillPayload } from '../../types/ISkill';
-import SkillRow from './row';
-import { EmptyRowCol } from '../common';
+import SkillRow, { createDots } from './row';
 import { Section } from '../common/Section';
+import { CommonSection } from '../common/CommonSection';
 
 type Payload = SkillPayload;
 
@@ -20,41 +16,29 @@ export function SkillSection({ payload }: { payload: Payload }) {
 
 function SkillContent({ payload }: { payload: Payload }) {
   return (
-    <div className="mt-5">
-      <EmptyRowCol>
-        <Row className="pb-3">
-          <Col>
-            <h2>
-              <span style={Style.blue}>SKILL</span>
-              {payload.tooltip ? <SkillTooltip content={payload.tooltip} /> : ''}
-            </h2>
-          </Col>
-        </Row>
-        {payload.skills.map((skill, index) => (
-          <SkillRow key={index.toString()} skill={skill} index={index} />
-        ))}
-      </EmptyRowCol>
-    </div>
-  );
-}
-
-function SkillTooltip({ content }: { content: string }) {
-  const [tooltipOpen, setTooltipOpen] = useState(false);
-  const toggle = () => setTooltipOpen(!tooltipOpen);
-
-  return (
-    <small>
-      {' '}
-      <FontAwesomeIcon icon={faQuestionCircle} id="skill-tooltip" />
-      <Tooltip
-        style={{ whiteSpace: 'pre-wrap' }}
-        placement="right"
-        target="skill-tooltip"
-        isOpen={tooltipOpen}
-        toggle={toggle}
-      >
-        {content}
-      </Tooltip>
-    </small>
+    <CommonSection title="SKILL">
+      <Row className="mb-3">
+        <Col>
+          <div
+            style={{
+              color: 'var(--color-text-muted)',
+              fontSize: '0.8rem',
+              marginBottom: 'var(--space-md)',
+            }}
+          >
+            <span style={{ marginRight: '12px' }}>
+              {createDots(1)} Beginner
+            </span>
+            <span style={{ marginRight: '12px' }}>
+              {createDots(2)} Intermediate
+            </span>
+            <span>{createDots(3)} Expert</span>
+          </div>
+        </Col>
+      </Row>
+      {payload.skills.map((skill, index) => (
+        <SkillRow key={index.toString()} skill={skill} index={index} />
+      ))}
+    </CommonSection>
   );
 }

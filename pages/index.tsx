@@ -14,6 +14,7 @@ import { ProfileSection } from '../component/profile';
 import { ProjectSection } from '../component/project';
 import { SkillSection } from '../component/skill';
 import { Style } from '../component/common/Style';
+import { FloatingNav } from '../component/nav/FloatingNav';
 import Payload from '../payload';
 import { ArticleSection } from '../component/article';
 
@@ -34,6 +35,7 @@ function Yosume() {
           <meta property="og:image" content={seo.openGraph.images[0].url} />
         )}
       </Head>
+      <FloatingNav />
       <main>
         <Container style={Style.global}>
           <ProfileSection payload={Payload.profile} />

@@ -1,11 +1,10 @@
 import { Badge, Col, Row } from 'reactstrap';
 import { DateTime, Duration } from 'luxon';
 
-import { EmptyRowCol } from '../common';
+import { CommonSection } from '../common/CommonSection';
 import ExperienceRow from './row';
 import { ExperiencePayload, ExperienceItem, ExperiencePosition } from '../../types/IExperience';
 import { Section } from '../common/Section';
-import { Style } from '../common/Style';
 import Util from '../common/Util';
 
 type Payload = ExperiencePayload;
@@ -19,30 +18,30 @@ export function ExperienceSection({ payload }: { payload: Payload }) {
 }
 
 function ExperienceContent({ payload }: { payload: Payload }) {
-  const totalPeriod = () => {
-    if (payload.disableTotalPeriod) {
-      return '';
-    }
-    return (
-      <span style={{ fontSize: '50%' }}>
-        <Badge>{getFormattingExperienceTotalDuration(payload)}</Badge>
-      </span>
-    );
-  };
-
   return (
-    <div className="mt-5">
-      <EmptyRowCol>
-        <Row className="pb-3">
+    <CommonSection title="EXPERIENCE">
+      {!payload.disableTotalPeriod && (
+        <Row className="mb-3">
           <Col>
-            <h2 style={Style.blue}>EXPERIENCE {totalPeriod()}</h2>
+            <Badge
+              style={{
+                background: 'var(--color-bg-highlight)',
+                color: 'var(--color-text)',
+                fontSize: '0.875rem',
+                fontWeight: 500,
+                padding: '4px 12px',
+                borderRadius: '4px',
+              }}
+            >
+              {getFormattingExperienceTotalDuration(payload)}
+            </Badge>
           </Col>
         </Row>
-        {payload.list.map((item, index) => (
-          <ExperienceRow key={index.toString()} item={item} index={index} />
-        ))}
-      </EmptyRowCol>
-    </div>
+      )}
+      {payload.list.map((item, index) => (
+        <ExperienceRow key={index.toString()} item={item} index={index} />
+      ))}
+    </CommonSection>
   );
 }
 

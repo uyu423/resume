@@ -1,4 +1,4 @@
-import { Badge, Col, Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import { PropsWithChildren, useEffect, useState } from 'react';
 
 import { SkillItem, SkillSubItem } from '../../types/ISkill';
@@ -67,8 +67,8 @@ function createCalculatedSkillItems(items: SkillSubItem[], isVerticalScreen: boo
             {items.map((skill, skillIndex) => {
               return (
                 <li key={skillIndex.toString()}>
-                  {createBadge(skill.level)}
                   {skill.title}
+                  {createDots(skill.level)}
                 </li>
               );
             })}
@@ -87,8 +87,8 @@ function createCalculatedSkillItems(items: SkillSubItem[], isVerticalScreen: boo
               {skills.map((skill, skillIndex) => {
                 return (
                   <li key={skillIndex.toString()}>
-                    {createBadge(skill.level)}
                     {skill.title}
+                    {createDots(skill.level)}
                   </li>
                 );
               })}
@@ -100,31 +100,26 @@ function createCalculatedSkillItems(items: SkillSubItem[], isVerticalScreen: boo
   );
 }
 
-function createBadge(level?: SkillSubItem['level']) {
+export function createDots(level?: number) {
   if (!level) {
-    return '';
+    return null;
   }
-
-  const color = (() => {
-    switch (level) {
-      case 3: {
-        return 'primary';
-      }
-      case 2: {
-        return 'secondary';
-      }
-      case 1:
-      default: {
-        return 'light';
-      }
-    }
-  })();
-
+  const maxLevel = 3;
   return (
-    <span>
-      <Badge pill color={color}>
-        {level}
-      </Badge>{' '}
+    <span style={{ marginLeft: '6px', whiteSpace: 'nowrap' }}>
+      {Array.from({ length: maxLevel }, (_, i) => (
+        <span
+          key={i}
+          style={{
+            display: 'inline-block',
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: i < level ? 'var(--color-accent)' : 'var(--color-border)',
+            marginRight: '3px',
+          }}
+        />
+      ))}
     </span>
   );
 }

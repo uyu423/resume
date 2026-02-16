@@ -64,16 +64,49 @@ export default function ExperienceRow({
         </Col>
         <Col sm={12} md={9}>
           <h4 style={{ display: 'inline-flex', alignItems: 'center' }}>
+            <span
+              style={{
+                display: 'inline-block',
+                width: '10px',
+                height: '10px',
+                borderRadius: '50%',
+                background: isCurrentlyEmployed ? 'var(--color-success)' : 'var(--color-accent)',
+                marginRight: '8px',
+                boxShadow: isCurrentlyEmployed
+                  ? '0 0 0 4px rgba(16, 185, 129, 0.2)'
+                  : 'none',
+              }}
+            />
             {item.title}{' '}
             <span style={{ fontSize: '65%', display: 'inline-flex', alignItems: 'center' }}>
               {isCurrentlyEmployed && (
-                <Badge color="primary" className="ms-1">
+                <span
+                  style={{
+                    background: 'var(--color-success)',
+                    color: 'white',
+                    fontSize: '0.75rem',
+                    fontWeight: 500,
+                    padding: '2px 8px',
+                    borderRadius: '4px',
+                    marginLeft: '4px',
+                  }}
+                >
                   재직 중
-                </Badge>
+                </span>
               )}
-              <Badge color="info" className="ms-1">
+              <span
+                style={{
+                  background: 'var(--color-bg-highlight)',
+                  color: 'var(--color-info)',
+                  fontSize: '0.75rem',
+                  fontWeight: 500,
+                  padding: '2px 8px',
+                  borderRadius: '4px',
+                  marginLeft: '4px',
+                }}
+              >
                 {Util.getFormattingDuration(minStartedAt, maxEndedAt)}
-              </Badge>
+              </span>
             </span>
           </h4>
         </Col>
@@ -143,10 +176,19 @@ function createSkillKeywords(skillKeywords?: string[]) {
       <div>
         {skillKeywords.map((keyword, index) => (
           <Badge
-            style={Style.skillKeywordBadge}
             key={index.toString()}
-            color="secondary"
-            className="me-1"
+            color=""
+            style={{
+              background: 'var(--color-bg-highlight)',
+              color: 'var(--color-accent)',
+              border: '1px solid var(--color-accent)',
+              fontSize: '0.75rem',
+              fontWeight: 400,
+              padding: '2px 10px',
+              borderRadius: '4px',
+              marginRight: '4px',
+              marginBottom: '4px',
+            }}
           >
             {keyword}
           </Badge>
