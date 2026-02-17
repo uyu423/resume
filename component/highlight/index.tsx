@@ -1,4 +1,5 @@
 import { Section } from '../common/Section';
+import { ShowMoreWrapper } from '../common/ShowMoreWrapper';
 import { HighlightPayload, HighlightItem } from '../../types/highlight';
 
 type Payload = HighlightPayload;
@@ -14,11 +15,11 @@ export function HighlightSection({ payload }: { payload: Payload }) {
 function HighlightContent({ payload }: { payload: Payload }) {
   return (
     <div className="editorial-section">
-      <div className="card-grid-3">
+      <ShowMoreWrapper showMoreCount={payload.showMoreCount} className="card-grid-3">
         {payload.list.map((item, index) => (
           <HighlightCard key={index.toString()} item={item} />
         ))}
-      </div>
+      </ShowMoreWrapper>
     </div>
   );
 }

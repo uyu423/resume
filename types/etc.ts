@@ -1,4 +1,4 @@
-import { CommonPayload } from './common';
+import { ListSectionPayload } from './common';
 
 /**
  * ### Sample Rendering
@@ -7,7 +7,7 @@ import { CommonPayload } from './common';
  *
  * @example https://github.com/uyu423/resume-nextjs/blob/master/payload/etc.ts
  */
-export interface EtcPayload extends CommonPayload {
+export interface EtcPayload extends ListSectionPayload {
   /** ### 기타 항목 리스트 */
   list: EtcItem[];
 }

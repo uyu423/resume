@@ -2,6 +2,7 @@ import { PropsWithChildren } from 'react';
 import { CommonSection } from '../common/CommonSection';
 import { EmptyRowCol } from '../common';
 import { CommonRows } from '../common/CommonRow';
+import { ShowMoreWrapper } from '../common/ShowMoreWrapper';
 import { EducationPayload, EducationItem } from '../../types/education';
 import { RowPayload } from '../../types/row';
 import Util from '../common/Util';
@@ -29,9 +30,11 @@ function EducationContent({ payload }: { payload: Payload }) {
 function EducationRow({ payload }: PropsWithChildren<{ payload: Payload }>) {
   return (
     <EmptyRowCol>
-      {payload.list.map((item, index) => {
-        return <CommonRows key={index.toString()} payload={serialize(item)} index={index} />;
-      })}
+      <ShowMoreWrapper showMoreCount={payload.showMoreCount}>
+        {payload.list.map((item, index) => {
+          return <CommonRows key={index.toString()} payload={serialize(item)} index={index} />;
+        })}
+      </ShowMoreWrapper>
     </EmptyRowCol>
   );
 }

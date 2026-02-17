@@ -1,4 +1,4 @@
-import { CommonPayload } from './common';
+import { ListSectionPayload } from './common';
 
 /**
  * ### Sample Rendering
@@ -7,7 +7,7 @@ import { CommonPayload } from './common';
  *
  * @example https://github.com/uyu423/resume-nextjs/blob/master/payload/education.ts
  */
-export interface EducationPayload extends CommonPayload {
+export interface EducationPayload extends ListSectionPayload {
   /** ### 교육 수료 리스트 */
   list: EducationItem[];
 }

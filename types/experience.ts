@@ -1,4 +1,4 @@
-import { CommonPayload } from './common';
+import { ListSectionPayload } from './common';
 import { RowDescription } from './row';
 
 /**
@@ -8,7 +8,7 @@ import { RowDescription } from './row';
  *
  * @example https://github.com/uyu423/resume-nextjs/blob/master/payload/experience.ts
  */
-export interface ExperiencePayload extends CommonPayload {
+export interface ExperiencePayload extends ListSectionPayload {
   /** ### Experience 데이터 목록 */
   list: ExperienceItem[];
   /** ### 총 경력 기간 표시 유/무 */

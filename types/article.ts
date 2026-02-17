@@ -1,4 +1,4 @@
-import { CommonPayload } from './common';
+import { ListSectionPayload } from './common';
 import { RowDescription } from './row';
 
 /**
@@ -9,7 +9,7 @@ import { RowDescription } from './row';
  * @example https://github.com/uyu423/resume-nextjs/blob/master/payload/article.ts
  *
  */
-export interface ArticlePayload extends CommonPayload {
+export interface ArticlePayload extends ListSectionPayload {
   /** 아티클 리스트 */
   list: RowDescription[];
 }

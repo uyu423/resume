@@ -1,9 +1,9 @@
-import { CommonPayload } from './common';
+import { ListSectionPayload } from './common';
 
 /**
  * Testimonial 섹션 - 동료/상사의 추천사를 표시
  */
-export interface TestimonialPayload extends CommonPayload {
+export interface TestimonialPayload extends ListSectionPayload {
   /** 추천사 목록 */
   list: TestimonialItem[];
 }

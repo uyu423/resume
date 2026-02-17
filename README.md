@@ -9,7 +9,7 @@
 ## Introduce
 
 - 누구나 예쁜 웹 이력서를 쉽게 만들 수 있어 <small>(약간의 코딩으로..)</small>
-- Next.js 16, React 19, Bootstrap 5, TypeScript 5.9 기반.
+- Next.js 16, React 19, TypeScript 5.9 기반. 순수 CSS (Bootstrap 미사용).
 - `payload/` 디렉토리의 데이터 파일만 수정하면 개인 웹 이력서를 만들 수 있다.
 - Sample: https://uyu423.github.io/resume-nextjs
 
@@ -17,7 +17,7 @@
 
 v1 (`v1.3.1-eol` 태그)에서 대규모 업그레이드가 이루어졌다.
 
-- **프레임워크**: Next.js 10→16, React 17→19, TypeScript 4.9→5.9, Bootstrap 4→5
+- **프레임워크**: Next.js 10→16, React 17→19, TypeScript 4.9→5.9
 - **다크 모드**: 시스템 설정 감지 + 수동 토글, CSS 커스텀 프로퍼티 기반 디자인 토큰
 - **플로팅 네비게이션**: 데스크톱에서 현재 섹션을 추적하는 사이드 네비게이션
 - **인쇄/PDF 내보내기**: 브라우저 인쇄 기능을 활용한 PDF 저장 지원
@@ -25,8 +25,10 @@ v1 (`v1.3.1-eol` 태그)에서 대규모 업그레이드가 이루어졌다.
 - **새 섹션**: Highlight (핵심 성과 카드), Testimonial (추천사)
 - **프로필 강화**: tagline, 핵심 수치 카드, CTA 버튼
 - **타입 시스템**: `declare namespace` → 모듈 export 방식으로 전환, `types/` 디렉토리로 분리
-- **빌드/CI**: styled-components·next-seo·jQuery 제거, GitHub Actions CI/CD 도입
+- **빌드/CI**: Bootstrap·styled-components·next-seo·jQuery 제거, 순수 CSS 전환, GitHub Actions CI/CD 도입
 - **Node.js 24**: `--openssl-legacy-provider` 옵션 불필요
+- **더보기 기능**: 리스트형 섹션에 `showMoreCount`를 설정하면 n개까지만 노출하고 "더보기" 버튼으로 나머지를 펼칠 수 있다
+- **섹션 순서 제어**: `_global.sectionOrder`로 payload만 수정하여 섹션 렌더링 순서를 변경할 수 있다
 
 > v1에서 마이그레이션하려면 [MIGRATION_V1_TO_V2.md](./MIGRATION_V1_TO_V2.md)를 참고한다.
 >
@@ -88,9 +90,9 @@ npm run dev
 ├── pages/              # Next.js 페이지 (index.tsx 하나만 존재)
 ├── payload/            # 이력서 데이터 (이 디렉토리만 수정하면 된다)
 ├── types/              # TypeScript 타입 정의
-├── styles/             # CSS (globals.css - 디자인 토큰, 다크 모드)
+├── styles/             # CSS (globals.css — 디자인 토큰, 레이아웃, 컴포넌트 스타일, 다크 모드, 인쇄 스타일)
 ├── public/             # 정적 파일 (이미지, favicon 등)
-└── docs/               # 빌드 결과물 (Static HTML, GitHub Pages 배포용)
+└── docs/               # 빌드 결과물 (gitignored, `npm run build` 시 생성)
 ```
 
 ### 데이터 흐름: Payload → Component → Page
@@ -101,8 +103,13 @@ npm run dev
 
 ### Payload 공통 사항
 
-- `_global`, `footer`를 제외한 모든 Payload에는 `disable?: boolean` 필드가 존재한다. 해당 필드가 `true`면 해당 섹션을 렌더링하지 않는다.
-- 섹션 순서를 변경하려면 `pages/index.tsx`의 렌더링 순서를 수정한다.
+- `_global`을 제외한 모든 Payload에는 `disable?: boolean` 필드가 존재한다. 해당 필드가 `true`면 해당 섹션을 렌더링하지 않는다.
+- `printExclude?: boolean` — `true`이면 인쇄/PDF 출력 시 해당 섹션을 숨긴다.
+- 리스트형 섹션(Experience, Project, Skill, OpenSource, Presentation, Article, Education, Testimonial, Highlight, Etc)에는 `showMoreCount?: number` 필드가 존재한다.
+  - `0`, `null`, `undefined`: 모든 항목을 표시한다 (기본값).
+  - `n`: n개까지만 노출하고, n+1번째 항목이 그라데이션으로 페이드아웃되며 "더보기" 버튼이 표시된다.
+  - 인쇄 시에는 설정 여부와 상관없이 모든 항목이 표시된다.
+- 섹션 순서를 변경하려면 `payload/_global.ts`에서 `sectionOrder` 배열을 설정한다 (아래 [\_Global](#_global) 참고). `sectionOrder`를 설정하지 않으면 기본 순서를 사용한다.
 
 ### Payload Description
 
@@ -180,7 +187,13 @@ npm run dev
 
 #### \_Global
 
-- 전역 설정(Web Title, SEO, JSON-LD, favicon)에 대한 설정 영역
+- 전역 설정(Web Title, SEO, JSON-LD, favicon, 섹션 순서)에 대한 설정 영역
+- `sectionOrder?: SectionKey[]` — 섹션 렌더링 순서를 지정한다. 배열에 없는 섹션은 기본 순서대로 뒤에 추가된다. Profile은 항상 첫 번째, Footer는 항상 마지막.
+  ```ts
+  // 예시: Experience를 가장 먼저, Skill을 그 다음으로
+  sectionOrder: ['experience', 'skill']
+  // 나머지(highlight, project, openSource, ...)는 기본 순서대로 뒤에 추가
+  ```
 - Type: [`GlobalPayload`](./types/global.ts)
 - Sample: [`payload/_global.ts`](./payload/_global.ts)
 
@@ -227,11 +240,19 @@ Sub Path를 가지는 도메인 구조일 경우 (예: `https://uyu423.github.io
 
 ### 플로팅 네비게이션
 
-데스크톱 화면(992px 이상)에서 좌측에 섹션 네비게이션이 표시된다. 스크롤에 따라 현재 섹션이 자동 하이라이트되며, 클릭으로 해당 섹션으로 이동할 수 있다.
+데스크톱 화면(992px 이상)에서 우측에 섹션 네비게이션이 표시된다. 스크롤에 따라 현재 섹션이 자동 하이라이트되며, 클릭으로 해당 섹션으로 이동할 수 있다.
 
 ### 인쇄 / PDF 내보내기
 
 우측 하단의 인쇄 버튼을 클릭하면 브라우저 인쇄 대화상자가 열린다. "PDF로 저장"을 선택하면 이력서를 PDF로 내보낼 수 있다.
+
+### 더보기 (Show More)
+
+리스트형 섹션에 `showMoreCount`를 설정하면 지정된 개수만 노출하고, 나머지는 그라데이션 효과와 함께 숨겨진다. "더보기" 버튼으로 전체 항목을 펼칠 수 있으며, 인쇄 시에는 항상 모든 항목이 표시된다.
+
+### 섹션 순서 제어
+
+`payload/_global.ts`에서 `sectionOrder` 배열을 설정하면 `pages/index.tsx` 코드를 수정하지 않고 섹션 렌더링 순서를 변경할 수 있다. 오픈소스 사용자가 원본 코드에 변경을 가하지 않아도 되므로 업데이트/머지 시 충돌을 방지한다.
 
 ## Contribution
 
@@ -240,4 +261,7 @@ Sub Path를 가지는 도메인 구조일 경우 (예: `https://uyu423.github.io
 ## Question?
 
 - Section의 순서는 어떻게 조절하나요?
-  - `pages/index.tsx`에서 직접 렌더링 순서를 변경한다.
+  - `payload/_global.ts`에서 `sectionOrder` 배열을 설정한다. 코드 수정 없이 payload만으로 순서를 변경할 수 있다.
+  - 예: `sectionOrder: ['experience', 'skill', 'project']` — 나머지 섹션은 기본 순서대로 뒤에 추가된다.
+- 항목이 너무 많아서 스크롤이 길어요.
+  - 해당 섹션의 payload에 `showMoreCount: 3`처럼 설정하면, 3개까지만 노출하고 "더보기" 버튼으로 나머지를 펼칠 수 있다.

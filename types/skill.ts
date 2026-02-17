@@ -1,4 +1,4 @@
-import { CommonPayload } from './common';
+import { ListSectionPayload } from './common';
 
 /**
  * ### Sample Rendering
@@ -7,7 +7,7 @@ import { CommonPayload } from './common';
  *
  * @example https://github.com/uyu423/resume-nextjs/blob/master/payload/skill.ts
  */
-export interface SkillPayload extends CommonPayload {
+export interface SkillPayload extends ListSectionPayload {
   /**
    * ### 보유 기술 목록
    */
