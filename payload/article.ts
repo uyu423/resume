@@ -3,6 +3,7 @@ import { ArticlePayload } from '../types/article';
 const article: ArticlePayload = {
   disable: false,
   printExclude: true,
+  showMoreCount: 5,
 
   list: [
     {

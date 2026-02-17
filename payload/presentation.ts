@@ -2,6 +2,7 @@ import { PresentationPayload } from '../types/presentation';
 
 const presentation: PresentationPayload = {
   disable: false,
+  showMoreCount: 5,
 
   list: [
     {

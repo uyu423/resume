@@ -32,6 +32,18 @@ export const _global: GlobalPayload = {
       },
     },
   },
+  sectionOrder: [
+    'introduce',
+    'highlight',
+    'experience',
+    'project',
+    'skill',
+    'openSource',
+    'presentation',
+    'article',
+    'education',
+    'etc',
+  ],
   jsonLd: {
     name: 'Yongwoo Yu',
     jobTitle: 'Backend Developer',

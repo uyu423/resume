@@ -453,6 +453,7 @@ const kyToto = {
 
 const project: ProjectPayload = {
   disable: false,
+  showMoreCount: 5,
   list: [
     nvShoppingAppServer,
     nvHighlightEnhance,
