@@ -1,10 +1,10 @@
-import { CommonPayload } from './common';
+import { ListSectionPayload } from './common';
 
 /**
  * Highlight 섹션 - 핵심 성과를 카드 형태로 표시
  * Profile 바로 아래, 첫 번째 콘텐츠 섹션으로 배치
  */
-export interface HighlightPayload extends CommonPayload {
+export interface HighlightPayload extends ListSectionPayload {
   /** 핵심 성과 목록 (3~5개 권장) */
   list: HighlightItem[];
 }

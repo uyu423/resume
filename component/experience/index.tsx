@@ -1,6 +1,7 @@
 import { DateTime, Duration } from 'luxon';
 
 import { CommonSection } from '../common/CommonSection';
+import { ShowMoreWrapper } from '../common/ShowMoreWrapper';
 import ExperienceRow from './row';
 import { ExperiencePayload, ExperienceItem } from '../../types/experience';
 import { Section } from '../common/Section';
@@ -29,9 +30,11 @@ function ExperienceContent({ payload }: { payload: Payload }) {
           </div>
         </div>
       )}
-      {payload.list.map((item, index) => (
-        <ExperienceRow key={index.toString()} item={item} index={index} />
-      ))}
+      <ShowMoreWrapper showMoreCount={payload.showMoreCount}>
+        {payload.list.map((item, index) => (
+          <ExperienceRow key={index.toString()} item={item} index={index} />
+        ))}
+      </ShowMoreWrapper>
     </CommonSection>
   );
 }

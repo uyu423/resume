@@ -1,5 +1,5 @@
 import { RowDescription } from './row';
-import { CommonPayload } from './common';
+import { ListSectionPayload } from './common';
 
 /**
  * ### Sample Rendering
@@ -8,7 +8,7 @@ import { CommonPayload } from './common';
  *
  * @example https://github.com/uyu423/resume-nextjs/blob/master/payload/project.ts
  */
-export interface ProjectPayload extends CommonPayload {
+export interface ProjectPayload extends ListSectionPayload {
   /** ### 프로젝트 리스트 */
   list: ProjectItem[];
 }

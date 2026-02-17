@@ -1,6 +1,7 @@
 import { CSSProperties } from 'react';
 import { Section } from '../common/Section';
 import { CommonSection } from '../common/CommonSection';
+import { ShowMoreWrapper } from '../common/ShowMoreWrapper';
 import { TestimonialPayload, TestimonialItem } from '../../types/testimonial';
 
 type Payload = TestimonialPayload;
@@ -47,11 +48,11 @@ export function TestimonialSection({ payload }: { payload: Payload }) {
 function TestimonialContent({ payload }: { payload: Payload }) {
   return (
     <CommonSection title="TESTIMONIAL">
-      <div className="card-grid-2">
+      <ShowMoreWrapper showMoreCount={payload.showMoreCount} className="card-grid-2">
         {payload.list.map((item, index) => (
           <TestimonialCard key={index.toString()} item={item} />
         ))}
-      </div>
+      </ShowMoreWrapper>
     </CommonSection>
   );
 }

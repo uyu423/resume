@@ -1,3 +1,4 @@
+import { Fragment, ReactNode } from 'react';
 import Head from 'next/head';
 import { EducationSection } from '../component/education';
 import { EtcSection } from '../component/etc';
@@ -16,9 +17,53 @@ import { DarkModeToggle } from '../component/common/DarkModeToggle';
 import { PrintButton } from '../component/common/PrintButton';
 import Payload from '../payload';
 import { ArticleSection } from '../component/article';
+import { SectionKey } from '../types/global';
+
+/** 섹션 키 → ReactNode 매핑 */
+const SECTION_MAP: Record<SectionKey, ReactNode> = {
+  highlight: <HighlightSection payload={Payload.highlight} />,
+  experience: <ExperienceSection payload={Payload.experience} />,
+  project: <ProjectSection payload={Payload.project} />,
+  skill: <SkillSection payload={Payload.skill} />,
+  openSource: <OpenSourceSection payload={Payload.openSource} />,
+  presentation: <PresentationSection payload={Payload.presentation} />,
+  article: <ArticleSection payload={Payload.article} />,
+  education: <EducationSection payload={Payload.education} />,
+  testimonial: <TestimonialSection payload={Payload.testimonial} />,
+  introduce: <IntroduceSection payload={Payload.introduce} />,
+  etc: <EtcSection payload={Payload.etc} />,
+};
+
+/** 기본 섹션 순서 (Profile, Footer 제외) */
+const DEFAULT_SECTION_ORDER: SectionKey[] = [
+  'highlight',
+  'experience',
+  'project',
+  'skill',
+  'openSource',
+  'presentation',
+  'article',
+  'education',
+  'testimonial',
+  'introduce',
+  'etc',
+];
+
+/**
+ * 최종 섹션 순서를 계산한다.
+ * customOrder에 없는 섹션은 기본 순서대로 뒤에 추가된다.
+ */
+function getSectionOrder(customOrder?: SectionKey[]): SectionKey[] {
+  if (!customOrder || customOrder.length === 0) return DEFAULT_SECTION_ORDER;
+  const unique = [...new Set(customOrder)];
+  const remaining = DEFAULT_SECTION_ORDER.filter((key) => !unique.includes(key));
+  return [...unique, ...remaining];
+}
 
 function Yosume() {
   const { seo } = Payload._global;
+  const sectionOrder = getSectionOrder(Payload._global.sectionOrder);
+
   return (
     <>
       <Head>
@@ -72,17 +117,9 @@ function Yosume() {
       <main>
         <div className="resume-container">
           <ProfileSection payload={Payload.profile} />
-          <HighlightSection payload={Payload.highlight} />
-          <ExperienceSection payload={Payload.experience} />
-          <ProjectSection payload={Payload.project} />
-          <SkillSection payload={Payload.skill} />
-          <OpenSourceSection payload={Payload.openSource} />
-          <PresentationSection payload={Payload.presentation} />
-          <ArticleSection payload={Payload.article} />
-          <EducationSection payload={Payload.education} />
-          <TestimonialSection payload={Payload.testimonial} />
-          <IntroduceSection payload={Payload.introduce} />
-          <EtcSection payload={Payload.etc} />
+          {sectionOrder.map((key) => (
+            <Fragment key={key}>{SECTION_MAP[key]}</Fragment>
+          ))}
           <FooterSection payload={Payload.footer} />
         </div>
       </main>

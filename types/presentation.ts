@@ -1,5 +1,5 @@
 import { RowDescription } from './row';
-import { CommonPayload } from './common';
+import { ListSectionPayload } from './common';
 
 /**
  * ### Sample Rendering
@@ -8,7 +8,7 @@ import { CommonPayload } from './common';
  *
  * @example https://github.com/uyu423/resume-nextjs/blob/master/payload/presentation.ts
  */
-export interface PresentationPayload extends CommonPayload {
+export interface PresentationPayload extends ListSectionPayload {
   /** ### 발표 목록 */
   list: PresentationItem[];
 }
