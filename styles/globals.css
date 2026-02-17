@@ -170,7 +170,7 @@ img {
 @media screen and (max-width: 767px) {
   .split-row {
     grid-template-columns: 1fr;
-    gap: var(--space-sm);
+    gap: var(--space-md);
   }
   .split-left {
     text-align: left;
@@ -228,7 +228,7 @@ img {
   display: inline-block;
   font-size: var(--text-xs);
   font-weight: var(--fw-regular);
-  padding: 2px 10px;
+  padding: 4px 10px;
   border-radius: 999px;
   border: 1px solid var(--color-border);
   background: transparent;
@@ -288,9 +288,9 @@ img {
 /* === Editorial Section Heading === */
 .section-heading {
   font-family: var(--font-display);
-  font-size: 0.84rem;
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.1em;
+  font-size: 0.95rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--color-accent);
   padding-bottom: var(--space-sm);
@@ -300,7 +300,7 @@ img {
 
 @media screen and (max-width: 767px) {
   .section-heading {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -529,7 +529,7 @@ img {
 }
 
 .experience-meta {
-  font-size: 65%;
+  font-size: 78%;
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
@@ -552,6 +552,10 @@ img {
 
 .experience-description-list {
   padding-top: var(--space-sm);
+}
+
+.experience-description-list li {
+  margin-bottom: 3px;
 }
 
 .skill-category {
@@ -753,6 +757,11 @@ img {
 
   .profile-stats-band {
     padding: var(--space-md);
+  }
+
+  .profile-image {
+    width: 148px;
+    height: 148px;
   }
 
   .notice-banner {
