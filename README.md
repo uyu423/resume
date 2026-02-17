@@ -9,7 +9,7 @@
 ## Introduce
 
 - 누구나 예쁜 웹 이력서를 쉽게 만들 수 있어 <small>(약간의 코딩으로..)</small>
-- Next.js 16, React 19, Bootstrap 5, TypeScript 5.9 기반.
+- Next.js 16, React 19, TypeScript 5.9 기반. 순수 CSS (Bootstrap 미사용).
 - `payload/` 디렉토리의 데이터 파일만 수정하면 개인 웹 이력서를 만들 수 있다.
 - Sample: https://uyu423.github.io/resume-nextjs
 
@@ -17,7 +17,7 @@
 
 v1 (`v1.3.1-eol` 태그)에서 대규모 업그레이드가 이루어졌다.
 
-- **프레임워크**: Next.js 10→16, React 17→19, TypeScript 4.9→5.9, Bootstrap 4→5
+- **프레임워크**: Next.js 10→16, React 17→19, TypeScript 4.9→5.9
 - **다크 모드**: 시스템 설정 감지 + 수동 토글, CSS 커스텀 프로퍼티 기반 디자인 토큰
 - **플로팅 네비게이션**: 데스크톱에서 현재 섹션을 추적하는 사이드 네비게이션
 - **인쇄/PDF 내보내기**: 브라우저 인쇄 기능을 활용한 PDF 저장 지원
@@ -25,7 +25,7 @@ v1 (`v1.3.1-eol` 태그)에서 대규모 업그레이드가 이루어졌다.
 - **새 섹션**: Highlight (핵심 성과 카드), Testimonial (추천사)
 - **프로필 강화**: tagline, 핵심 수치 카드, CTA 버튼
 - **타입 시스템**: `declare namespace` → 모듈 export 방식으로 전환, `types/` 디렉토리로 분리
-- **빌드/CI**: styled-components·next-seo·jQuery 제거, GitHub Actions CI/CD 도입
+- **빌드/CI**: Bootstrap·styled-components·next-seo·jQuery 제거, 순수 CSS 전환, GitHub Actions CI/CD 도입
 - **Node.js 24**: `--openssl-legacy-provider` 옵션 불필요
 
 > v1에서 마이그레이션하려면 [MIGRATION_V1_TO_V2.md](./MIGRATION_V1_TO_V2.md)를 참고한다.
@@ -88,9 +88,9 @@ npm run dev
 ├── pages/              # Next.js 페이지 (index.tsx 하나만 존재)
 ├── payload/            # 이력서 데이터 (이 디렉토리만 수정하면 된다)
 ├── types/              # TypeScript 타입 정의
-├── styles/             # CSS (globals.css - 디자인 토큰, 다크 모드)
+├── styles/             # CSS (globals.css — 디자인 토큰, 레이아웃, 컴포넌트 스타일, 다크 모드, 인쇄 스타일)
 ├── public/             # 정적 파일 (이미지, favicon 등)
-└── docs/               # 빌드 결과물 (Static HTML, GitHub Pages 배포용)
+└── docs/               # 빌드 결과물 (gitignored, `npm run build` 시 생성)
 ```
 
 ### 데이터 흐름: Payload → Component → Page
@@ -101,7 +101,7 @@ npm run dev
 
 ### Payload 공통 사항
 
-- `_global`, `footer`를 제외한 모든 Payload에는 `disable?: boolean` 필드가 존재한다. 해당 필드가 `true`면 해당 섹션을 렌더링하지 않는다.
+- `_global`을 제외한 모든 Payload에는 `disable?: boolean` 필드가 존재한다. 해당 필드가 `true`면 해당 섹션을 렌더링하지 않는다.
 - 섹션 순서를 변경하려면 `pages/index.tsx`의 렌더링 순서를 수정한다.
 
 ### Payload Description
@@ -227,7 +227,7 @@ Sub Path를 가지는 도메인 구조일 경우 (예: `https://uyu423.github.io
 
 ### 플로팅 네비게이션
 
-데스크톱 화면(992px 이상)에서 좌측에 섹션 네비게이션이 표시된다. 스크롤에 따라 현재 섹션이 자동 하이라이트되며, 클릭으로 해당 섹션으로 이동할 수 있다.
+데스크톱 화면(992px 이상)에서 우측에 섹션 네비게이션이 표시된다. 스크롤에 따라 현재 섹션이 자동 하이라이트되며, 클릭으로 해당 섹션으로 이동할 수 있다.
 
 ### 인쇄 / PDF 내보내기
 
