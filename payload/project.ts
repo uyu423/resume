@@ -7,6 +7,97 @@ const WHERE = {
   KY: '키니 (KYNY)',
   NV_LIVE: '네이버 (NAVER) 쇼핑라이브 백엔드 개발',
   NV_NSPA: '네이버 (NAVER) 쇼핑 앱 백엔드 개발',
+  NV_VERTICAL: '네이버 (NAVER) 버티컬 쇼핑 서비스 백엔드 개발',
+};
+
+const nvThumbnailTagApi = {
+  title: '네이버플러스 스토어 상품 태그 통합 API 플랫폼 설계·구현',
+  startedAt: '2025-11',
+  endedAt: '2026-01',
+  where: WHERE.NV_VERTICAL,
+  descriptions: [
+    {
+      content:
+        '5종 데이터 소스에서 개별 조회하던 상품 태그를 단일 통합 API로 설계·구현',
+      weight: 'MEDIUM' as const,
+      descriptions: [
+        {
+          content:
+            'Coroutine 기반 병렬 조회 및 Redis 캐시 적용, 부분 실패 허용 설계로 안정성 확보',
+        },
+        {
+          content:
+            '출시 후 예상 대비 10~100배 트래픽에서도 안정 운영',
+        },
+      ],
+    },
+    {
+      content:
+        '우선순위 정책을 서버 단일 지점에서 관리하여 전 지면(홈, 베스트탭, 쇼핑앱, 추천 등) 태그 노출 일관성 확보',
+    },
+  ],
+};
+
+const nvHomePlatform = {
+  title: '네이버플러스 스토어 홈 개편',
+  startedAt: '2025-08',
+  endedAt: '2025-11',
+  where: WHERE.NV_VERTICAL,
+  descriptions: [
+    {
+      content:
+        '홈탭 상품·추천 핵심 API 설계·구현 주도',
+      weight: 'MEDIUM' as const,
+      descriptions: [
+        {
+          content:
+            '상품·추천·광고 영역을 공통 모델 기반으로 통합, 모듈 추가 시 변경 비용 최소화',
+        },
+        {
+          content:
+            '분산된 클라이언트 호출을 BFF 서버로 통합하여 데이터 경로 단일화',
+        },
+      ],
+    },
+    {
+      content:
+        '홈을 여러 도메인이 지속적으로 확장 가능한 서비스 API 플랫폼으로 구축',
+    },
+    {
+      content: '서비스 일정 내 안정 출시 및 출시 후 QA 이슈 모니터링·해소',
+    },
+  ],
+};
+
+const nvVerticalSustaining = {
+  title: '네이버 쇼핑 버티컬 서비스 백엔드 개발 및 운영',
+  startedAt: '2025-04',
+  where: WHERE.NV_VERTICAL,
+  descriptions: [
+    {
+      content:
+        '퀵커머스(지금배달) 입점사 확대 — GS25, 이마트에브리데이 등 신규 입점사 서비스 API 대응',
+      weight: 'MEDIUM' as const,
+      descriptions: [
+        {
+          content:
+            'API 인터페이스 표준화로 신규 입점사 추가 시 재사용 가능한 구조 확립',
+        },
+      ],
+    },
+    {
+      content:
+        '공통 상품 모델(v3) 고도화 및 레거시 리팩토링으로 플랫폼 유지보수성·확장성 향상',
+    },
+    {
+      content:
+        'warmup/readiness probe 구조 개선, 에러 로그 노이즈 감소 등 서비스 안정성 기반 정비',
+    },
+    {
+      content:
+        'AI 코드 리뷰 도입(조직 최초), 코딩 컨벤션 정비로 팀 개발 생산성 향상',
+    },
+  ],
 };
 
 const nvShoppingAppServer = {
@@ -455,6 +546,9 @@ const project: ProjectPayload = {
   disable: false,
   showMoreCount: 5,
   list: [
+    nvThumbnailTagApi,
+    nvHomePlatform,
+    nvVerticalSustaining,
     nvShoppingAppServer,
     nvHighlightEnhance,
     nvShortclip,
