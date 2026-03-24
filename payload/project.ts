@@ -39,19 +39,19 @@ const nvThumbnailTagApi = {
 };
 
 const nvHomePlatform = {
-  title: '네이버플러스 스토어 홈 개편',
+  title: '네이버 쇼핑 메인 홈 화면 개편',
   startedAt: '2025-08',
   endedAt: '2025-11',
   where: WHERE.NV_VERTICAL,
   descriptions: [
     {
       content:
-        '홈탭 상품·추천 핵심 API 설계·구현 주도',
+        '네이버 쇼핑 앱/웹 메인 홈 화면의 전체 레이아웃 및 모듈 서빙 API 설계·구현 주도',
       weight: 'MEDIUM' as const,
       descriptions: [
         {
           content:
-            '상품·추천·광고 영역을 공통 모델 기반으로 통합, 모듈 추가 시 변경 비용 최소화',
+            '상품·추천·광고 등 다수 도메인의 데이터를 공통 모델 기반으로 통합 제공',
         },
         {
           content:
@@ -61,7 +61,8 @@ const nvHomePlatform = {
     },
     {
       content:
-        '홈을 여러 도메인이 지속적으로 확장 가능한 서비스 API 플랫폼으로 구축',
+        '홈을 일회성 페이지가 아닌 여러 도메인이 확장 가능한 서비스 API 플랫폼으로 구축',
+      weight: 'MEDIUM' as const,
     },
     {
       content: '서비스 일정 내 안정 출시 및 출시 후 QA 이슈 모니터링·해소',
