@@ -186,7 +186,7 @@ const nineXdDeveloperComunity = {
 
 const openSource: OpenSourcePayload = {
   disable: false,
-  showMoreCount: 5,
+  showMoreCount: 4,
   list: [
     yowuDevtools,
     resume,

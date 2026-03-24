@@ -3,9 +3,17 @@ import { ArticlePayload } from '../types/article';
 const article: ArticlePayload = {
   disable: false,
   printExclude: true,
-  showMoreCount: 5,
+  // showMoreCount: 5,
 
   list: [
+    {
+      content: '(2026.03.17) 다국어 도메인 특화 RAG 구축 방법론',
+      href: 'https://wiki.yowu.dev/ko/dev/ai-agent/multilingual-domain-rag-methodology',
+    },
+    {
+      content: '(2026.02.02) Goodbye 2025, Hello 2026',
+      href: 'https://brunch.co.kr/@yowu/50',
+    },
     {
       content: '(2025.09.03) 가장 중요한 것은 읽기 쉬운 코드다.',
       href: 'https://brunch.co.kr/@yowu/40',
