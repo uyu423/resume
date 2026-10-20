@@ -6,6 +6,17 @@ const presentation: PresentationPayload = {
 
   list: [
     {
+      title: 'k6 기반 분산 부하 테스트 플랫폼 개발과 AI 네이티브 개발 경험',
+      subTitle: 'NAVER Engineering Day 온라인 세션',
+      at: '2026-05',
+      descriptions: [
+        {
+          content:
+            'AI 코딩 에이전트를 주 개발 도구로 써서 플랫폼을 만든 과정과 운영 경험 공유',
+        },
+      ],
+    },
+    {
       title: 'AI 시대 사라지는 건 AI 안 쓰는 개발자 뿐',
       subTitle: '퇴근 후 밋업 : AI로 다시 만드는 커리어',
       at: '2025-10',
@@ -14,7 +25,7 @@ const presentation: PresentationPayload = {
           content: '잡코리아 주최 테크 밋업 발표자로 참여',
         },
         {
-          content: 'AI 시대 개발자의 본질과 생존 방식에 대한 주제로 발표',
+          content: 'AI 시대에 개발자가 지켜야 할 본질과 살아남는 방식에 대한 발표',
         },
         {
           content: 'AI 때문에 사라지는 개발자? AI 덕분에 성장하는 개발자?',
@@ -28,10 +39,10 @@ const presentation: PresentationPayload = {
       at: '2024-11',
       descriptions: [
         {
-          content: '가톨릭대 출신 현업 개발자 3인의 개발자 테크톡',
+          content: '가톨릭대 출신 현업 개발자 3명의 테크톡',
         },
         {
-          content: '진행자 및 패널로서 참여',
+          content: '진행자 겸 패널로 참여',
         },
         {
           content: 'GDGC on CUK 2024',
@@ -45,7 +56,7 @@ const presentation: PresentationPayload = {
       at: '2024-11',
       descriptions: [
         {
-          content: '개발자 커리어 및 직무 특강, Live QnA (2H)',
+          content: '개발자 커리어와 직무 특강, 라이브 Q&A (2시간)',
         },
       ],
     },
@@ -55,7 +66,7 @@ const presentation: PresentationPayload = {
       at: '2023-11',
       descriptions: [
         {
-          content: '개발자 커리어 및 직무 특강, Live QnA (2H)',
+          content: '개발자 커리어와 직무 특강, 라이브 Q&A (2시간)',
         },
         // {
         //   content: 'Google Slide',
@@ -69,7 +80,7 @@ const presentation: PresentationPayload = {
       at: '2022-06',
       descriptions: [
         {
-          content: '1:1 현직자 멘토링 서비스 잇다(itdda) 온라인 클래스 진행',
+          content: '1:1 현직자 멘토링 서비스 잇다(itdaa) 온라인 클래스 진행',
         },
         {
           content: 'https://www.itdaa.net/meetings/3247',
@@ -83,10 +94,10 @@ const presentation: PresentationPayload = {
       at: '2020-05',
       descriptions: [
         {
-          content: 'Ubuntu 20.04 LTS (Focal Fossa) 에서 달라진 점과 환경 설정에 관하여',
+          content: 'Ubuntu 20.04 LTS(Focal Fossa)에서 달라진 점과 환경 설정 소개',
         },
         {
-          content: '우분투 한국커뮤니티 주최 20.04 릴리즈 파티 초청 발표',
+          content: '우분투 한국 커뮤니티가 주최한 20.04 릴리스 파티 초청 발표',
         },
         {
           content: 'https://forum.ubuntu-kr.org/viewtopic.php?f=2&t=30926',
@@ -104,7 +115,7 @@ const presentation: PresentationPayload = {
       at: '2018-11',
       descriptions: [
         {
-          content: '대학교 예비 졸업자와 개발자 취준생을 위한 종합선물세트',
+          content: '대학교 예비 졸업자와 개발자 취업 준비생을 위한 발표',
         },
         {
           content: 'Slideshare:',
@@ -132,7 +143,7 @@ const presentation: PresentationPayload = {
       at: '2017-01',
       descriptions: [
         {
-          content: '중·고등학교 (예비) 개발자 학생 대상 발표',
+          content: '중·고등학생 (예비) 개발자 대상 발표',
         },
         {
           content: 'Slideshare:',
@@ -152,17 +163,6 @@ const presentation: PresentationPayload = {
         {
           content: 'Slideshare:',
           postHref: 'https://goo.gl/VnzR1d',
-        },
-      ],
-    },
-    {
-      title: '고급언어 컴파일과 프로그램의 로딩',
-      subTitle: '가톨릭대학교 컴퓨터정보공학부 IT Forum',
-      at: '2013-12',
-      descriptions: [
-        {
-          content: 'Prezi:',
-          postHref: 'https://goo.gl/8ULnBb',
         },
       ],
     },

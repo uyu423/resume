@@ -13,7 +13,7 @@ const backendLanguage: SkillItem = {
       title: 'TypeScript',
     },
     {
-      title: 'javascript',
+      title: 'JavaScript',
     },
     {
       title: 'HTML/CSS',
@@ -22,10 +22,10 @@ const backendLanguage: SkillItem = {
 };
 
 const frameworkLib: SkillItem = {
-  category: 'Fameworks & Libraries',
+  category: 'Frameworks & Libraries',
   items: [
     {
-      title: 'Spring Boot',
+      title: 'Spring Boot (WebFlux)',
     },
     {
       title: 'Node.js',
@@ -40,7 +40,7 @@ const frameworkLib: SkillItem = {
       title: 'React.js',
     },
     {
-      title: 'Coroutine',
+      title: 'Kotlin Coroutines',
     },
   ],
 };
@@ -79,7 +79,25 @@ const infraDb: SkillItem = {
       title: 'MongoDB',
     },
     {
+      title: 'OpenSearch',
+    },
+    {
       title: 'Linux',
+    },
+  ],
+};
+
+const ai: SkillItem = {
+  category: 'AI',
+  items: [
+    {
+      title: 'Claude Code',
+    },
+    {
+      title: 'AI Agent Workflow',
+    },
+    {
+      title: 'MCP',
     },
   ],
 };
@@ -94,13 +112,19 @@ const toolIde: SkillItem = {
       title: 'VS Code',
     },
     {
-      title: 'IDEA',
+      title: 'IntelliJ IDEA',
     },
     {
       title: 'Git',
     },
     {
-      title: 'Github',
+      title: 'GitHub',
+    },
+    {
+      title: 'GitHub Actions',
+    },
+    {
+      title: 'k6',
     },
     {
       title: 'Bitbucket',
@@ -140,7 +164,7 @@ const misc: SkillItem = {
 
 const skill: SkillPayload = {
   disable: false,
-  skills: [backendLanguage, frameworkLib, infraDb, toolIde, misc],
+  skills: [backendLanguage, frameworkLib, infraDb, ai, toolIde, misc],
 };
 
 export default skill;

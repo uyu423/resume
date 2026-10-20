@@ -7,6 +7,14 @@ const article: ArticlePayload = {
 
   list: [
     {
+      content: '(2026.07.13) 어디로 가야 하냐고 묻는 사람에게',
+      href: 'https://brunch.co.kr/@yowu/55',
+    },
+    {
+      content: '(2026.04.14) 흔한 개발자의 AI 포비아',
+      href: 'https://brunch.co.kr/@yowu/52',
+    },
+    {
       content: '(2026.03.17) 다국어 도메인 특화 RAG 구축 방법론',
       href: 'https://wiki.yowu.dev/ko/dev/ai-agent/multilingual-domain-rag-methodology',
     },
@@ -19,12 +27,12 @@ const article: ArticlePayload = {
       href: 'https://brunch.co.kr/@yowu/40',
     },
     {
-      content: '(2025.07.16) 코루틴과 CancellationException 그리고 RestControllerAdvice',
-      href: 'https://wiki.yowu.dev/ko/dev/Kotlin/Coroutine/coroutine-cancellation-exception',
-    },
-    {
       content: '(2025.07.18) 사용자가 아닌 개발자를 위한 웹 개발의 시대',
       href: 'https://brunch.co.kr/@yowu/37',
+    },
+    {
+      content: '(2025.07.16) 코루틴과 CancellationException 그리고 RestControllerAdvice',
+      href: 'https://wiki.yowu.dev/ko/dev/Kotlin/Coroutine/coroutine-cancellation-exception',
     },
     {
       content:
@@ -68,26 +76,6 @@ const article: ArticlePayload = {
       href: 'https://luckyyowu.tistory.com/406',
     },
     {
-      content: '(2019.07.29) 흔한 2019년 상반기 회고',
-      href: 'https://luckyyowu.tistory.com/404',
-    },
-    {
-      content: '(2019.03.18) 흔한 개발자가 두서 없이 쓰는 글 - 서른 코 앞 흔한 개발자의 발자취',
-      href: 'https://luckyyowu.tistory.com/393',
-    },
-    {
-      content: '(2018.02.20) 28세 요우의 개발자 이직 대탐험',
-      href: 'https://luckyyowu.tistory.com/382',
-    },
-    {
-      content: '(2018.01.10) 흔한 개발자의 2017년 회고',
-      href: 'https://luckyyowu.tistory.com/380',
-    },
-    {
-      content: "(2017.06.14) '스타트업 돈보고 하냐?'",
-      href: 'https://luckyyowu.tistory.com/378',
-    },
-    {
       content: '(2017.06.12) HTTP 404 Status Code 에 대한 고찰',
       href: 'https://luckyyowu.tistory.com/377',
     },
@@ -96,28 +84,12 @@ const article: ArticlePayload = {
       href: 'https://luckyyowu.tistory.com/376',
     },
     {
-      content: '(2017.05.25) 플레이팅 개발자 문제 이벤트 회고 및 해설',
-      href: 'https://luckyyowu.tistory.com/375',
-    },
-    {
       content: '(2017.03.27) 기술 부채에 대해 (Technical Debt)',
       href: 'https://luckyyowu.tistory.com/373',
     },
     {
-      content: '(2017.03.13) 소프트웨어 개발과 가치에 대해',
-      href: 'https://luckyyowu.tistory.com/372',
-    },
-    {
-      content: '(2017.03.02) 어느 스타트업의 애자일 스크럼와 JIRA에 대한 연구 문서',
-      href: 'https://luckyyowu.tistory.com/370',
-    },
-    {
-      content: '(2016.12.01) 소프트웨어 개발과 프로그래밍, 코딩이 뭐가 다르죠?',
-      href: 'https://luckyyowu.tistory.com/362',
-    },
-    {
-      content: '(2016.09.20) 졸업과 스타트업 취업에 대한 회고',
-      href: 'https://luckyyowu.tistory.com/349',
+      content: '더 많은 글은 블로그에서 볼 수 있습니다',
+      href: 'https://blog.yowu.dev',
     },
     // {
     //   content: '',

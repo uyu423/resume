@@ -4,7 +4,7 @@ const favicon = '/favicon.ico';
 const previewImage = '/preview_20240930.jpg';
 
 const title = 'Resume: Yongwoo Yu';
-const description = "This is Back-end Developer Yowu's Resume. Thank you";
+const description = 'Resume of Yongwoo Yu (Yowu), a backend developer.';
 
 export const _global: GlobalPayload = {
   favicon,

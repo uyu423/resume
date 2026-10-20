@@ -10,12 +10,6 @@ const education: EducationPayload = {
       startedAt: '2010-03',
       endedAt: '2016-08',
     },
-    {
-      title: '안동 경일고등학교',
-      subTitle: '자연계 졸업 (경상북도 안동시)',
-      startedAt: '2007-03',
-      endedAt: '2010-02',
-    },
   ],
 };
 

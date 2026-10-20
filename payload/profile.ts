@@ -44,14 +44,14 @@ const profile: ProfilePayload = {
     },
   ],
   notice: {
-    title: '휴대전화나 페이스북 메시지 아닌 이메일로 연락 부탁드립니다.',
+    title: '휴대전화나 페이스북 메시지 대신 이메일로 연락 부탁드립니다.',
     icon: faBell,
   },
-  tagline: 'from Backend Developer to Product Engineer',
+  tagline: 'Backend Engineer · Commerce BFF & Developer Productivity',
   headings: [
     { value: '10+', label: 'Years of experience' },
-    { value: '400+', label: 'Tech Post' },
-    { value: '350+', label: 'GitHub Stars' },
+    { value: '400+', label: 'Tech Posts' },
+    { value: '500+', label: 'GitHub Stars' },
   ],
 };
 

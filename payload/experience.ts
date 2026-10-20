@@ -1,26 +1,38 @@
 import { ExperiencePayload } from '../types/experience';
 
+const naverAxTf = {
+  title: 'Shopping Product / AI 전환(AX) 개발 생산성 향상 TF (겸직)',
+  startedAt: '2026-02',
+  descriptions: [
+    { content: '팀 공용 AI 코드 리뷰를 TF 과제로 제안하고 개발·운영 담당' },
+    { content: '리서치, 구현 계획, 커밋, PR 생성을 잇는 팀 공통 AI 스킬 세트 공동 설계' },
+    { content: '여러 개발팀의 AI 에이전트 기반 개발 워크플로우 표준화와 확산 참여' },
+  ],
+  skillKeywords: ['Claude Code', 'AI Agent Workflow', 'GitHub Actions'],
+};
+
 const naverVerticalServer = {
-  title: 'Shopping Product / 버티컬 쇼핑 서비스 백엔드 개발자',
+  title: 'Shopping Product / 쇼핑 버티컬 서비스 백엔드 개발자',
   startedAt: '2025-04',
   descriptions: [
-    { content: '네이버 쇼핑 버티컬 서비스 백엔드 API 및 BFF 개발' },
-    { content: '네이버플러스 스토어 및 쇼핑앱 서비스 API 설계/구현' },
-    { content: '서비스 어드민 및 백오피스 관리 기능 개발' },
-    { content: '서비스 안정성 강화, 레거시 시스템 개선' },
+    { content: '네이버 쇼핑 버티컬 서비스(홈·전시·퀵커머스·멤버십 등)의 백엔드 API와 BFF 개발' },
+    { content: '운영자용 전시 도구 백엔드 개발' },
+    { content: 'k6 기반 분산 부하 테스트 플랫폼 개발·운영' },
+    { content: '부분 실패 격리와 폴백 설계, 레거시 정리 등 서비스 안정화' },
   ],
   skillKeywords: [
     'Kotlin',
-    'Java',
+    'Coroutine',
     'Spring Boot',
     'WebFlux',
-    'Coroutine',
+    'MongoDB',
+    'Redis',
     'OpenSearch',
     'Kafka',
-    'Redis',
-    'MongoDB',
-    'Kubenetes',
-    'Docker',
+    'Kubernetes',
+    'k6',
+    'GitHub Actions',
+    'TypeScript',
   ],
 };
 
@@ -29,12 +41,17 @@ const naverNspa = {
   startedAt: '2024-02',
   endedAt: '2025-04',
   descriptions: [
-    { content: '네이버 쇼핑 앱 BFF 백엔드 API 개발' },
-    { content: '쇼핑앱 비즈니스에 필요한 주요 API 구현 및 데이터 모델 설계' },
-    { content: 'MySQL / NoSQL 데이터베이스 운영 및 Kubernetes 기반 인프라 아키텍처 구축' },
-    { content: 'Kafka 이벤트 핸들링을 통한 실시간 데이터 통합' },
-    { content: '장애 방지 다중 방어 체계와 복구 전략 수립 및 적용' },
-    { content: '코드 리뷰와 기술 스터디를 통한 팀 내 전문성 및 협업 역량 강화' },
+    { content: '네이버 쇼핑 앱 BFF 서버 API 개발' },
+    {
+      content:
+        '네이버플러스 스토어 앱 출시(2025.03)에 맞춰 마이홈, 멤버십, 마케팅 배너, 내 주변 등 앱 기능 API 개발',
+    },
+    {
+      content:
+        'MySQL·NoSQL 데이터베이스 운영, 앱 출시에 맞춰 서버를 사내 Kubernetes 플랫폼으로 이관',
+    },
+    { content: 'Kafka 이벤트 처리로 실시간 데이터 통합' },
+    { content: '팀 코드 리뷰와 기술 스터디 진행' },
   ],
   skillKeywords: [
     'Kotlin',
@@ -60,12 +77,12 @@ const naverShoppinglive = {
   endedAt: '2024-02',
   descriptions: [
     { content: '네이버 비디오커머스 서비스(쇼핑라이브) 백엔드 개발' },
-    { content: '쇼핑라이브 라이브 방송 및 숏클립 서비스 제공을 위한 데이터 모델링 / API 개발' },
-    { content: '사용자 Needs 에 맞는 사용성 개선과 신규 비즈니스 로직 구현' },
-    { content: '레거시 청산 및 기존 비즈니스 유지보수' },
-    { content: 'MySQL / NoSQL 데이터베이스 유지보수 및 관리' },
-    { content: 'Kafka 이벤트 핸들링 및 쇼핑라이브 데이터 실시간 통합' },
-    { content: 'Kubernetes 기반 컨테이너 클러스터 유지보수 및 관리 ' },
+    { content: '라이브 방송과 숏클립 서비스의 데이터 모델링, API 개발' },
+    { content: '사용자 요구를 반영한 기능 개선과 신규 비즈니스 로직 구현' },
+    { content: '레거시 정리와 기존 기능 유지보수' },
+    { content: 'MySQL·NoSQL 데이터베이스 운영' },
+    { content: 'Kafka 이벤트 처리로 쇼핑라이브 데이터 실시간 통합' },
+    { content: 'Kubernetes 컨테이너 클러스터 운영' },
   ],
   skillKeywords: [
     'Java',
@@ -85,6 +102,7 @@ const naver = {
   title: '네이버 (NAVER)',
   positions: [
     //
+    naverAxTf,
     naverVerticalServer,
     naverNspa,
     naverShoppinglive,
@@ -99,12 +117,12 @@ const yanolja = {
       startedAt: '2018-02',
       endedAt: '2021-02',
       descriptions: [
-        { content: '국내 및 글로벌 숙박/레저 OTA (800명~, R&D 200명~)' },
-        { content: '숙박/레저 정보 및 예약서비스 제공에 필요한 데이터 모델링 및 BFF API 개발 ' },
-        { content: '사용자 Needs 에 맞는 사용성 개선과 신규 비즈니스 로직 구현' },
-        { content: '레거시 청산 및 기존 비즈니스 로직 유지보수' },
-        { content: 'AWS 인프라 및 NoSQL 데이터베이스 유지보수 및 관리' },
-        { content: 'Agile Scrum/Sprint Planning Management' },
+        { content: '국내·글로벌 숙박·레저 OTA (임직원 800명 이상, R&D 200명 이상)' },
+        { content: '숙박·레저 정보와 예약 서비스의 데이터 모델링, BFF API 개발' },
+        { content: '사용자 요구를 반영한 기능 개선과 신규 비즈니스 로직 구현' },
+        { content: '레거시 정리와 기존 비즈니스 로직 유지보수' },
+        { content: 'AWS 인프라와 NoSQL 데이터베이스 운영' },
+        { content: 'Agile Scrum 스프린트 플래닝 관리' },
       ],
       skillKeywords: [
         'Node.js',
@@ -132,9 +150,9 @@ const plating = {
       startedAt: '2016-10',
       endedAt: '2017-11',
       descriptions: [
-        { content: '요식업 / 푸드테크 스타트업 (15~50명, 개발팀 2~6명)' },
-        { content: 'E-Commerce, 물류 백엔드, 인프라 개발 등' },
-        { content: 'Development Project Management' },
+        { content: '요식업·푸드테크 스타트업 (15~50명, 개발팀 2~6명)' },
+        { content: '이커머스·물류 백엔드와 인프라 개발' },
+        { content: '개발 프로젝트 관리' },
       ],
       skillKeywords: [
         'Node.js',
@@ -167,10 +185,10 @@ const ecubelabs = {
       startedAt: '2015-07',
       endedAt: '2016-02',
       descriptions: [
-        { content: 'IoT 하드웨어/소프트웨어 스타트업 (15~25, 개발팀 8~10명)' },
+        { content: 'IoT 하드웨어·소프트웨어 스타트업 (15~25명, 개발팀 8~10명)' },
         { content: "'도시 쓰레기량 관제 소프트웨어' 백엔드 개발" },
-        { content: '인프라 아키텍팅과 보안 담당' },
-        { content: 'AWS, Agile 등 연구 / 도입' },
+        { content: '인프라 설계와 보안 담당' },
+        { content: 'AWS와 Agile 도입 검토·적용' },
       ],
       skillKeywords: [
         'PHP',
@@ -199,10 +217,10 @@ const kyny = {
       endedAt: '2015-04',
       descriptions: [
         { content: '가톨릭대학교 재학생 창업 지원 스타트업 (5명)' },
-        { content: "'스포츠 경기 승률 계산 알고리즘 서비스' 비즈니스 기획 및 개발" },
-        { content: 'RDB Schema 모델링 및 백엔드 아키텍쳐, 서버 인프라 구축' },
-        { content: '자체 승률 계산 알고리즘 통한 Third Party 데이터 정제' },
-        { content: '클라이언트 사용 가능한 CRUD API 제공' },
+        { content: "'스포츠 경기 승률 계산 서비스' 기획과 개발" },
+        { content: 'RDB 스키마 모델링, 백엔드 아키텍처 설계, 서버 인프라 구성' },
+        { content: '자체 승률 계산 알고리즘으로 외부 데이터 정제' },
+        { content: '클라이언트용 CRUD API 개발' },
       ],
       skillKeywords: ['PHP', 'WordPress', 'Ubuntu Linux', 'Apache2', 'MySQL'],
     },
