@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon';
 import { ExperienceItem, ExperiencePosition } from '../../types/experience';
 import Util from '../common/Util';
+import { useNow } from '../common/useNow';
 
 type PositionWithDates = ExperiencePosition & {
   startedAtDate: DateTime;
@@ -15,6 +16,7 @@ function hasEndedAtDate(
 }
 
 export default function ExperienceRow({ item, index }: { item: ExperienceItem; index: number }) {
+  const now = useNow();
   const positionsWithDates: PositionWithDates[] = item.positions.map((position) => ({
     ...position,
     startedAtDate: DateTime.fromFormat(position.startedAt, Util.LUXON_DATE_FORMAT.YYYY_LL),
@@ -38,7 +40,7 @@ export default function ExperienceRow({ item, index }: { item: ExperienceItem; i
 
   let maxEndedAt: DateTime<boolean>;
   if (isCurrentlyEmployed) {
-    maxEndedAt = DateTime.local();
+    maxEndedAt = now;
   } else if (endedAtDates.length > 0) {
     maxEndedAt = DateTime.max(...endedAtDates) ?? DateTime.local();
   } else {
@@ -61,8 +63,8 @@ export default function ExperienceRow({ item, index }: { item: ExperienceItem; i
             <span className={`experience-dot ${isCurrentlyEmployed ? 'is-current' : ''}`} />
             {item.title}{' '}
             <span className="experience-meta">
-              {isCurrentlyEmployed && <span className="tag tag--success">재직 중</span>}
-              <span className="tag tag--accent">
+              {isCurrentlyEmployed && <span className="tag tag--current">재직 중</span>}
+              <span className="tag tag--muted">
                 {Util.getFormattingDuration(minStartedAt, maxEndedAt)}
               </span>
             </span>
@@ -124,10 +126,9 @@ function createSkillKeywords(skillKeywords?: string[]) {
   }
   return (
     <li>
-      <strong>Skill Keywords</strong>
       <div className="experience-keywords">
         {skillKeywords.map((keyword, index) => (
-          <span key={index.toString()} className="tag tag--accent">
+          <span key={index.toString()} className="tag tag--muted">
             {keyword}
           </span>
         ))}
