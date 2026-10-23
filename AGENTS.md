@@ -15,6 +15,7 @@ Next.js 기반 정적 웹 이력서 생성기. `payload/` 디렉토리의 데이
 | `eslint.config.js` | ESLint flat config (TypeScript + Prettier, single quotes) |
 | `shellwork.js` | postbuild 스크립트 (`docs/.nojekyll` 생성, 조건부 `docs/CNAME` 생성) |
 | `.nvmrc` | Node.js 버전 지정 (24.13.0) |
+| `DESIGN_GUIDE.md` | 디자인 규칙 (색·글꼴·간격·컴포넌트). UI·스타일을 고치기 전에 읽는다 |
 
 ## Subdirectories
 
@@ -32,9 +33,10 @@ Next.js 기반 정적 웹 이력서 생성기. `payload/` 디렉토리의 데이
 ## For AI Agents
 
 ### Working In This Directory
-- `npm run typecheck && npm run lint` — 코드 변경 후 반드시 실행 (매 수정마다 확인)
-- `npm run build` → `docs/`에 static HTML 생성. `docs/`는 gitignored이며 CI가 `gh-pages`로 배포. **최종 확인 시에만 실행** (매 수정마다 실행하지 않는다)
-- 테스트 스위트 없음. typecheck + lint 통과가 일상 품질 기준, build는 최종 검증용
+- `npm run typecheck && npm run lint && npm test` — 코드 변경 후 반드시 실행 (매 수정마다 확인)
+- `npm test` — `node:test` 단위 테스트 (`component/**/*.test.ts`, 의존성 없이 Node 24 타입 스트리핑으로 실행)
+- `npm run build` → `docs/`에 static HTML 생성. `docs/`는 gitignored이며 CI가 `gh-pages`로 배포. **최종 확인 시에만 실행** (매 수정마다 실행하지 않는다). dev 서버가 같은 `docs/dev/`를 쓰므로, dev 서버 실행 중에 build하면 dev 서버가 깨진다
+- typecheck + lint + test 통과가 일상 품질 기준, build는 최종 검증용
 
 ### Data Flow
 ```
