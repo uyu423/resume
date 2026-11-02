@@ -1,4 +1,4 @@
-import { SkillPayload, SkillItem } from '../types/skill';
+import { SkillItem, SkillPayload } from '../types/skill';
 
 const backendLanguage: SkillItem = {
   category: 'Languages',
@@ -97,7 +97,13 @@ const ai: SkillItem = {
       title: 'AI Agent Workflow',
     },
     {
+      title: 'LLM',
+    },
+    {
       title: 'MCP',
+    },
+    {
+      title: 'Deterministic Model',
     },
   ],
 };

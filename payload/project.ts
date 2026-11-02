@@ -9,39 +9,25 @@ const WHERE = {
   NV_AX: '네이버 (NAVER) AI 전환(AX) 개발 생산성 향상 TF',
 };
 
-const nvAmazonVertical = {
-  title: '아마존 버티컬 전시 서버 개발 (출시 예정)',
-  startedAt: '2026-04',
-  where: WHERE.NV_VERTICAL,
-  descriptions: [
-    {
-      content: '네이버플러스 스토어에 아마존 상품 전용 버티컬을 여는 전시 서버 API 개발',
-      weight: 'MEDIUM' as const,
-      descriptions: [
-        {
-          content:
-            '홈 모듈, 카테고리, 상품 목록 필터·정렬, 검색 API를 동료 백엔드 개발자와 나눠 개발',
-        },
-        {
-          content: '운영자가 전시 도구에서 모듈을 편성하는 템플릿과 노출 조건 모델 단독 개발',
-        },
-      ],
-    },
-    {
-      content: '모듈 장애 시 동작(미노출, 기본 인기순 폴백)을 설계 단계에서 먼저 합의',
-      descriptions: [
-        {
-          content:
-            'QA 중 대체 노출 모듈이 알림 없이 사라지던 결함의 원인을 찾아 수정하고 운영 알림 추가',
-        },
-      ],
-    },
-    {
-      content:
-        '기존 API를 재사용해 복합 필터와 다단계 카테고리를 지원하면서 서버 간 호출의 하위 호환 유지',
-    },
-  ],
-};
+// const nvAmazonVertical = {
+//   title: '아마존 버티컬 전시 서버 개발 (출시 예정)',
+//   startedAt: '2026-04',
+//   where: WHERE.NV_VERTICAL,
+//   descriptions: [
+//     {
+//       content: '네이버플러스 스토어에 아마존 상품 전용 버티컬을 여는 전시 서버 API 개발',
+//       weight: 'MEDIUM' as const,
+//       descriptions: [
+//         {
+//           content: '홈 모듈, 카테고리, 상품 목록 필터·정렬, 검색 API 연동을 담당하여 개발',
+//         },
+//         {
+//           content: '운영자가 전시 어드민 도구에서 모듈을 편성하는 템플릿과 노출 조건 모델 개발',
+//         },
+//       ],
+//     },
+//   ],
+// };
 
 const nvAiCodeReview = {
   title: '컨텍스트 기반 AI 코드 리뷰 도구 개발·운영',
@@ -69,7 +55,7 @@ const nvAiCodeReview = {
 };
 
 const nvLoadTestPlatform = {
-  title: 'k6 기반 분산 부하 테스트 플랫폼 개발·운영',
+  title: 'k6 기반 분산 부하 테스트 사내 오픈소스 플랫폼 개발·운영',
   startedAt: '2025-12',
   where: WHERE.NV_VERTICAL,
   descriptions: [
@@ -96,10 +82,6 @@ const nvLoadTestPlatform = {
             '노드별 백분위를 평균 내는 대신 지연 표본을 HDR Histogram 하나로 합쳐 전체 백분위 계산',
         },
       ],
-    },
-    {
-      content:
-        '사용자 스크립트가 부하 생성 노드의 환경변수에 접근하지 못하도록 격리하고 비밀 값 로그 마스킹 적용',
     },
     {
       content:
@@ -421,9 +403,9 @@ const plBackend = {
 
 const project: ProjectPayload = {
   disable: false,
-  showMoreCount: 7,
+  showMoreCount: 4,
   list: [
-    nvAmazonVertical,
+    // nvAmazonVertical,
     nvAiCodeReview,
     nvLoadTestPlatform,
     nvThumbnailTagApi,

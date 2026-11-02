@@ -17,7 +17,7 @@ const highlight: HighlightPayload = {
     {
       title: 'AI-Native Engineering',
       description:
-        'AI 에이전트를 주 개발 도구로 삼아 개인 작업부터 팀의 개발 방식까지 바꿔 나가는 중',
+        'AI 에이전트를 주 개발 도구로 삼아 개인 작업부터 팀의 개발 방식까지 개선을 주도해본 경험',
       keywords: ['AI Agent', 'Developer Productivity', 'Automation'],
     },
   ],

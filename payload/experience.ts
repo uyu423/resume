@@ -190,7 +190,7 @@ const kyny = {
 };
 
 const experience: ExperiencePayload = {
-  showMoreCount: 3,
+  showMoreCount: 2,
   disable: false,
   disableTotalPeriod: false,
   list: [naver, yanolja, plating, ecubelabs, kyny],
