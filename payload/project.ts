@@ -6,7 +6,7 @@ const WHERE = {
   NV_LIVE: '네이버 (NAVER) 쇼핑라이브 백엔드 개발',
   NV_NSPA: '네이버 (NAVER) 쇼핑 앱 백엔드 개발',
   NV_VERTICAL: '네이버 (NAVER) 쇼핑 버티컬 서비스 백엔드 개발',
-  NV_AX: '네이버 (NAVER) AI 전환(AX) 개발 생산성 향상 TF',
+  NV_AX: '네이버 (NAVER) Agentic Coding 표준화 TF',
 };
 
 // const nvAmazonVertical = {
@@ -29,9 +29,60 @@ const WHERE = {
 //   ],
 // };
 
+const nvAiServer = {
+  title: '공용 AI 서버 설계·개발과 E2E 테스트 검증 AI 판정 적용',
+  startedAt: '2026-07',
+  where: WHERE.NV_VERTICAL,
+  descriptions: [
+    {
+      content:
+        '도구마다 따로 만들던 LLM 연동을 API 하나로 모은 공용 AI 서버를 제안하고 설계·구현·배포까지 단독 진행',
+      weight: 'MEDIUM' as const,
+      descriptions: [
+        { content: '호출자가 보낸 JSON 스키마로 LLM 응답을 검증해 돌려주는 구조화 출력 적용' },
+        { content: 'circuit breaker, 동시 요청 제한, 쿼터 보호, HMAC 인증 적용' },
+      ],
+    },
+    {
+      content: '첫 사용처인 API E2E 테스트에 AI 위험도 판정 연결',
+      descriptions: [
+        {
+          content:
+            '사람이 순서 없이 전부 열어 보던 불일치 수백 건 중 AI가 먼저 봐야할 항목을 위험도 순으로 선별',
+        },
+        {
+          content: '기존 방식 대비 약 70% 정도의 리소스 절감 효과를 기대',
+        },
+      ],
+    },
+  ],
+  skillKeywords: ['Kotlin', 'Spring Boot', 'Spring AI', 'Open-weight LLM'],
+};
+
+const nvMembershipOnboarding = {
+  title: '네이버플러스 멤버십 신규 가입자 30일 온보딩 개발',
+  startedAt: '2026-07',
+  endedAt: '2026-09',
+  where: WHERE.NV_VERTICAL,
+  descriptions: [
+    {
+      content:
+        '생애 첫 네이버 멤버십 가입자를 30일 동안 온보딩하는 네이버 플러스 스토어 홈 모듈의 전시 서버 BFF 단독 개발',
+      weight: 'MEDIUM' as const,
+      descriptions: [
+        { content: '마케팅 서버, 추천 시스템 2곳, 전시 어드민에서 받은 데이터를 Aggregation' },
+        { content: '추천 결과가 없거나 호출이 제한되면 폴백할지를 서버에서 판단' },
+      ],
+    },
+    { content: '외부 8개 조직 담당자와 API 계약 조율' },
+    { content: '화면 노출 문구를 공용 어드민 도구로 구성하여 다수의 FE 하드 코딩 String을 제거함' },
+  ],
+  skillKeywords: ['Kotlin', 'Coroutine', 'Spring WebFlux', 'BFF'],
+};
+
 const nvAiCodeReview = {
   title: '컨텍스트 기반 AI 코드 리뷰 도구 개발·운영',
-  startedAt: '2026-02',
+  startedAt: '2026-03',
   where: WHERE.NV_AX,
   descriptions: [
     {
@@ -40,18 +91,21 @@ const nvAiCodeReview = {
       weight: 'MEDIUM' as const,
       descriptions: [
         { content: '변경된 diff만 보는 AI 리뷰에서 자주 나오던 오탐을 줄이는 것이 목표' },
-        { content: '상위 조직 차원에서 산하 개발팀 저장소에 도입' },
+        { content: '10개 이상의 저장소, 4개 개발 조직에서 도입' },
+        { content: '다른 팀이 가이드만 보고 7개 저장소에 스스로 도입' },
       ],
     },
     {
       content:
-        '상시 서버 대신 GitHub Actions로 실행하는 구조를 택해 사내망 접근과 봇 권한 문제를 풀고 별도 인프라 없이 운영',
+        '온디멘드 서버 대신 GHES Self-hosted Runner로 실행하는 구조를 택해 사내망 접근과 봇 권한 문제를 풀고 별도 인프라 없이 운영',
     },
-    {
-      content:
-        '오탐이 머지를 막지 않도록 권고형으로 운영하고, 리뷰 지적이 실제 코드 수정으로 이어졌는지 표본으로 판정해 효과 측정',
-    },
+    { content: 'AI 리뷰 오탐이 개발 프로세스에 차질을 주지 않도록 권고형 리뷰로 운영' },
+    // {
+    //   content:
+    //     '다수의 저장소의 리뷰 지적을 표본으로 판정해 유효 61%, 확정분 기준 82% 확인 (2026.07)',
+    // },
   ],
+  skillKeywords: ['TypeScript', 'GitHub Actions', 'Open-weight LLM', 'Multi-Agent', 'Zod'],
 };
 
 const nvLoadTestPlatform = {
@@ -61,13 +115,15 @@ const nvLoadTestPlatform = {
   descriptions: [
     {
       content:
-        'k6 기반 분산 부하 테스트 플랫폼을 직접 설계·개발해 여러 조직이 출시 전 성능 검증에 사용',
+        '사내 nGrinder 서비스가 종료되자 이를 대체할 k6 기반 분산 부하 테스트 플랫폼을 직접 설계·개발',
       weight: 'MEDIUM' as const,
       descriptions: [
         {
           content:
             'AI 코딩 에이전트를 주 개발 도구로 써서 개발하고, 그 과정을 NAVER Engineering Day에서 발표',
         },
+        { content: '2026년 28개 버전 출시, 테스트 6,700여 건과 커버리지 90% 이상 유지' },
+        { content: '30개 이상 개발 조직에서 도입' },
       ],
     },
     {
@@ -88,6 +144,7 @@ const nvLoadTestPlatform = {
         '여러 조직의 fork에서 나온 개선을 주기적으로 찾아 원작자 커밋을 유지한 채 본체에 역이식',
     },
   ],
+  skillKeywords: ['k6', 'TypeScript', 'Next.js', 'Fastify', 'WebSocket', 'SQLite', 'HDR Histogram'],
 };
 
 const nvThumbnailTagApi = {
@@ -114,13 +171,13 @@ const nvThumbnailTagApi = {
     },
     {
       content:
-        '노출 우선순위 정책을 서버 한 곳에서 관리해 홈·쇼핑 앱·추천 등 여러 지면의 태그 노출 기준 통일',
+        '노출 우선순위 정책을 서버 한 곳에서 관리해 쇼핑 웹·앱·추천 등 여러 지면의 태그 노출 기준 통일',
     },
     {
-      content:
-        '출시 전 부하 테스트로 처리 한계를 미리 확인하고 출시 후 홈·쇼핑 앱 지면에서 사전 예상을 크게 넘는 트래픽 처리',
+      content: '출시 후 예상보다 10~100배 이상 많은 트래픽을 안정적으로 처리',
     },
   ],
+  skillKeywords: ['Kotlin', 'Coroutine', 'Spring WebFlux', 'MongoDB', 'Redis'],
 };
 
 const nvHomePlatform = {
@@ -130,7 +187,7 @@ const nvHomePlatform = {
   where: WHERE.NV_VERTICAL,
   descriptions: [
     {
-      content: '홈 개편의 서버 API 담당',
+      content: '네이버 플러스 스토어 홈 개편의 서버 API 담당',
       weight: 'MEDIUM' as const,
       descriptions: [
         {
@@ -145,6 +202,7 @@ const nvHomePlatform = {
       content: '모듈마다 다른 추천·광고 연동을 조합할 수 있는 큐레이션 모델 설계',
     },
   ],
+  skillKeywords: ['Kotlin', 'Coroutine', 'Spring WebFlux', 'BFF'],
 };
 
 const nvVerticalSustaining = {
@@ -153,57 +211,24 @@ const nvVerticalSustaining = {
   where: WHERE.NV_VERTICAL,
   descriptions: [
     {
-      content: '퀵커머스(지금배달) 신규 입점사(GS25, 이마트에브리데이 등) 오픈을 서버에서 지원',
+      content:
+        '홈·퀵커머스·멤버십 등 네이버플러스 스토어 버티컬 지면의 전시 서버 API와 BFF 개발·운영',
       weight: 'MEDIUM' as const,
-      descriptions: [
-        {
-          content: '입점사마다 반복되던 연동 패턴을 정리해 API 인터페이스 표준화',
-        },
-      ],
-    },
-    {
-      content: '퀵커머스(지금배달) V3 API 전환 (2026.02 출시)',
-      weight: 'MEDIUM' as const,
-      descriptions: [
-        {
-          content:
-            '앱 서버를 거치던 지금배달 API를 쇼핑 앱이 전시 서버로 직접 호출하는 구조로 전환',
-        },
-        {
-          content:
-            '동료와 나눠 지점 일괄 조회, 메뉴, 홈 퀵커머스 모듈 API 개발과 출시 전 최종 QA 담당',
-        },
-        {
-          content:
-            '구간별 계측으로 지점 일괄 조회 API의 지연 원인을 찾아 지점마다 나뉘던 캐시 조회를 한 번으로 통합',
-        },
-      ],
+      descriptions: [{ content: '2026년 1~10월 서비스 개발·안정화 이슈 81건 처리' }],
     },
     {
       content:
-        '네이버플러스 멤버십 신규 가입자 온보딩 기능의 전시 서버 BFF 단독 개발 (2026.09 출시)',
-      weight: 'MEDIUM' as const,
-      descriptions: [
-        {
-          content:
-            '앱 서버·추천 등 협업 조직과 API 계약을 조율하고 화면 분기와 실패 시 응답 규칙을 서버 한 곳에 정리',
-        },
-      ],
+        '지면·입점사마다 따로 만들던 상품 모델과 연동 방식을 공통 상품 모델과 표준 API 인터페이스로 정리',
     },
     {
       content:
-        'A/B 테스트의 노출 상품 수 확대안을 부하 테스트로 검증해 기존 구성을 유지할 근거 제시',
-      descriptions: [
-        {
-          content:
-            '첫 측정은 하위 시스템 병목과 고정 사용자의 높은 캐시 적중이 두 안의 차이를 가려 비용이 작게 나왔음을 찾아 무작위 사용자로 재측정',
-        },
-      ],
+        '운영 에러 로그 노이즈, EOL 베이스 이미지, JDK 보안 대응 등 안정성 과제를 원인부터 처리',
     },
     {
-      content: '여러 전시 지면이 공통 상품 모델과 조회 프로젝션을 함께 쓰도록 정리',
+      content: 'AI 코드 리뷰 도입(조직 최초), 코딩 컨벤션 정비로 팀 개발 생산성 향상',
     },
   ],
+  skillKeywords: ['Kotlin', 'Coroutine', 'Spring WebFlux', 'MongoDB', 'Redis', 'k6'],
 };
 
 const nvShoppingAppServer = {
@@ -406,6 +431,8 @@ const project: ProjectPayload = {
   showMoreCount: 4,
   list: [
     // nvAmazonVertical,
+    nvAiServer,
+    nvMembershipOnboarding,
     nvAiCodeReview,
     nvLoadTestPlatform,
     nvThumbnailTagApi,

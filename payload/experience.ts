@@ -1,11 +1,11 @@
 import { ExperiencePayload } from '../types/experience';
 
 const naverAxTf = {
-  title: 'Shopping Product / AI 전환(AX) 개발 생산성 향상 TF (겸직)',
+  title: 'Shopping Product / Agentic Coding 표준화 TF (겸직)',
   startedAt: '2026-02',
   descriptions: [
     { content: '팀 공용 AI 코드 리뷰를 TF 과제로 제안하고 개발·운영 담당' },
-    { content: '리서치, 구현 계획, 커밋, PR 생성을 잇는 팀 공통 AI 스킬 세트 공동 설계' },
+    { content: '여러 개발팀이 함께 쓸 표준 AI 스킬 및 가이드를 수립' },
     { content: '여러 개발팀의 AI 에이전트 기반 개발 워크플로우 표준화와 확산 참여' },
   ],
   skillKeywords: ['Claude Code', 'AI Agent Workflow', 'GitHub Actions'],
@@ -17,7 +17,6 @@ const naverVerticalServer = {
   descriptions: [
     { content: '네이버 쇼핑 버티컬 서비스(홈·전시·퀵커머스·멤버십 등)의 백엔드 API와 BFF 개발' },
     { content: '운영자용 전시 도구 백엔드 개발' },
-    { content: 'k6 기반 분산 부하 테스트 플랫폼 개발·운영' },
     { content: '부분 실패 격리와 폴백 설계, 레거시 정리 등 서비스 안정화' },
   ],
   skillKeywords: [

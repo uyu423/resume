@@ -2,7 +2,7 @@ import { EtcPayload } from '../types/etc';
 
 const etc: EtcPayload = {
   disable: false,
-  showMoreCount: 4,
+  // showMoreCount: 2,
 
   list: [
     {
