@@ -34,57 +34,31 @@ const presentation: PresentationPayload = {
       ],
     },
     {
-      title: '가대생 개발자들의 무물 TechTalk',
-      subTitle: 'Google Developer Groups on CUK: TechTalk Live',
+      title: '개발자 커리어 특강',
+      subTitle: '대학·교육기관 초청 특강과 테크톡 (2017~2024, 7회)',
       at: '2024-11',
       descriptions: [
         {
-          content: '가톨릭대 출신 현업 개발자 3명의 테크톡',
-        },
-        {
-          content: '진행자 겸 패널로 참여',
-        },
-        {
-          content: 'GDGC on CUK 2024',
+          content: '2024.11 Google Developer Groups on CUK TechTalk Live 진행자 겸 패널',
           href: 'https://brunch.co.kr/magazine/gdgconcuk2024',
         },
-      ],
-    },
-    {
-      title: '오프라인 직무 특강.. 근데 이제 개발자를 곁들인',
-      subTitle: '벤처스타트업아카데미 - 한국외국어대학교',
-      at: '2024-11',
-      descriptions: [
+        { content: '2024.11 한국외국어대학교 벤처스타트업아카데미 직무 특강 (2시간)' },
+        { content: '2023.11 가톨릭대학교 컴퓨터정보공학부 졸업생 취업 특강 (2시간)' },
         {
-          content: '개발자 커리어와 직무 특강, 라이브 Q&A (2시간)',
-        },
-      ],
-    },
-    {
-      title: '5년만에 돌아온 컴공 특강',
-      subTitle: '가톨릭대학교 컴퓨터정보공학부 졸업생 취업 특강',
-      at: '2023-11',
-      descriptions: [
-        {
-          content: '개발자 커리어와 직무 특강, 라이브 Q&A (2시간)',
-        },
-        // {
-        //   content: 'Google Slide',
-        //   postHref: 'https://bit.ly/4dsBSPa',
-        // },
-      ],
-    },
-    {
-      title: 'Real 100% 바닥부터 올라가는 개발자 커리어의 모든 것',
-      subTitle: '잇다 Original _ IT 개발 직무 특강',
-      at: '2022-06',
-      descriptions: [
-        {
-          content: '1:1 현직자 멘토링 서비스 잇다(itdaa) 온라인 클래스 진행',
-        },
-        {
-          content: 'https://www.itdaa.net/meetings/3247',
+          content: '2022.06 1:1 현직자 멘토링 서비스 잇다(itdaa) IT 개발 직무 온라인 클래스',
           href: 'https://www.itdaa.net/meetings/3247',
+        },
+        {
+          content: '2018.11 가톨릭대학교 컴퓨터정보공학부 졸업생 취업 특강',
+          href: 'http://bit.ly/2y8sU8I',
+        },
+        {
+          content: '2017.10 가톨릭대학교 컴퓨터정보공학부 졸업생 취업 특강',
+          href: 'https://goo.gl/V36omP',
+        },
+        {
+          content: '2017.01 OSS 개발자 커뮤니티 & 국민대학교 겨울 캠프 (중·고등학생 대상)',
+          href: 'https://goo.gl/p2Tbuo',
         },
       ],
     },
@@ -106,52 +80,6 @@ const presentation: PresentationPayload = {
         {
           content: 'Youtube: ',
           postHref: 'https://youtu.be/lnpWEUmBFTA?t=653',
-        },
-      ],
-    },
-    {
-      title: '2018 종합선물세트 for 취준생',
-      subTitle: '가톨릭대학교 컴퓨터정보공학부 졸업생 취업 특강',
-      at: '2018-11',
-      descriptions: [
-        {
-          content: '대학교 예비 졸업자와 개발자 취업 준비생을 위한 발표',
-        },
-        {
-          content: 'Slideshare:',
-          postHref: 'http://bit.ly/2y8sU8I',
-        },
-      ],
-    },
-    {
-      title: '나도 내가 뭘 말해야되는지 잘 모르겠어',
-      subTitle: '가톨릭대학교 컴퓨터정보공학부 졸업생 취업 특강',
-      at: '2017-10',
-      descriptions: [
-        {
-          content: '부제: 본격 스타트업 환상 부수기',
-        },
-        {
-          content: 'Slideshare:',
-          postHref: 'https://goo.gl/V36omP',
-        },
-      ],
-    },
-    {
-      title: '개발자가 되기전 누군가 알려주면 좋았을 모든 것들',
-      subTitle: 'OSS 개발자 커뮤니티 & 국민대학교 겨울 캠프',
-      at: '2017-01',
-      descriptions: [
-        {
-          content: '중·고등학생 (예비) 개발자 대상 발표',
-        },
-        {
-          content: 'Slideshare:',
-          postHref: 'https://goo.gl/p2Tbuo',
-        },
-        {
-          content: '행사링크:',
-          postHref: 'https://onoffmix.com/event/86250',
         },
       ],
     },

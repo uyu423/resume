@@ -3,8 +3,6 @@ import { ProjectPayload } from '../types/project';
 const WHERE = {
   YA: '야놀자 (Yanolja)',
   PL: '플레이팅 (Plating)',
-  EC: '이큐브랩 (Ecube Labs)',
-  KY: '키니 (KYNY)',
   NV_LIVE: '네이버 (NAVER) 쇼핑라이브 백엔드 개발',
   NV_NSPA: '네이버 (NAVER) 쇼핑 앱 백엔드 개발',
   NV_VERTICAL: '네이버 (NAVER) 쇼핑 버티컬 서비스 백엔드 개발',
@@ -260,62 +258,42 @@ const nvShoppingAppServer = {
   ],
 };
 
-const nvHighlightEnhance = {
-  title: '쇼핑라이브 하이라이트 고도화',
-  startedAt: '2023-03',
+const nvShortclip = {
+  title: '쇼핑라이브 숏클립 서비스 출시와 고도화',
+  startedAt: '2021-04',
   endedAt: '2023-05',
   where: WHERE.NV_LIVE,
   descriptions: [
     {
-      content:
-        '라이브 방송의 주요 장면을 자동으로 추출해 다시보기 하이라이트 목록과 네이버 쇼핑 숏클립으로 전시',
+      content: '2021년 방송 구간 클립: 원본 방송에서 상품 구간을 추출하는 서비스의 백엔드 구현',
+      weight: 'MEDIUM' as const,
+      descriptions: [
+        {
+          content:
+            '네이버 동영상 검색과 쇼핑 윈도·스마트스토어 상품 상세에 연관 방송 구간을 노출해 전환율과 구매율 상승',
+        },
+      ],
     },
     {
-      content: '사내 인프라와 네이버 CLOVA API로 신규 하이라이트 생성 파이프라인 구축',
+      content: '2022년 숏클립 출시: 네이버 쇼핑과 쇼핑라이브에 노출되는 숏폼 신규 서비스',
+      weight: 'MEDIUM' as const,
+      descriptions: [
+        {
+          content:
+            '기획서를 분석해 데이터 모델과 API를 설계하고 백엔드·인프라·이벤트 설계 전반 담당',
+        },
+        { content: 'Kafka 이벤트 기반 아키텍처와 ffmpeg 영상 처리 파이프라인 구현' },
+        { content: '출시 후 월 거래액, 전환율, 구매율 상승' },
+      ],
     },
-    { content: '신규 키워드 하이라이트를 숏클립으로 만드는 로직 구현' },
-    { content: '비동기 작업을 다루는 공통 유틸 도메인 설계·구현' },
-  ],
-};
-
-const nvShortclip = {
-  title: '쇼핑라이브 숏클립 서비스 백엔드 개발 및 운영',
-  startedAt: '2022-04',
-  endedAt: '2022-09',
-  where: WHERE.NV_LIVE,
-  descriptions: [
-    { content: '네이버 쇼핑과 쇼핑라이브에 노출되는 숏폼 신규 서비스 출시' },
-    { content: '숏클립 백엔드 구현, 인프라 구성, 이벤트 설계, RESTful API 개발 전반 담당' },
-    { content: 'ffmpeg 영상 처리와 각 도메인 서버 API 연동' },
-    { content: '기획서를 분석해 데이터베이스와 API 응답 모델 설계' },
-    { content: 'Kafka 실시간 데이터 처리와 이벤트 기반 아키텍처 적용' },
-    { content: '방송 하이라이트·상품 구간 자동 생성 기능 구현과 데이터 마이그레이션' },
-    { content: '숏클립 공통 라이브러리 개발·배포' },
-    { content: '출시 후 월 거래액, 전환율, 구매율 상승' },
+    {
+      content:
+        '2023년 하이라이트 고도화: 네이버 CLOVA API로 방송 주요 장면을 자동 추출해 다시보기 하이라이트와 숏클립 생성',
+      weight: 'MEDIUM' as const,
+    },
     {
       content: '네이버 쇼핑라이브 숏클립 회고 (요우의 2022년 개발자 회고, Tistory Blog)',
       href: 'https://luckyyowu.tistory.com/424#shortclip',
-    },
-  ],
-};
-
-const nvBroadcastClip = {
-  title: '쇼핑라이브 하이라이트/상품 구간 클립 서비스 개발 및 운영',
-  startedAt: '2021-04',
-  endedAt: '2021-09',
-  where: WHERE.NV_LIVE,
-  descriptions: [
-    { content: '원본 방송에서 짧은 클립 영상을 추출해 사용자에게 보여 주는 서비스의 백엔드 구현' },
-    {
-      content: 'RDB 스키마 정의, 배치, 이벤트 핸들러, Kafka Consumer, RESTful API 개발',
-    },
-    {
-      content: '네이버 동영상 검색과 쇼핑 윈도·스마트스토어 상품 상세에 연관 라이브 방송 구간 노출',
-    },
-    { content: '구매하려는 상품의 정보를 영상으로 보여 주어 전환율과 구매율 상승' },
-    {
-      content: "'네이버 쇼핑라이브 숏 클립' 프로젝트 후기 (Facebook)",
-      href: 'https://www.facebook.com/LuckyYowu/posts/4420287811362249',
     },
   ],
 };
@@ -328,18 +306,6 @@ const nvBroadcastBackend = {
   descriptions: [
     {
       content: '쇼핑라이브 방송 송출과 서비스에 필요한 백엔드 API 개발·운영',
-    },
-    {
-      content: '2023년 네이버 숏폼판에 데이터를 제공하기 위한 숏클립 연동',
-      weight: 'MEDIUM' as const,
-    },
-    {
-      content: '2022년 서비스 설정 동기화용 ZooKeeper 라이브러리 신규 구현',
-      weight: 'MEDIUM' as const,
-    },
-    {
-      content: '2022년 쇼핑라이브 어드민 개선과 신규 기능 추가',
-      weight: 'MEDIUM' as const,
     },
     {
       content: '2021년 실시간 방송 재생 정보 전달 방식을 HTTP에서 Socket으로 전환',
@@ -356,299 +322,108 @@ const nvBroadcastBackend = {
       descriptions: [
         {
           content:
-            'CPC 효율이 높은 트레일러를 고르려고 다시보기 영상에 실시간 방송 지표를 적용해 트레일러 추출',
-        },
-        {
-          content:
-            '한 가지 방식뿐이던 트레일러를 여러 형태로 제공하도록 서비스 설계와 이벤트 파이프라인 구현',
+            'CPC 효율이 높은 트레일러를 고르려고 다시보기 영상에 실시간 방송 지표를 적용하고, 여러 형태의 트레일러를 만드는 이벤트 파이프라인 구현',
         },
         {
           content: '개선 후 다시보기 주요 영역 유입 상승',
         },
       ],
     },
-  ],
-};
-
-const yaNol2020Dlc = {
-  title: '야놀자 놀력 이벤트 성수기 업데이트 및 운영',
-  startedAt: '2020-05',
-  endedAt: '2020-07',
-  where: WHERE.YA,
-  descriptions: [
-    { content: '2020 놀력 이벤트에 경품 당첨 기능 추가' },
     {
-      content: '추첨 알고리즘, 경품 재고 관리, 당첨 정보 저장·스트리밍, Mashup API 구현',
+      content: '2022년 서비스 설정 동기화용 ZooKeeper 라이브러리 신규 구현',
+      weight: 'MEDIUM' as const,
     },
-    { content: '이벤트 기간 DAU 증가' },
-  ],
-};
-
-const yaRedisDist = {
-  title: 'Redis 구조 2차 개편',
-  startedAt: '2020-04',
-  endedAt: '2020-06',
-  where: WHERE.YA,
-  descriptions: [
-    {
-      content: '용도별 분리와 인스턴스 축소로 Redis 운영 비용 절감',
-    },
-    {
-      content: '불필요한 레거시 데이터를 조사·정리해 디스크 부족 위험 해소',
-    },
-    {
-      content: 'AWS ElastiCache Redis Read Replica를 쓸 수 있도록 부하 분산 모듈 개발',
-    },
-    { content: '디버깅용 애플리케이션 레벨 Redis Transaction Logger 구현' },
-  ],
-};
-
-const yaNol2020 = {
-  title: '야놀자 2020 놀력 포인트 지급 이벤트 개발 및 운영',
-  startedAt: '2019-10',
-  endedAt: '2020-01',
-  where: WHERE.YA,
-  descriptions: [
-    { content: '1년 동안 24시간 무중단으로 진행되는 이벤트 구현' },
-    {
-      content:
-        '비즈니스 요구사항과 제약을 구체화해 개발 방향을 정하고 포인트 지급 알고리즘과 API 구현',
-    },
-    {
-      content: '배치 워커, 이벤트 지표 모니터링 도구, 비상용 관리자 CLI 구현',
-    },
-    {
-      content: '기존 목표치의 4배 달성',
-    },
-    {
-      content: "(관련기사) 야놀자 탁상용 달력 '2020 놀력' 출시",
-      href: 'http://topclass.chosun.com/daily/view.asp?idx=267&Newsnumb=201911267',
-    },
-  ],
-};
-
-const yaRedis = {
-  title: '레거시 Redis 정리와 구조 개편',
-  startedAt: '2019-07',
-  endedAt: '2019-10',
-  where: WHERE.YA,
-  descriptions: [
-    { content: '용도와 목적 없이 쓰이던 Redis 전체 정리' },
-    { content: '용도별 Client 분리' },
-    { content: '저장 공간 부족을 해소해 서비스 운영 위험 감소' },
-    { content: 'Read Replica를 활용하는 명령 분산 모듈 구현' },
-    { content: '비효율적인 사용 로직을 고쳐 Redis 트래픽 감소' },
-    { content: '제품 개발 시 Redis 사용 정책과 ElastiCache 운영 정책 수립' },
   ],
 };
 
 const yaJoyAPI = {
-  title: '야놀자 Mashup API 개발과 운영',
+  title: '야놀자 숙박·레저 BFF(Mashup API) 개발과 운영',
   startedAt: '2018-02',
   endedAt: '2021-02',
   where: WHERE.YA,
   descriptions: [
-    { content: 'Aggregation Layer의 Mashup API 개발·운영' },
     {
-      content: '2020년 국내 숙소 상세 실시간 인기도 메시지 추가',
+      content: '2018년 국내 숙소 상세(PDP) 리팩토링',
+      weight: 'MEDIUM' as const,
+      descriptions: [{ content: 'Redis Response Cache 도입과 리팩토링으로 Latency 90% 감소' }],
+    },
+    {
+      content: '2018년 레저, 2019년 해외 숙소 예약 서비스 출시',
+      weight: 'MEDIUM' as const,
+      descriptions: [{ content: '레저 상품 데이터와 해외 OTA를 연동해 예약 기능 구현' }],
+    },
+    {
+      content: '2020년 국내 숙소 상세 실시간 인기도 메시지',
       weight: 'MEDIUM' as const,
       descriptions: [
         {
           content:
-            'A/B 테스트 설계 논의, 클라이언트용 Mashup API 구현, 데이터 조직이 제공한 데이터 Aggregation',
+            'A/B 테스트 설계 논의에 참여하고 데이터 조직의 데이터를 Aggregation하는 API 구현, 노출 후 구매 전환율 상승',
         },
-        { content: '실시간 인기도 메시지 노출 후 구매 전환율과 화면 전환율 상승' },
       ],
     },
     {
-      content: '2020년 국내 레저 찜 기능 추가',
+      content: '2019~2020년 연간 포인트 지급 이벤트(2020 놀력) 개발과 운영',
       weight: 'MEDIUM' as const,
       descriptions: [
-        { content: '국내 숙소와 해외 숙소에만 있던 찜 기능을 국내 레저로 확장' },
+        { content: '1년 동안 24시간 무중단으로 진행, 목표치의 4배 달성' },
         {
           content:
-            '해외 숙소 찜 API와 통합해 해외 숙소와 국내 레저 찜을 한 번에 처리하는 Integration API 구현',
-        },
-        {
-          content: '국내 레저 찜 기능으로 주문 전환율 상승',
+            '포인트 지급·경품 추첨 알고리즘, 경품 재고 관리, 배치 워커, 지표 모니터링 도구 구현',
         },
       ],
     },
     {
-      content: '2020년 신규 쿠폰 유형 적용',
+      content: '2019~2020년 Redis 구조 개편',
       weight: 'MEDIUM' as const,
       descriptions: [
         {
           content:
-            '쿠폰의 새 제약 조건을 노출 단계에서 처리해 오프라인 비즈니스·운영 조직의 부담 감소',
+            '용도 없이 섞여 쓰이던 Redis를 용도별로 분리하고 인스턴스를 줄여 운영 비용 절감과 저장 공간 부족 위험 해소',
         },
-      ],
-    },
-    {
-      content: '2020년 숙소 후기 Freshness 정책 적용',
-      weight: 'MEDIUM' as const,
-      descriptions: [
-        { content: 'Aggregation Layer API에 신규 후기 정책을 적용해 후기 신뢰도 향상' },
-        { content: '오래된 레거시 후기 정책을 새 기준으로 교체' },
-      ],
-    },
-    {
-      content: '2019년 숙소 리스트 신규 광고 상품 추가',
-      weight: 'MEDIUM' as const,
-      descriptions: [{ content: '새 광고 상품으로 신규 매출 발생' }],
-    },
-    {
-      content: '2019년 쇼킹특가/핫딜 서비스 출시',
-      weight: 'MEDIUM' as const,
-      descriptions: [{ content: '새 할인 상품으로 추가 매출 발생과 구매율 상승' }],
-    },
-    {
-      content: '2019년 해외 숙소 예약 서비스 출시',
-      weight: 'MEDIUM' as const,
-      descriptions: [{ content: '해외 OTA를 연동해 해외 숙소 예약 기능 구현' }],
-    },
-    {
-      content: '2018년 레저 서비스 출시',
-      weight: 'MEDIUM' as const,
-      descriptions: [
-        { content: '레저 상품 데이터를 연동해 레저 예약 기능 구현' },
         {
-          content: '(참고자료) 야놀자가 레저를 판매하려고 할 때 벌어지는 일 (by 송요창님)',
-          href: 'https://speakerdeck.com/totuworld/yanoljaga-rejeoreul-panmaeharyeogo-hal-ddae-beoleojineun-il',
+          content: 'ElastiCache Read Replica로 명령을 분산하는 모듈 개발과 Redis 사용 정책 수립',
         },
       ],
     },
     {
-      content: '2018년 국내 숙소 상세 개편과 유지보수',
-      weight: 'MEDIUM' as const,
-      descriptions: [
-        { content: '2018년 상반기 국내 숙소 상세(PDP) 리팩토링과 서비스 개선' },
-        { content: 'Redis Response Cache 도입과 리팩토링으로 Latency 90% 감소' },
-        { content: '매출 향상을 위한 추가 요구사항 개발과 구조 개선' },
-      ],
+      content: '레저 찜, 쇼킹특가/핫딜, 신규 광고 상품·쿠폰 유형, 후기 정책 등 커머스 기능 개발',
     },
-    {
-      content: 'AWS 인프라 유지보수와 ISMS 인증',
-      weight: 'MEDIUM' as const,
-      descriptions: [
-        { content: '주기적으로 바뀌고 강화되는 인프라 정책을 팀 프로젝트에 적용' },
-        { content: '팀의 AWS 사용 구조 정리와 비용 최적화' },
-        { content: 'ISMS 인증 획득을 위한 인프라 보안 작업 담당' },
-      ],
-    },
-    { content: 'API 모니터링 대시보드 구성과 유지보수' },
+    { content: 'AWS 비용 최적화와 ISMS 인증 획득을 위한 인프라 보안 작업' },
   ],
 };
 
 const plBackend = {
-  title: '플레이팅 백엔드/프론트엔드 서비스 개발',
+  title: '플레이팅 백엔드 개발과 새벽 배송 출시',
   startedAt: '2016-10',
   endedAt: '2017-11',
   where: WHERE.PL,
   descriptions: [
     {
-      content: 'API Server v1 / v2',
-      weight: 'MEDIUM' as const,
-      descriptions: [
-        { content: '플레이팅 서비스의 API 서버 개발' },
-        {
-          content: 'PHP로 작성된 v1 API를 Node.js·Express.js로 옮기며 기능 추가와 코드 개선',
-        },
-        { content: 'v2부터 TDD와 ORM 도입' },
-        { content: 'AWS EC2, pm2, nginx 기반 서버 인프라' },
-        { content: 'AWS RDS MySQL 데이터베이스' },
-      ],
+      content: 'PHP API 서버를 Node.js·Express.js로 옮기며 기능 추가, v2부터 TDD와 ORM 도입',
     },
-    {
-      content: 'Socket Server',
-      weight: 'MEDIUM' as const,
-      descriptions: [
-        { content: '주문 백오피스용 소켓 서버 개발' },
-        { content: 'Node.js, Socket.io, Express.js 사용' },
-        { content: 'AWS EC2에 설치한 MongoDB 사용' },
-      ],
-    },
-    {
-      content: 'ETC',
-      weight: 'MEDIUM' as const,
-      descriptions: [
-        {
-          content: 'Admin 서비스 개발',
-          descriptions: [
-            { content: 'React.js로 내부 백오피스 도구 개발' },
-            { content: 'ERP, 라이더 앱, 서버 모니터링 도구 개발' },
-            { content: '소켓 클라이언트 통신과 비동기 HTTP 통신 사용' },
-          ],
-        },
-        {
-          content: 'ESC/POS 프린터 네이티브 프로그램 개발',
-          descriptions: [
-            { content: '플레이팅 주문 확인지와 영수증 출력 프로그램' },
-            { content: 'Node.js, Electron.js, node-escpos로 개발' },
-            {
-              content: '오픈소스 기여:',
-              postHref: 'https://github.com/song940/node-escpos',
-            },
-          ],
-        },
-        { content: '백엔드 배치 서비스 개발' },
-        { content: 'Telegram Bot API와 CloudWatch Event로 지표 모니터링 서비스 개발' },
-        { content: '가격 계산 마이크로서비스 개발' },
-        { content: 'AWS S3, CloudFront로 자체 CDN 구성' },
-        { content: 'React Native 앱 유지보수' },
-      ],
-    },
-  ],
-};
-
-const plDelivery = {
-  title: '플레이팅 새벽 배송 서비스 출시',
-  startedAt: '2017-03',
-  endedAt: '2017-05',
-  where: WHERE.PL,
-  descriptions: [
-    { content: '새 주문 형태인 새벽 배송 시스템 개발' },
-    {
-      content: '기존 API 서버로는 기능을 더할 수 없어 새벽 주문 전용 Node.js API 서버를 새로 개발',
-    },
-    { content: '이 서버가 API v2 프로젝트의 코드 베이스가 됨' },
-    { content: '확장성과 모듈화를 처음부터 고려해야 한다는 교훈을 얻음' },
-  ],
-};
-
-const ecBackend = {
-  title: '클린시티네트웍스 백엔드 개발',
-  startedAt: '2015-07',
-  endedAt: '2016-02',
-  where: WHERE.EC,
-  descriptions: [
-    { content: '도시 쓰레기량 관제 모니터링 도구 개발' },
-    { content: 'Beta는 PHP, v1은 Node.js·Express.js로 개발' },
-    { content: 'v1 개발 때 사내 최초로 AWS 도입' },
-    { content: 'Out of Memory, 침해 사고, 성능 튜닝 등 서버 문제 대응 경험' },
-  ],
-};
-
-const kyToto = {
-  title: '스포츠 경기 승률 계산 서비스 개발',
-  startedAt: '2014-09',
-  endedAt: '2015-03',
-  where: WHERE.KY,
-  descriptions: [
-    { content: '통계 알고리즘으로 해외 축구 경기의 승률을 예측하는 서비스' },
-    { content: 'Java Servlet으로 통계 알고리즘 구현' },
-    { content: 'Linux와 Apache로 서버 인프라 구성' },
-    { content: 'WordPress, PHP, MySQL로 서비스 개발' },
     {
       content:
-        '비즈니스 멘토링으로 BM 분석, 사업 전략 수립, 개발 방향 설계를 경험하고 다른 직군과 협업',
+        '2017년 새벽 배송 출시: 기존 API 서버로는 기능을 더할 수 없어 새벽 주문 전용 API 서버를 새로 개발, 이 서버가 API v2의 코드 베이스가 됨',
     },
+    {
+      content:
+        '주문 백오피스용 Socket.io 서버와 Electron 기반 주문 확인지·영수증 출력 프로그램 개발',
+      descriptions: [
+        {
+          content: '오픈소스 기여:',
+          postHref: 'https://github.com/song940/node-escpos',
+        },
+      ],
+    },
+    { content: 'React.js 백오피스, ERP, 라이더 앱, 모니터링 도구 등 사내 도구 개발' },
+    { content: 'AWS EC2·RDS·S3·CloudFront 기반 인프라 구성과 운영' },
   ],
 };
 
 const project: ProjectPayload = {
   disable: false,
-  showMoreCount: 9,
+  showMoreCount: 7,
   list: [
     nvAmazonVertical,
     nvAiCodeReview,
@@ -657,19 +432,10 @@ const project: ProjectPayload = {
     nvHomePlatform,
     nvVerticalSustaining,
     nvShoppingAppServer,
-    nvHighlightEnhance,
     nvShortclip,
-    nvBroadcastClip,
     nvBroadcastBackend,
-    yaNol2020Dlc,
-    yaRedisDist,
-    yaNol2020,
-    yaRedis,
     yaJoyAPI,
-    plDelivery,
     plBackend,
-    ecBackend,
-    kyToto,
   ],
 };
 
