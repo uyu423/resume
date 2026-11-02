@@ -87,10 +87,6 @@ const article: ArticlePayload = {
       content: '(2017.03.27) 기술 부채에 대해 (Technical Debt)',
       href: 'https://luckyyowu.tistory.com/373',
     },
-    {
-      content: '더 많은 글은 블로그에서 볼 수 있습니다',
-      href: 'https://blog.yowu.dev',
-    },
     // {
     //   content: '',
     //   href: '',
